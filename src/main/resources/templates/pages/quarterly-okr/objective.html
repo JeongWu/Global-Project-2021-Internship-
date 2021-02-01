@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<!--
+Author: Bayar
+Website: https://www.eximbay.com
+Contact: bayar@eximbay.com
+License: © 2020 Eximbay. All Rights Reserved.
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <!--begin::Head-->
+    <head th:replace="/pages/fragments/head :: head"></head>
+    <!--end::Head-->
+
+    <!--begin::Body-->
+    <body  id="kt_body"  class="header-mobile-fixed subheader-enabled aside-enabled aside-fixed aside-secondary-enabled page-loading"  >
+
+    	<!--begin::Main-->
+        <!--begin::Header Mobile-->
+        <header-mobile th:replace="/pages/fragments/header :: header-mobile"></header-mobile>
+        <!--end::Header Mobile-->
+
+        <div class="d-flex flex-column flex-root">
+            <!--begin::Page-->
+            <div class="d-flex flex-row flex-column-fluid page">
+                <!--begin::Aside-->
+                <aside th:replace="/pages/fragments/aside :: aside"></aside>
+                <!--end::Aside-->
+
+                <!--begin::Wrapper-->
+                <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+                    <!--begin::Content-->
+                    <div class="content  d-flex flex-column flex-column-fluid" id="kt_content">
+                        <!--begin::Subheader-->
+                        <div class="subheader py-2 py-lg-4  subheader-transparent " id="kt_subheader">
+                            <div class=" container  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                                <!--begin::Details-->
+                                <div class="d-flex align-items-center flex-wrap mr-2">
+
+                                    <!--begin::Title-->
+                                    <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Objective</h5>
+                                    <!--end::Title-->
+
+                                    <!--begin::Separator-->
+                                    <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-5 bg-gray-200"></div>
+                                    <!--end::Separator-->
+
+                                    <!--begin::Search Form-->
+                                    <div class="d-flex align-items-center" id="kt_subheader_search">
+                                        <!-- <span class="text-dark-50 font-weight-bold" id="kt_subheader_total">1240 Total</span> -->
+                                            <form class="ml-5">
+                                                <div class="input-group input-group-sm input-group-solid" style="max-width: 175px">
+                                                    <input type="hidden" id="objectiveId" th:value="${objectiveId}"/>
+                                                    <input type="text" class="form-control" id="kt_subheader_search_form" placeholder="Search..."/>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text">
+                                                            <span class="svg-icon"><!--begin::Svg Icon | path:assets/media/svg/icons/General/Search.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                <rect x="0" y="0" width="24" height="24"/>
+                                                                <path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                                                <path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero"/>
+                                                            </g>
+                                                            </svg><!--end::Svg Icon--></span><!--<i class="flaticon2-search-1 icon-sm"></i>-->
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                    </div>
+                                    <!--end::Search Form-->
+
+                                </div>
+                                <!--end::Details-->
+                            </div>
+                        </div>
+                        <!--end::Subheader-->
+
+                        <!--begin::Entry-->
+                        <div class="d-flex flex-column-fluid">
+                            <!--begin::Container-->
+                            <div class=" container ">
+
+                                <!--begin::Card-->
+                                <div class="card card-custom gutter-b">
+                                    <div class="card-body">
+                                        <!--begin: Datatable-->
+                                        <div class="datatable datatable-bordered datatable-head-custom" id="kt_datatable_okr"></div>
+                                        <!--end: Datatable-->
+                                    </div>
+                                </div>
+                                <!--end::Card-->
+
+                                <!--begin::Card-->
+                                <div class="card card-custom gutter-b">
+                                    <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                                        <div class="card-title">
+                                            <h3 class="card-label">
+                                                Key Results
+                                                <span class="d-block text-muted pt-2 font-size-sm">Objective's Key Results</span>
+                                            </h3>
+                                        </div>
+                                        <div class="card-toolbar">
+                                            <!--begin::Button-->
+                                            <a href="javascript:;" class="btn btn-text-dark-50 btn-icon-primary font-weight-bold btn-hover-bg-light mr-3" data-toggle="modal" data-target="#kt_datatable_add_key_result_modal">
+                                                <i class="flaticon2-pie-chart"></i> Add Key Result
+                                            </a>
+                                            <!--end::Button-->
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <!--begin: Datatable-->
+                                        <div class="datatable datatable-bordered datatable-head-custom" id="kt_datatable_kr"></div>
+                                        <!--end: Datatable-->
+                                    </div>
+                                </div>
+                                <!--end::Card-->
+
+                                <!--begin::Modal-->
+                                <div class="modal fade" id="kt_datatable_add_key_result_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Add Key Result</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true"></span>
+                                                </button>
+                                            </div>
+                                            <form class="form form--fit" id="add_kr_form">
+                                                <div class="modal-body">
+                                                    <div class="form-group row">
+                                                        <label  class="col-2 col-form-label">Name</label>
+                                                        <div class="col-10">
+                                                            <input class="form-control" type="text" value="" name="name" id="add-name-input"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary mr-2" id="add_kr_form_submit">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Modal-->
+                                
+                                <!--begin::Modal-->
+                                <div class="modal fade" id="kt_datatable_edit_key_result_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Edit Key Result</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true"></span>
+                                                </button>
+                                            </div>
+                                            <form class="form form--fit" id="edit_kr_form">
+                                                <div class="modal-body">
+                                                    <div class="form-group row">
+                                                        <label  class="col-2 col-form-label">Name</label>
+                                                        <div class="col-10">
+                                                            <input class="form-control" type="text" value="" name="name" id="edit-name-input"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-form-label text-right col-lg-2 col-sm-12">Progress</label>
+                                                        <div class="col-lg-10 col-md-12 col-sm-12">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-3">
+                                                                    <input type="text" class="form-control" name="percentage" id="edit-percentage-input" placeholder="%"/>
+                                                                </div>
+                                                                <div class="col-9">
+                                                                    <div id="kt_nouislider_percentage" class="nouislider nouislider-handle-secondary"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary mr-2" id="edit_kr_form_submit">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Modal-->
+
+                                 <!--begin::Card-->
+                                 <div class="card card-custom gutter-b">
+                                    <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                                        <div class="card-title">
+                                            <h3 class="card-label">
+                                                Plan
+                                                <span class="d-block text-muted pt-2 font-size-sm">Weekly plan</span>
+                                            </h3>
+                                        </div>
+                                        <div class="card-toolbar">
+
+                                            <!--begin::Button-->
+                                            <a href="#" class="btn btn-primary font-weight-bolder" data-toggle="modal" data-target="#kt_datatable_add_plan_modal">
+                                                <span class="svg-icon svg-icon-md"><!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <rect x="0" y="0" width="24" height="24"/>
+                                                    <circle fill="#000000" cx="9" cy="15" r="6"/>
+                                                    <path d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z" fill="#000000" opacity="0.3"/>
+                                                </g>
+                                            </svg><!--end::Svg Icon--></span>	Add
+                                            </a>
+                                            <!--end::Button-->
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+
+                                        <!--begin: Selected Rows Group Action Form-->
+                                        <div class="mt-10 mb-5 collapse" id="kt_datatable_group_action_form_plan">
+                                            <div class="d-flex align-items-center">
+                                                <div class="font-weight-bold text-danger mr-3">
+                                                    Selected <span id="kt_datatable_selected_plans">0</span> plans:
+                                                </div>
+
+                                                <button class="btn btn-sm btn-primary mr-2" type="button" id="kt_datatable_done_plans">
+                                                    Done
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!--end: Selected Rows Group Action Form-->
+
+                                        <!--begin: Datatable-->
+                                        <div class="datatable datatable-bordered datatable-head-custom" id="kt_datatable_plan"></div>
+                                        <!--end: Datatable-->
+                                    </div>
+                                </div>
+                                <!--end::Card-->
+
+                                <!--begin::Modal-->
+                                <div class="modal fade" id="kt_datatable_add_plan_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Add Plan</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true"></span>
+                                                </button>
+                                            </div>
+                                            <form class="form form--fit" id="add_plan_form">
+                                                <div class="modal-body">
+                                                    <div class="form-group row">
+                                                        <!-- <label  class="col-2 col-form-label">Plan</label> -->
+                                                        <div class="col-12">
+                                                            <input class="form-control" type="text" value="" name="content" id="add-plan-input"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary mr-2" id="add_plan_form_submit">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Modal-->
+                                
+                                <!--begin::Modal-->
+                                <div class="modal fade" id="kt_datatable_edit_plan_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Edit Plan</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true"></span>
+                                                </button>
+                                            </div>
+                                            <form class="form form--fit" id="edit_plan_form">
+                                                <div class="modal-body">
+                                                    <div class="form-group row">
+                                                        <!-- <label  class="col-2 col-form-label">Plan</label> -->
+                                                        <div class="col-12">
+                                                            <input class="form-control" type="text" value="" name="content" id="edit-plan-input"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary mr-2" id="edit_plan_form_submit">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Modal-->
+
+                                <!--begin::Card-->
+                                <div class="card card-custom gutter-b">
+                                    <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                                        <div class="card-title">
+                                            <h3 class="card-label">
+                                                Done
+                                                <span class="d-block text-muted pt-2 font-size-sm">Weekly Accomplishment</span>
+                                            </h3>
+                                        </div>
+                                        <div class="card-toolbar"></div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <!--begin: Datatable-->
+                                        <div class="datatable datatable-bordered datatable-head-custom" id="kt_datatable_done"></div>
+                                        <!--end: Datatable-->
+                                    </div>
+                                </div>
+                                <!--end::Card-->
+
+                                <!--begin::Card-->
+                                <div class="card card-custom gutter-b">
+                                    <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                                        <div class="card-title">
+                                            <h3 class="card-label">
+                                                Problem
+                                                <span class="d-block text-muted pt-2 font-size-sm">Weekly challenge</span>
+                                            </h3>
+                                        </div>
+                                        <div class="card-toolbar">
+
+                                            <!--begin::Button-->
+                                            <a href="#" class="btn btn-primary font-weight-bolder" data-toggle="modal" data-target="#kt_datatable_add_problem_modal">
+                                                <span class="svg-icon svg-icon-md"><!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <rect x="0" y="0" width="24" height="24"/>
+                                                    <circle fill="#000000" cx="9" cy="15" r="6"/>
+                                                    <path d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z" fill="#000000" opacity="0.3"/>
+                                                </g>
+                                            </svg><!--end::Svg Icon--></span>	Add
+                                            </a>
+                                            <!--end::Button-->
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+
+                                        <!--begin: Selected Rows Group Action Form-->
+                                        <div class="mt-10 mb-5 collapse" id="kt_datatable_group_action_form_problem">
+                                            <div class="d-flex align-items-center">
+                                                <div class="font-weight-bold text-danger mr-3">
+                                                    Selected <span id="kt_datatable_selected_problems">0</span> problems:
+                                                </div>
+
+                                                <button class="btn btn-sm btn-primary mr-2" type="button" id="kt_datatable_done_problems">
+                                                    Done
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!--end: Selected Rows Group Action Form-->
+
+                                        <!--begin: Datatable-->
+                                        <div class="datatable datatable-bordered datatable-head-custom" id="kt_datatable_problem"></div>
+                                        <!--end: Datatable-->
+                                    </div>
+                                </div>
+                                <!--end::Card-->
+
+                                <!--begin::Modal-->
+                                <div class="modal fade" id="kt_datatable_add_problem_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Add Problem</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true"></span>
+                                                </button>
+                                            </div>
+                                            <form class="form form--fit" id="add_problem_form">
+                                                <div class="modal-body">
+                                                    <div class="form-group row">
+                                                        <!-- <label  class="col-2 col-form-label">Problem</label> -->
+                                                        <div class="col-12">
+                                                            <input class="form-control" type="text" value="" name="content" id="add-problem-input"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary mr-2" id="add_problem_form_submit">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Modal-->
+                                
+                                <!--begin::Modal-->
+                                <div class="modal fade" id="kt_datatable_edit_problem_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Edit Problem</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true"></span>
+                                                </button>
+                                            </div>
+                                            <form class="form form--fit" id="edit_problem_form">
+                                                <div class="modal-body">
+                                                    <div class="form-group row">
+                                                        <!-- <label  class="col-2 col-form-label">Problem</label> -->
+                                                        <div class="col-12">
+                                                            <input class="form-control" type="text" value="" name="content" id="edit-problem-input"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary mr-2" id="edit_problem_form_submit">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Modal-->
+
+                                <!--begin::Card-->
+                                <div class="card card-custom gutter-b">
+                                    <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                                        <div class="card-title">
+                                            <h3 class="card-label">
+                                                Review & Feedback
+                                                <span class="d-block text-muted pt-2 font-size-sm">Weekly review</span>
+                                            </h3>
+                                        </div>
+                                        <div class="card-toolbar">
+
+                                            <!--begin::Button-->
+                                            <a href="#" class="btn btn-primary font-weight-bolder" data-toggle="modal" data-target="#kt_datatable_add_review_feedback_modal">
+                                                <span class="svg-icon svg-icon-md"><!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <rect x="0" y="0" width="24" height="24"/>
+                                                    <circle fill="#000000" cx="9" cy="15" r="6"/>
+                                                    <path d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z" fill="#000000" opacity="0.3"/>
+                                                </g>
+                                            </svg><!--end::Svg Icon--></span>	Add
+                                            </a>
+                                            <!--end::Button-->
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <!--begin: Datatable-->
+                                        <div class="datatable datatable-bordered datatable-head-custom" id="kt_datatable_review_feedback"></div>
+                                        <!--end: Datatable-->
+                                    </div>
+                                </div>
+                                <!--end::Card-->
+
+                                <!--begin::Modal-->
+                                <div class="modal fade" id="kt_datatable_add_review_feedback_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Add Review & Feedback</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true"></span>
+                                                </button>
+                                            </div>
+                                            <form class="form form--fit" id="add_review_feedback_form">
+                                                <div class="modal-body">
+                                                    <div class="form-group row">
+                                                        <!-- <label  class="col-2 col-form-label">Review</label> -->
+                                                        <div class="col-12">
+                                                            <input class="form-control" type="text" value="" name="content" id="add-review-feedback-input"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary mr-2" id="add_review_feedback_form_submit">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Modal-->
+                                
+                                <!--begin::Modal-->
+                                <div class="modal fade" id="kt_datatable_edit_review_feedback_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Edit Review & Feedback</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true"></span>
+                                                </button>
+                                            </div>
+                                            <form class="form form--fit" id="edit_review_feedback_form">
+                                                <div class="modal-body">
+                                                    <div class="form-group row">
+                                                        <!-- <label  class="col-2 col-form-label">Review</label> -->
+                                                        <div class="col-12">
+                                                            <input class="form-control" type="text" value="" name="content" id="edit-review-feedback-input"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary mr-2" id="edit_review_feedback_form_submit">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Modal-->
+
+                            </div>
+                            <!--end::Container-->
+                        </div>
+                        <!--end::Entry-->
+                    </div>
+                    <!--end::Content-->
+
+                    <!--begin::Footer-->
+                    <footer th:replace="pages/fragments/footer :: footer"></footer>
+                    <!--end::Footer-->
+                </div>
+                <!--end::Wrapper-->
+            </div>
+            <!--end::Page-->
+        </div>
+        <!--end::Main-->
+
+
+        <!--begin::quick panel-->
+		<panel th:replace="/pages/fragments/panels :: panel"></panel>
+        <!--end::quick panel--->            		
+
+		<!--begin::Scrolltop-->
+		<scroll th:replace="/pages/fragments/scroll-top :: scroll-top"></scroll>
+		<!--end::Scrolltop-->
+
+		<script th:replace="/pages/fragments/script :: scriptFragment"></script>
+
+		<!--begin::Page Scripts(used by this page)-->
+		<script th:src="@{/assets/js/pages/quarterly-okr/objective.js?v=7.0.6}"></script>
+		<!--end::Page Scripts-->
+    </body>
+    <!--end::Body-->
+</html>
