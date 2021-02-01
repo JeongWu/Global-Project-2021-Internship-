@@ -3,9 +3,9 @@ package com.eximbay.okr.security;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.eximbay.okr.persistence.entity.Member;
-import com.eximbay.okr.persistence.repository.MemberRepository;
-import com.eximbay.okr.web.service.MemberService;
+import com.eximbay.okr.entity.Member;
+import com.eximbay.okr.repository.MemberRepository;
+import com.eximbay.okr.service.MemberService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

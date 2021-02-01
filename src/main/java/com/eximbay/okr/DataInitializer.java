@@ -2,10 +2,10 @@ package com.eximbay.okr;
 
 import java.time.LocalDateTime;
 
-import com.eximbay.okr.persistence.entity.Member;
-import com.eximbay.okr.persistence.entity.Team;
-import com.eximbay.okr.web.service.MemberService;
-import com.eximbay.okr.web.service.TeamService;
+import com.eximbay.okr.entity.Member;
+import com.eximbay.okr.entity.Team;
+import com.eximbay.okr.service.MemberService;
+import com.eximbay.okr.service.TeamService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
