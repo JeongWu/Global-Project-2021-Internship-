@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,9 +31,6 @@ public class Team2 {
     @Column(name = "TEAM_SEQ", length = 11)
     private Integer teamSeq;
 
-    @OneToMany
-    private List<TeamMember> teamMember;
-
     @ManyToOne
     @JoinColumn(name = "DIVISION_SEQ",  nullable = false)
     private Division division;
@@ -58,7 +56,7 @@ public class Team2 {
     private String useFlag;
     // private String useFlag = FlagOption.N;
 
-    @OneToMany(mappedBy = "team2")
+    @OneToMany(mappedBy = "team2",cascade = CascadeType.PERSIST)
     private List<TeamMember> teamMembers;
 
 }

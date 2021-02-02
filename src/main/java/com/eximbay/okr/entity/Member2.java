@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,7 +27,7 @@ public class Member2 {
     @Column(name = "NAME", length = 50, nullable = false)
     private String name;
 
-    // @OneToMany
+    // @OneToMany(mappedBy = "member2",cascade = CascadeType.PERSIST)
     // private List<TeamMember> teamMembers;
     
 }

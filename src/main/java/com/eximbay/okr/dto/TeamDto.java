@@ -1,5 +1,7 @@
 package com.eximbay.okr.dto;
 
+import java.util.List;
+
 import com.eximbay.okr.constant.TeamType;
 import com.eximbay.okr.entity.Division;
 
@@ -16,6 +18,8 @@ public class TeamDto {
     private String introduction;
     private String image;
     private String useFlag;
+
+    private List<MemberDto> teamMembers;
     
 }
 

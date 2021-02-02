@@ -12,7 +12,7 @@ var KTAppsProjectsListDatatable = (function () {
         type: "remote",
         source: {
           read: {
-            url:"/api/datatables/team"
+            url:"/get-team-data"
           },
         },
         pageSize: 10, // display 20 records per page
@@ -60,6 +60,10 @@ var KTAppsProjectsListDatatable = (function () {
           width: 200,
           template: function (data) {
             var output = "";
+
+            var teamImg = data.image;
+            var teamName = data.name;
+
             var stateNo = KTUtil.getRandomInt(0, 7);
             var states = [
               "success",
@@ -73,23 +77,58 @@ var KTAppsProjectsListDatatable = (function () {
             ];
             var state = states[stateNo];
 
-            output =
-              '<div class="d-flex align-items-center">\
+            if (teamImg === null) {
+              output =
+                '<div class="d-flex align-items-center">\
                         <div class="symbol symbol-40 symbol-' +
-              state +
-              ' flex-shrink-0">\
+                state +
+                ' flex-shrink-0">\
                             <div class="symbol-label">' +
-              data.name.substring(0, 1) +
-              '</div>\
+                teamName.substring(0, 1) +
+                '</div>\
                         </div>\
                         <div class="ml-2">\
                             <div class="text-dark-75 font-weight-bold line-height-sm">' +
-              data.name +
-              "</div>\
+                teamName +
+                "</div>\
                         </div>\
                     </div>";
 
-            return output;
+              return output;
+            } else {
+              var stateNo = KTUtil.getRandomInt(0, 7);
+              var states = [
+                "success",
+                "primary",
+                "danger",
+                "success",
+                "warning",
+                "dark",
+                "primary",
+                "info",
+              ];
+              var state = states[stateNo];
+
+              output =
+                '<div class="d-flex align-items-center">\
+                      <div class="symbol symbol-40 symbol-' +
+                state +
+                ' flex-shrink-0">\
+            <div class="symbol-label" style="' +
+                "background-image:url(" +
+                teamImg +
+                ")" +
+                '"></div>\
+                      </div>\
+                      <div class="ml-2">\
+                          <div class="text-dark-75 font-weight-bold line-height-sm">' +
+                teamName +
+                "</div>\
+                      </div>\
+                  </div>";
+
+              return output;
+            }
           },
         },
 
@@ -127,12 +166,10 @@ var KTAppsProjectsListDatatable = (function () {
                 state: "success",
               },
             };
-           
-            var statusNo=1;
-            if(data.teamType==="SQUAD")
-            statusNo=2;
-            else if(data.teamType==="TFT")
-            statusNo=3;
+
+            var statusNo = 1;
+            if (data.teamType === "SQUAD") statusNo = 2;
+            else if (data.teamType === "TFT") statusNo = 3;
 
             return (
               '<span class="label label-' +
@@ -146,80 +183,87 @@ var KTAppsProjectsListDatatable = (function () {
           },
         },
         {
-            field: "TEAM_MANAGER",
-            title: "TEAM MANGER",
-            template: function(data) {
-                var number = KTUtil.getRandomInt(1, 14);
-                var user_img = '100_' + number + '.jpg';
+          field: "TEAM_MANAGER",
+          title: "TEAM MANGER",
+          template: function (data) {
+            var output = "";
 
-                var output = '';
-                if (number > 8) {
-                    output = '<div class="d-flex align-items-center">\
-                    <div class="symbol symbol-40 symbol-circle  symbol-sm flex-shrink-0">\
-                            <img class="" src="assets/media/users/' + user_img + '" alt="photo">\
-                        </div>\
-                                           </div>';
-                }
-                else {
-                    var stateNo = KTUtil.getRandomInt(0, 7);
-                    var states = [
-                        'success',
-                        'primary',
-                        'danger',
-                        'success',
-                        'warning',
-                        'dark',
-                        'primary',
-                        'info'];
-                    var state = states[stateNo];
+            // console.log(data.leaderOrManager);
 
-                    output = '<div class="d-flex align-items-center">\
-                    <div class="symbol symbol-40 symbol-circle symbol-light-' +state+' flex-shrink-0">\
-                            <span class="symbol-label font-size-h4">' + data.name.substring(0, 1) + '</span>\
-                        </div>\
-                                    </div>';
-                }
+            // var managerInfo = data.leaderOrManager;
 
-                return output;
-            }
+            // if (managerInfo !== null) {
+            //   var stateNo = KTUtil.getRandomInt(0, 7);
+            //   var states = [
+            //     "success",
+            //     "primary",
+            //     "danger",
+            //     "success",
+            //     "warning",
+            //     "dark",
+            //     "primary",
+            //     "info",
+            //   ];
+            //   var state = states[stateNo];
+            //   // if (managerInfo.image === null) {
+            //     output =
+            //       '<div class="d-flex align-items-center">\
+            //       <div class="symbol symbol-40 symbol-circle symbol-light-' +
+            //       state +
+            //       ' flex-shrink-0">\
+            //               <span class="symbol-label font-size-h4">' +
+            //       managerInfo.name.substring(0, 1) +
+            //       "</span>\
+            //           </div>\
+            //                       </div>";
+            //   // } else {
+            //   //   output =
+            //   //     '<div class="d-flex align-items-center">\
+            //   //     <div class="symbol symbol-40 symbol-circle  symbol-sm flex-shrink-0">\
+            //   //             <img class="" src="' +
+            //   //     managerInfo.image +
+            //   //     '" alt="ManagerImg">\
+            //   //         </div>\
+            //   //                            </div>';
+            //   // }
+            // }
+
+            return output;
+          },
         },
         {
-            field: "MEMBERS",
-            title: "MEMBERS",
-            template: function(data) {
-                var number = KTUtil.getRandomInt(1, 14);
-                var user_img = '100_' + number + '.jpg';
+          field: "MEMBERS",
+          title: "MEMBERS",
+          template: function (data) {
+            //add function no image for memeber
+            //add href member list
 
-                var output = '';
-                if (number > 8) {
-                    output = '<div class="d-flex align-items-center">\
-                    <div class="symbol symbol-40 symbol-circle  symbol-sm flex-shrink-0">\
-                            <img class="" src="assets/media/users/' + user_img + '" alt="photo">\
-                        </div>\
-                                           </div>';
-                }
-                else {
-                    var stateNo = KTUtil.getRandomInt(0, 7);
-                    var states = [
-                        'success',
-                        'primary',
-                        'danger',
-                        'success',
-                        'warning',
-                        'dark',
-                        'primary',
-                        'info'];
-                    var state = states[stateNo];
+            var output = "";
 
-                    output = '<div class="d-flex align-items-center">\
-                    <div class="symbol symbol-40 symbol-circle symbol-light-' +state+' flex-shrink-0">\
-                            <span class="symbol-label font-size-h4">' + data.name.substring(0, 1) + '</span>\
-                        </div>\
-                                    </div>';
-                }
+            var user_img="assets/media/users/100_2.jpg";
 
-                return output;
-            }
+            output =
+              '<div class="d-flex align-items-center">\
+            <div class="symbol-group symbol-hover">';
+
+            var memberList = data.teamMembers;
+
+            memberList.forEach((member) => {
+              output +=
+                '<div class="symbol symbol-30 symbol-circle" data-toggle="tooltip" title="' +
+                member.name +
+                '">\
+              <img class="" src="' +
+              user_img +
+                '" alt="photo">\
+              </div>';
+            });
+
+            output += "</div>\
+        </div>";
+
+            return output;
+          },
         },
         {
           field: "Status",
@@ -256,7 +300,7 @@ var KTAppsProjectsListDatatable = (function () {
               //   class: " label-light-warning",
               // },
             };
-            var statusNo=data.useFlag==='Y'?1:2;
+            var statusNo = data.useFlag === "Y" ? 1 : 2;
             return (
               '<span class="label font-weight-bold label-lg ' +
               status[statusNo].class +
@@ -293,7 +337,17 @@ var KTAppsProjectsListDatatable = (function () {
         },
       ],
     });
+
+
+
+		$('#kt_datatable_search_type').on('change', function() {
+			datatable.search($(this).val().toLowerCase(), 'Type');
+		});
+
+		$('#kt_datatable_search_status, #kt_datatable_search_type').selectpicker();
+
   };
+  
 
   return {
     // public functions
