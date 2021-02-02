@@ -12,7 +12,7 @@ var KTAppsProjectsListDatatable = (function () {
         type: "remote",
         source: {
           read: {
-            url:"/get-team-data"
+            url: "/get-team-data",
           },
         },
         pageSize: 10, // display 20 records per page
@@ -190,43 +190,38 @@ var KTAppsProjectsListDatatable = (function () {
 
             // console.log(data.leaderOrManager);
 
-            // var managerInfo = data.leaderOrManager;
+            var managerInfo = data.teamManager;
 
-            // if (managerInfo !== null) {
-            //   var stateNo = KTUtil.getRandomInt(0, 7);
-            //   var states = [
-            //     "success",
-            //     "primary",
-            //     "danger",
-            //     "success",
-            //     "warning",
-            //     "dark",
-            //     "primary",
-            //     "info",
-            //   ];
-            //   var state = states[stateNo];
-            //   // if (managerInfo.image === null) {
-            //     output =
-            //       '<div class="d-flex align-items-center">\
-            //       <div class="symbol symbol-40 symbol-circle symbol-light-' +
-            //       state +
-            //       ' flex-shrink-0">\
-            //               <span class="symbol-label font-size-h4">' +
-            //       managerInfo.name.substring(0, 1) +
-            //       "</span>\
-            //           </div>\
-            //                       </div>";
-            //   // } else {
-            //   //   output =
-            //   //     '<div class="d-flex align-items-center">\
-            //   //     <div class="symbol symbol-40 symbol-circle  symbol-sm flex-shrink-0">\
-            //   //             <img class="" src="' +
-            //   //     managerInfo.image +
-            //   //     '" alt="ManagerImg">\
-            //   //         </div>\
-            //   //                            </div>';
-            //   // }
-            // }
+            if (managerInfo !== null) {
+              var stateNo = KTUtil.getRandomInt(0, 7);
+              var states = [
+                "success",
+                "primary",
+                "danger",
+                "success",
+                "warning",
+                "dark",
+                "primary",
+                "info",
+              ];
+              var state = states[stateNo];
+              // if (managerInfo.image === null) {
+              output =
+                '<div class="d-flex align-items-center">\
+                  <div class="symbol symbol-40 symbol-circle symbol-light-' +
+                state +
+                ' flex-shrink-0">\
+                          <span class="symbol-label font-size-h4">' +
+                managerInfo.name.substring(0, 1) +
+                "</span>\
+                      </div>\
+                                  </div>";
+            } else {
+              output +=
+                '<div class="font-weight-bolder font-size-lg mb-0">' +
+                data.name +
+                "</div>";
+            }
 
             return output;
           },
@@ -240,7 +235,7 @@ var KTAppsProjectsListDatatable = (function () {
 
             var output = "";
 
-            var user_img="assets/media/users/100_2.jpg";
+            var user_img = "assets/media/users/100_2.jpg";
 
             output =
               '<div class="d-flex align-items-center">\
@@ -254,7 +249,7 @@ var KTAppsProjectsListDatatable = (function () {
                 member.name +
                 '">\
               <img class="" src="' +
-              user_img +
+                user_img +
                 '" alt="photo">\
               </div>';
             });
@@ -338,16 +333,12 @@ var KTAppsProjectsListDatatable = (function () {
       ],
     });
 
+    $("#kt_datatable_search_type").on("change", function () {
+      datatable.search($(this).val().toLowerCase(), "Type");
+    });
 
-
-		$('#kt_datatable_search_type').on('change', function() {
-			datatable.search($(this).val().toLowerCase(), 'Type');
-		});
-
-		$('#kt_datatable_search_status, #kt_datatable_search_type').selectpicker();
-
+    $("#kt_datatable_search_status, #kt_datatable_search_type").selectpicker();
   };
-  
 
   return {
     // public functions

@@ -20,8 +20,7 @@ import lombok.ToString;
 @Table(name = "team_member")
 @Entity
 @IdClass(TeamMemberId.class)
-public class TeamMember implements Serializable{
-
+public class TeamMember implements Serializable {
 
     @Id
     @ManyToOne
@@ -32,16 +31,12 @@ public class TeamMember implements Serializable{
     @ManyToOne
     @JoinColumn(name = "MEMBER_SEQ")
     private Member2 member2;
-    
+
     @Id
     @Column(name = "APPLY_BEGIN_DATE", length = 8, nullable = false)
     private String applyBeginDate;
 
-
-    @Column(name = "TEAM_MANAGER_FLAG", length = 1, nullable = false)
+    @Column(name = "TEAM_MANAGER_FLAG", length = 1)
     private String teamManagerFlag;
 
-
-
-    
 }

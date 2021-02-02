@@ -1,7 +1,9 @@
 package com.eximbay.okr.controller;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.eximbay.okr.constant.FlagOption;
 import com.eximbay.okr.dto.MemberDto;
 import com.eximbay.okr.dto.TeamDto;
 import com.eximbay.okr.dto.TeamMemberDto;
@@ -9,11 +11,12 @@ import com.eximbay.okr.entity.Member2;
 import com.eximbay.okr.entity.Team;
 import com.eximbay.okr.entity.Team2;
 import com.eximbay.okr.entity.TeamMember;
-import com.eximbay.okr.repository.Member2Repository;
+import com.eximbay.okr.entity.TeamMemberId;
 import com.eximbay.okr.repository.Team2Repository;
 import com.eximbay.okr.repository.TeamMemberRepository;
 import com.eximbay.okr.utility.MapperUtil;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +30,10 @@ public class TestController {
     Team2Repository team2Repository;
 
     @Autowired
-    Member2Repository member2Repository;
+    TeamMemberRepository teamMemberRepository;
+
+    // @Autowired
+    // Member2Repository member2Repository;
 
     @Autowired
     TeamMemberRepository tmRepository;
@@ -70,19 +76,51 @@ public class TestController {
     @RequestMapping("get-team-data")
     @ResponseBody
     public List<TeamDto> getTeamList() {
+        ModelMapper modelMapper = new ModelMapper();
 
         List<Team2> teams = team2Repository.findAll();
         List<TeamDto> teamDtos = MapperUtil.mapList(teams, TeamDto.class);
+
+        for (int i = 0; i < teamDtos.size(); i++) {
+
+            List<TeamMemberDto> teamMemberDtos = MapperUtil.mapList(teams.get(i).getTeamMembers(), TeamMemberDto.class);
+
+            MemberDto memberDto = modelMapper.map(teamMemberDtos.stream()
+                    .filter(m -> m.getTeamManagerFlag().equals(FlagOption.Y)).map(TeamMemberDto::getMember).findFirst(),
+                    MemberDto.class);
+
+            teamDtos.get(i).setTeamManager(memberDto);
+
+            // teamMemberDtos.stream().filter(m->m.getTeamManagerFlag().equals(FlagOption.Y)).map(TeamMemberDto::getMember).findFirst();
+            // Optional<MemberDto> memberDto=ModelMapper.map(member2,MemberDto.class);
+
+        }
+
         // for(int i=0;i<teamDtos.size();i++){
 
-        //     List<TeamMemberDto> teamMemberDtos=MapperUtil.mapList(teams.get(i).getTeamMember(),TeamMemberDto.class);
-        //     List<MemberDto> memberDtos=
-        //     teamDtos.get(i).setTeamMembers(teamMembers);
-        //     // List<MemberDto> memberDtos=teamMemberDtos.map(TeamMemberDto::getMember);
+        // List<TeamMemberDto>
+        // teamMemberDtos=MapperUtil.mapList(teams.get(i).getTeamMember(),TeamMemberDto.class);
+        // List<MemberDto> memberDtos=
+        // teamDtos.get(i).setTeamMembers(teamMembers);
+        // // List<MemberDto> memberDtos=teamMemberDtos.map(TeamMemberDto::getMember);
 
         // }
-        
 
+        // @Override
+        // public WireframeModel buildWireframeModel() {
+        // WireframeModel wireframeModel = new WireframeModel();
+        // List<Team> teams = teamRepository.findByUseFlag(FlagOption.Y);
+        // List<TeamForWireframeModel> teamForWireframeModels = mapper.mapAsList(teams,
+        // TeamForWireframeModel.class);
+        // for (int i = 0; i <teamForWireframeModels.size() ; i++) {
+        // Optional<MemberDto> leaderOrManager =
+        // teamMemberService.findTeamLeaderOrManager(mapper.mapAsList(teams.get(i).getTeamMembers(),
+        // TeamMemberDto.class));
+        // teamForWireframeModels.get(i).setLeaderOrManager(leaderOrManager.orElse(null));
+        // }
+        // wireframeModel.setTeams(teamForWireframeModels);
+        // return wireframeModel;
+        // }
 
         return teamDtos;
     }
@@ -90,20 +128,20 @@ public class TestController {
     // @ResponseBody
     // public List<MemberDto> getMemberList() {
 
-    //     List<Member2> member2s = member2Repository.findAll();
-    //     List<MemberDto> memberDtos = MapperUtil.mapList(member2s, MemberDto.class);
-    //     // for(int i=0;i<teamDtos.size();i++){
+    // List<Member2> member2s = member2Repository.findAll();
+    // List<MemberDto> memberDtos = MapperUtil.mapList(member2s, MemberDto.class);
+    // // for(int i=0;i<teamDtos.size();i++){
 
-    //     //     List<TeamMemberDto> teamMemberDtos=MapperUtil.mapList(teams.get(i).getTeamMember(),TeamMemberDto.class);
-    //     //     List<MemberDto> memberDtos=
-    //     //     teamDtos.get(i).setTeamMembers(teamMembers);
-    //     //     // List<MemberDto> memberDtos=teamMemberDtos.map(TeamMemberDto::getMember);
+    // // List<TeamMemberDto>
+    // teamMemberDtos=MapperUtil.mapList(teams.get(i).getTeamMember(),TeamMemberDto.class);
+    // // List<MemberDto> memberDtos=
+    // // teamDtos.get(i).setTeamMembers(teamMembers);
+    // // // List<MemberDto>
+    // memberDtos=teamMemberDtos.map(TeamMemberDto::getMember);
 
-    //     // }
-        
+    // // }
 
-
-    //     return memberDtos;
+    // return memberDtos;
     // }
 
 }
