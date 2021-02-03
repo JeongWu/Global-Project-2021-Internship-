@@ -365,7 +365,7 @@ var KTAppsProjectsListDatatable = (function () {
 
     $("#kt_reset").on("click", function (e) {
       e.preventDefault();
-      
+
       //  datatable.search("", "name");
       //    $("#kt_datatable_search_name").val("");
 
@@ -377,13 +377,23 @@ var KTAppsProjectsListDatatable = (function () {
       // $("#kt_datatable_search_division").val("");
       // $("#kt_datatable_search_type").val("");
       // $("#kt_datatable_search_active").val("");
-    
     });
 
     $(
       "#kt_datatable_search_division, #kt_datatable_search_type",
       "#kt_datatable_search_active"
     ).selectpicker();
+
+    $("#excelBtn").click(function () {
+      $("#kt_datatable").table2excel({
+        name: "Excel table",
+        filename: "excel table",
+        fileext: ".xls",
+        exclude_img: true,
+        exclude_links: true,
+        exclude_inputs: true,
+      });
+    });
   };
 
   return {

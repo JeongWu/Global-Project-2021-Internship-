@@ -71,9 +71,9 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 								<!--begin::Button-->
-								<a href="#" class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2">
+								<Button class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2" id="excelBtn">
 
-									Download </a>
+									Download </Button>
 								<a href="custom/apps/projects/add-project.html"
 									class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2">
 
@@ -194,6 +194,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<script th:replace="/pages/fragments/script :: scriptFragment"></script>
 	
 	<script th:src="@{assets/plugins/custom/datatables/datatables.bundle.js?v=7.0.6}"></script>
+	<script th:src="@{assets/plugins/custom/table2excel/jquery.table2excel.js?v=7.0.6}"></script>
 	<!--begin::Page Scripts(used by this page)-->
 	<script th:src="@{/assets/js/pages/quarterly-okr/team-list2.js?v=7.0.6}"></script>
 	<!--end::Page Scripts-->
