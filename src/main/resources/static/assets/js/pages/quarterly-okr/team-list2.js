@@ -5,7 +5,7 @@ var KTAppsProjectsListDatatable = (function () {
   // Private functions
 
   // basic demo
-  var _demo = function () {
+  var makeTeamListTable = function () {
     var datatable = $("#kt_datatable").KTDatatable({
       // datasource definition
       data: {
@@ -13,12 +13,15 @@ var KTAppsProjectsListDatatable = (function () {
         source: {
           read: {
             url: "/get-team-data",
+            params: {
+              name: "TEAM 1",
+            },
           },
         },
-        pageSize: 10, // display 20 records per page
-        serverPaging: false,
-        serverFiltering: false,
-        serverSorting: false,
+        // pageSize: 10, // display 20 records per page
+        // serverPaging: false,
+        // serverFiltering: false,
+        // serverSorting: false,
       },
 
       // layout definition
@@ -29,19 +32,19 @@ var KTAppsProjectsListDatatable = (function () {
 
       // column sorting
       sortable: true,
-
+      filterable: true,
       pagination: true,
 
-      search: {
-        input: $("#kt_datatable_search_query"),
-        delay: 400,
-        key: "generalSearch",
-      },
+      // search: {
+      //   input: $("#kt_datatable_search_name"),
+      //   delay: 400,
+      //   key: "generalSearch",
+      // },
 
       // columns definition
       columns: [
         {
-          field: "TEAM_SEQ",
+          field: "teamSeq",
           title: "#",
           sortable: "asc",
           width: 40,
@@ -49,13 +52,14 @@ var KTAppsProjectsListDatatable = (function () {
           selector: false,
           textAlign: "left",
           template: function (data) {
+            console.log(data);
             return (
               '<span class="font-weight-bolder">' + data.teamSeq + "</span>"
             );
           },
         },
         {
-          field: "NAME",
+          field: "name",
           title: "Team",
           width: 200,
           template: function (data) {
@@ -133,7 +137,7 @@ var KTAppsProjectsListDatatable = (function () {
         },
 
         {
-          field: "Division",
+          field: "division.name",
           title: "Division",
           template: function (data) {
             var output = "";
@@ -147,8 +151,8 @@ var KTAppsProjectsListDatatable = (function () {
           },
         },
         {
-          field: "Type",
-          title: "TEAM Type",
+          field: "teamType",
+          title: "Team Type",
           autoHide: false,
           // callback function support for column rendering
           template: function (data) {
@@ -183,7 +187,7 @@ var KTAppsProjectsListDatatable = (function () {
           },
         },
         {
-          field: "TEAM_MANAGER",
+          field: "teamManager",
           title: "TEAM MANGER",
           template: function (data) {
             var output = "";
@@ -212,7 +216,7 @@ var KTAppsProjectsListDatatable = (function () {
                 state +
                 ' flex-shrink-0">\
                           <span class="symbol-label font-size-h4">' +
-                managerInfo.name.substring(0, 1) +
+                data.name.substring(0, 1) +
                 "</span>\
                       </div>\
                                   </div>";
@@ -227,7 +231,7 @@ var KTAppsProjectsListDatatable = (function () {
           },
         },
         {
-          field: "MEMBERS",
+          field: "members",
           title: "MEMBERS",
           template: function (data) {
             //add function no image for memeber
@@ -245,13 +249,15 @@ var KTAppsProjectsListDatatable = (function () {
 
             memberList.forEach((member) => {
               output +=
-                '<div class="symbol symbol-30 symbol-circle" data-toggle="tooltip" title="' +
+                '<a href="#">\
+                <div class="symbol symbol-30 symbol-circle" data-toggle="tooltip" title="' +
                 member.name +
                 '">\
               <img class="" src="' +
                 user_img +
                 '" alt="photo">\
-              </div>';
+              </div>\
+              </a>';
             });
 
             output += "</div>\
@@ -261,7 +267,7 @@ var KTAppsProjectsListDatatable = (function () {
           },
         },
         {
-          field: "Status",
+          field: "useFlag",
           title: "Active",
           // callback function support for column rendering
           template: function (data) {
@@ -333,17 +339,57 @@ var KTAppsProjectsListDatatable = (function () {
       ],
     });
 
-    $("#kt_datatable_search_type").on("change", function () {
-      datatable.search($(this).val().toLowerCase(), "Type");
+    // $("#kt_datatable_search_name").on("propertychange change keyup paste input", function () {
+    $("#kt_datatable_search_name").on("change keyup paste", function () {
+      console.log($(this).val());
+      datatable.search($(this).val().toLowerCase(), "name");
     });
 
-    $("#kt_datatable_search_status, #kt_datatable_search_type").selectpicker();
+    $("#kt_datatable_search_division").on("change", function () {
+      console.log($(this).val());
+      // console.log($(this).val().toLowerCase(), "division.name");
+      datatable.search($(this).val().toLowerCase(), "division.name");
+    });
+
+    $("#kt_datatable_search_type").on("change", function () {
+      // datatable.search($(this).val().toLowerCase(), "Type");
+      console.log($(this).val());
+      // console.log($(this).val().toLowerCase());
+      datatable.search($(this).val().toLowerCase(), "teamType");
+    });
+    $("#kt_datatable_search_active").on("change", function () {
+      console.log($(this).val());
+      // console.log($(this).val().toLowerCase());
+      datatable.search($(this).val().toLowerCase(), "useFlag");
+    });
+
+    $("#kt_reset").on("click", function (e) {
+      e.preventDefault();
+      
+      //  datatable.search("", "name");
+      //    $("#kt_datatable_search_name").val("");
+
+      // datatable.search("", "name");
+      // datatable.search("", "division.name");
+      // datatable.search("", "teamType");
+      // datatable.search("", "useFlag");
+      // $("#kt_datatable_search_name").val("");
+      // $("#kt_datatable_search_division").val("");
+      // $("#kt_datatable_search_type").val("");
+      // $("#kt_datatable_search_active").val("");
+    
+    });
+
+    $(
+      "#kt_datatable_search_division, #kt_datatable_search_type",
+      "#kt_datatable_search_active"
+    ).selectpicker();
   };
 
   return {
     // public functions
     init: function () {
-      _demo();
+      makeTeamListTable();
     },
   };
 })();
