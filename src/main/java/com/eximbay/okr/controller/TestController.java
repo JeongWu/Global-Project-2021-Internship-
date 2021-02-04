@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.eximbay.okr.constant.FlagOption;
+import com.eximbay.okr.dto.DivisionDto;
 import com.eximbay.okr.dto.MemberDto;
 import com.eximbay.okr.dto.TeamDto;
 import com.eximbay.okr.dto.TeamMemberDto;
@@ -54,6 +55,7 @@ public class TestController {
     public String ttest() {
         return "/pages/quarterly-okr/team-list2.html";
     }
+    
 
     // test
     @RequestMapping("/api/datatables/team")
@@ -90,6 +92,12 @@ public class TestController {
                     MemberDto.class);
 
             teamDtos.get(i).setTeamManager(memberDto);
+
+           DivisionDto divisionDto=modelMapper.map(teams.get(i).getDivision(),DivisionDto.class);
+        //    teamDtos.get(i).setDivisionName(divisionDto.getName());
+           teamDtos.get(i).setDivisionName(divisionDto.getName());
+
+
 
             // teamMemberDtos.stream().filter(m->m.getTeamManagerFlag().equals(FlagOption.Y)).map(TeamMemberDto::getMember).findFirst();
             // Optional<MemberDto> memberDto=ModelMapper.map(member2,MemberDto.class);

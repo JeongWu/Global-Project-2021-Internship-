@@ -47,7 +47,7 @@ var KTAppsProjectsListDatatable = (function () {
           field: "teamSeq",
           title: "#",
           sortable: "asc",
-          width: 40,
+          width: 20,
           type: "number",
           selector: false,
           textAlign: "left",
@@ -61,7 +61,7 @@ var KTAppsProjectsListDatatable = (function () {
         {
           field: "name",
           title: "Team",
-          width: 200,
+          width: 130,
           template: function (data) {
             var output = "";
 
@@ -137,7 +137,7 @@ var KTAppsProjectsListDatatable = (function () {
         },
 
         {
-          field: "division.name",
+          field: "divisionName",
           title: "Division",
           template: function (data) {
             var output = "";
@@ -153,21 +153,22 @@ var KTAppsProjectsListDatatable = (function () {
         {
           field: "teamType",
           title: "Team Type",
+          width: 60,
           autoHide: false,
           // callback function support for column rendering
           template: function (data) {
             var status = {
               1: {
                 title: "TEAM",
-                state: "danger",
+                class: "label-light-primary",
               },
               2: {
                 title: "SQUAD",
-                state: "primary",
+                class: " label-light-danger",
               },
               3: {
                 title: "TFT",
-                state: "success",
+                class: " label-light-primary",
               },
             };
 
@@ -176,11 +177,9 @@ var KTAppsProjectsListDatatable = (function () {
             else if (data.teamType === "TFT") statusNo = 3;
 
             return (
-              '<span class="label label-' +
-              status[statusNo].state +
-              ' label-dot mr-2"></span><span class="font-weight-bold text-' +
-              status[statusNo].state +
-              '">' +
+              '<span class="label font-weight-bold label-lg ' +
+              status[statusNo].class +
+              ' label-inline label-bold">' +
               status[statusNo].title +
               "</span>"
             );
@@ -189,6 +188,7 @@ var KTAppsProjectsListDatatable = (function () {
         {
           field: "teamManager",
           title: "TEAM MANGER",
+          width: 60,
           template: function (data) {
             var output = "";
 
@@ -233,6 +233,7 @@ var KTAppsProjectsListDatatable = (function () {
         {
           field: "members",
           title: "MEMBERS",
+          width: 130,
           template: function (data) {
             //add function no image for memeber
             //add href member list
@@ -269,43 +270,23 @@ var KTAppsProjectsListDatatable = (function () {
         {
           field: "useFlag",
           title: "Active",
+          width: 70,
           // callback function support for column rendering
           template: function (data) {
             var status = {
-              1: {
-                title: "Active",
-                class: "label-light-primary",
-              },
+              1: { title: "Active", state: "success" },
               2: {
                 title: "inActive",
-                class: " label-light-danger",
+                state: "danger",
               },
-              // 3: {
-              //   title: "Canceled",
-              //   class: " label-light-primary",
-              // },
-              // 4: {
-              //   title: "Success",
-              //   class: " label-light-success",
-              // },
-              // 5: {
-              //   title: "Info",
-              //   class: " label-light-info",
-              // },
-              // 6: {
-              //   title: "Danger",
-              //   class: " label-light-danger",
-              // },
-              // 7: {
-              //   title: "Warning",
-              //   class: " label-light-warning",
-              // },
             };
             var statusNo = data.useFlag === "Y" ? 1 : 2;
             return (
-              '<span class="label font-weight-bold label-lg ' +
-              status[statusNo].class +
-              ' label-inline label-bold">' +
+              '<span class="label label-' +
+              status[statusNo].state +
+              ' label-dot mr-2"></span><span class="font-weight-bold text-' +
+              status[statusNo].state +
+              '">' +
               status[statusNo].title +
               "</span>"
             );
@@ -315,7 +296,7 @@ var KTAppsProjectsListDatatable = (function () {
           field: "Actions",
           title: "Actions",
           sortable: false,
-          width: 125,
+          width: 70,
           overflow: "visible",
           autoHide: false,
           template: function () {
@@ -342,41 +323,29 @@ var KTAppsProjectsListDatatable = (function () {
     // $("#kt_datatable_search_name").on("propertychange change keyup paste input", function () {
     $("#kt_datatable_search_name").on("change keyup paste", function () {
       console.log($(this).val());
+      console.log("name event");
       datatable.search($(this).val().toLowerCase(), "name");
     });
 
     $("#kt_datatable_search_division").on("change", function () {
       console.log($(this).val());
+      console.log("division event");
       // console.log($(this).val().toLowerCase(), "division.name");
-      datatable.search($(this).val().toLowerCase(), "division.name");
+      datatable.search($(this).val().toLowerCase(), "divisionName");
     });
 
     $("#kt_datatable_search_type").on("change", function () {
       // datatable.search($(this).val().toLowerCase(), "Type");
       console.log($(this).val());
+      console.log("type event");
       // console.log($(this).val().toLowerCase());
       datatable.search($(this).val().toLowerCase(), "teamType");
     });
     $("#kt_datatable_search_active").on("change", function () {
       console.log($(this).val());
+      console.log("active event");
       // console.log($(this).val().toLowerCase());
       datatable.search($(this).val().toLowerCase(), "useFlag");
-    });
-
-    $("#kt_reset").on("click", function (e) {
-      e.preventDefault();
-
-      //  datatable.search("", "name");
-      //    $("#kt_datatable_search_name").val("");
-
-      // datatable.search("", "name");
-      // datatable.search("", "division.name");
-      // datatable.search("", "teamType");
-      // datatable.search("", "useFlag");
-      // $("#kt_datatable_search_name").val("");
-      // $("#kt_datatable_search_division").val("");
-      // $("#kt_datatable_search_type").val("");
-      // $("#kt_datatable_search_active").val("");
     });
 
     $(
@@ -384,11 +353,43 @@ var KTAppsProjectsListDatatable = (function () {
       "#kt_datatable_search_active"
     ).selectpicker();
 
+    //search button
+    $("#kt_search").on("click", function (e) {
+      $(".datatable-input").each(function () {
+        datatable
+          .column($(this).data("col-index"))
+          .search($(this).val().toLowerCase(), $(this).attr("name"));
+      });
+    });
+
+    //reset button - not working
+    $("#kt_reset").on("click", function (e) {
+      e.preventDefault();
+      // $(".datatable-input").each(function () {
+      //   datatable
+      //     .column($(this).data("col-index"))
+      //     .search("", $(this).attr("name"));
+      //   $(this).val("");
+      // });
+      // console.log(datatable.column(''));
+      // console.log(datatable.search);
+      $(".datatable-input").each(function () {
+        datatable
+          .column($(this).data("col-index"))
+          .search("", $(this).attr("name"),false);
+        $(this).val("").change();
+        
+      });
+      datatable.load();
+    });
+
+    //excel download button
     $("#excelBtn").click(function () {
       $("#kt_datatable").table2excel({
         name: "Excel table",
-        filename: "excel table",
+        filename: "team table",
         fileext: ".xls",
+        preserveColors: true,
         exclude_img: true,
         exclude_links: true,
         exclude_inputs: true,

@@ -13,6 +13,10 @@ public class TeamDto {
 
     private Integer teamSeq;
     private Division division;
+    //test
+    private String divisionName;
+    // private Integer divisionSeq;
+
     private String name;
     private String localName;
     private TeamType teamType;

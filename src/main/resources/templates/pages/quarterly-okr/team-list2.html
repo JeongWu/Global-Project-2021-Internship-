@@ -71,9 +71,9 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 								<!--begin::Button-->
-								<Button class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2" id="excelBtn">
+								<button class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2" id="excelBtn">
 
-									Download </Button>
+									Download </button>
 								<a href="custom/apps/projects/add-project.html"
 									class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2">
 
@@ -103,14 +103,14 @@ License: You must have a valid license purchased only from themeforest(the above
 														<label>Team Name</label>
 														<div class="input-icon">
 															<input type="text" class="form-control datatable-input"
-																placeholder="Search..." id="kt_datatable_search_name" data-col-index="0"/>
+																placeholder="Search..." id="kt_datatable_search_name" data-col-index="0" name="name"/>
 															<span><i class="flaticon2-search-1 text-muted"></i></span>
 														</div>
 													</div>
 													<div class="col-lg-3  mb-lg-0 mb-6">
 														<label>Division</label>
 														<select class="form-control datatable-input"
-															id="kt_datatable_search_division" value=>
+															id="kt_datatable_search_division" data-col-index="1" name="divisionName">
 															<option value="">All</option>
 															<option value="D1">D1</option>
 															<option value="D2">D2</option>
@@ -119,7 +119,7 @@ License: You must have a valid license purchased only from themeforest(the above
 													<div class="col-lg-3  mb-lg-0 mb-6">
 														<label>Team Type</label>
 														<select class="form-control datatable-input"
-															id="kt_datatable_search_type" data-col-index="2">
+															id="kt_datatable_search_type" data-col-index="2" name="teamType">
 															<option value="">All</option>
 															<option value="TEAM">TEAM</option>
 															<option value="SQUAD">SQUAD</option>
@@ -129,7 +129,7 @@ License: You must have a valid license purchased only from themeforest(the above
 													<div class="col-lg-3  mb-lg-0 mb-6">
 														<label>Active</label>
 														<select class="form-control datatable-input"
-															id="kt_datatable_search_active" data-col-index="3">
+															id="kt_datatable_search_active" data-col-index="3"  name="useFlag">
 															<option value="">All</option>
 															<option value="Y">Active</option>
 															<option value="N">inActive</option>
