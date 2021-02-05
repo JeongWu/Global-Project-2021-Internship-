@@ -13,9 +13,9 @@ var KTAppsProjectsListDatatable = (function () {
         source: {
           read: {
             url: "/get-team-data",
-            params: {
-              name: "TEAM 1",
-            },
+            // params: {
+            //   name: "TEAM 1",
+            // },
           },
         },
         // pageSize: 10, // display 20 records per page
@@ -322,29 +322,24 @@ var KTAppsProjectsListDatatable = (function () {
 
     // $("#kt_datatable_search_name").on("propertychange change keyup paste input", function () {
     $("#kt_datatable_search_name").on("change keyup paste", function () {
-      console.log($(this).val());
-      console.log("name event");
+      console.log("name search");
       datatable.search($(this).val().toLowerCase(), "name");
     });
 
     $("#kt_datatable_search_division").on("change", function () {
-      console.log($(this).val());
-      console.log("division event");
+      console.log("division search");
       // console.log($(this).val().toLowerCase(), "division.name");
       datatable.search($(this).val().toLowerCase(), "divisionName");
     });
 
     $("#kt_datatable_search_type").on("change", function () {
       // datatable.search($(this).val().toLowerCase(), "Type");
-      console.log($(this).val());
-      console.log("type event");
+      console.log("type search");
       // console.log($(this).val().toLowerCase());
       datatable.search($(this).val().toLowerCase(), "teamType");
     });
     $("#kt_datatable_search_active").on("change", function () {
-      console.log($(this).val());
-      console.log("active event");
-      // console.log($(this).val().toLowerCase());
+      console.log("active search");
       datatable.search($(this).val().toLowerCase(), "useFlag");
     });
 
@@ -362,25 +357,15 @@ var KTAppsProjectsListDatatable = (function () {
       });
     });
 
-    //reset button - not working
+    //reset button 
     $("#kt_reset").on("click", function (e) {
       e.preventDefault();
-      // $(".datatable-input").each(function () {
-      //   datatable
-      //     .column($(this).data("col-index"))
-      //     .search("", $(this).attr("name"));
-      //   $(this).val("");
-      // });
-      // console.log(datatable.column(''));
-      // console.log(datatable.search);
+
+      datatable.setDataSourceParam("query",{});
       $(".datatable-input").each(function () {
-        datatable
-          .column($(this).data("col-index"))
-          .search("", $(this).attr("name"),false);
         $(this).val("").change();
-        
       });
-      datatable.load();
+      // datatable.reload();
     });
 
     //excel download button
