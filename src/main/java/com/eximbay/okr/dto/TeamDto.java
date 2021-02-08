@@ -12,7 +12,7 @@ import lombok.Data;
 public class TeamDto {
 
     private Integer teamSeq;
-    private Division division;
+    private DivisionDto division;
     //test
     private String divisionName;
     // private Integer divisionSeq;

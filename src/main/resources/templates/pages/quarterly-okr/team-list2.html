@@ -56,8 +56,9 @@ License: You must have a valid license purchased only from themeforest(the above
 								<!--end::Separator-->
 								<!--begin::Search Form-->
 								<div class="d-flex align-items-center" id="kt_subheader_search">
-									<span class="text-dark-50 font-weight-bold" id="kt_subheader_total">
-										1240 Total </span>
+									<span class="text-dark-50 font-weight-bold" id="kt_subheader_total"
+										> 
+									</span>
 
 								</div>
 								<!--end::Search Form-->
@@ -74,7 +75,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<button class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2" id="excelBtn">
 
 									Download </button>
-								<a href="custom/apps/projects/add-project.html"
+								<a href="http://localhost:8080/team/edit/1"
 									class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2">
 
 									Add Team </a>
@@ -112,18 +113,19 @@ License: You must have a valid license purchased only from themeforest(the above
 														<select class="form-control datatable-input"
 															id="kt_datatable_search_division" data-col-index="1" name="divisionName">
 															<option value="">All</option>
-															<option value="D1">D1</option>
-															<option value="D2">D2</option>
+															<!-- <option th:each="i:${divisionList}" th:value="${i}"
+																th:text="${i}"></option> -->
+															<!-- <option value="D1">D1</option>
+															<option value="D2">D2</option> -->
 														</select>
 													</div>
 													<div class="col-lg-3  mb-lg-0 mb-6">
 														<label>Team Type</label>
 														<select class="form-control datatable-input"
-															id="kt_datatable_search_type" data-col-index="2" name="teamType">
+															id="kt_datatable_search_type" data-col-index="2" name="teamType" th:field="*{teamType}">
 															<option value="">All</option>
-															<option value="TEAM">TEAM</option>
-															<option value="SQUAD">SQUAD</option>
-															<option value="TFT">TFT</option>
+															<option th:each="i:${teamType}" th:value="${i}"
+															th:text="${i}"></option>
 														</select>
 													</div>
 													<div class="col-lg-3  mb-lg-0 mb-6">

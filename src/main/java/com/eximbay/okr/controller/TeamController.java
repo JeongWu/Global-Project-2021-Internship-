@@ -32,12 +32,12 @@ public class TeamController {
         return "/pages/team/team.html";
     }
 
-    @RequestMapping("/team/{id}")
-    public String team(Model model, @PathVariable int id) {
-        //model.addAttribute("teams", teamService.findAll());
+    // @RequestMapping("/team/{id}")
+    // public String team(Model model, @PathVariable int id) {
+    //     //model.addAttribute("teams", teamService.findAll());
 
-        return "/pages/team/team.html";
-    }
+    //     return "/pages/team/team.html";
+    // }
 
     @RequestMapping("/api/datatables/teams")
     @ResponseBody
@@ -48,14 +48,14 @@ public class TeamController {
         return teams;
     } 
 
-    @RequestMapping("/api/datatables/team/{id}")
-    @ResponseBody
-    public Team getTeam(@PathVariable int id){
+    // @RequestMapping("/api/datatables/team/{id}")
+    // @ResponseBody
+    // public Team getTeam(@PathVariable int id){
 
-        System.out.println("id : "+id);
+    //     System.out.println("id : "+id);
 
-        return teamService.findById(id);
-    } 
+    //     return teamService.findById(id);
+    // } 
     
     @RequestMapping("/api/team/add")
     @ResponseBody

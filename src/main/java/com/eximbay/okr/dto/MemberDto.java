@@ -9,6 +9,7 @@ public class MemberDto {
 
     private Integer memberSeq;
     private String name;
+    private String image;
 
     // private List<TeamDto> teamMembers;
 

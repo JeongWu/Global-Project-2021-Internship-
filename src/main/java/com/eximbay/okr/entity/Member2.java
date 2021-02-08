@@ -27,6 +27,10 @@ public class Member2 {
     @Column(name = "NAME", length = 50, nullable = false)
     private String name;
 
+    @Column(name = "IMAGE")
+    private String image;
+
+
     // @OneToMany(mappedBy = "member2",cascade = CascadeType.PERSIST)
     // private List<TeamMember> teamMembers;
     

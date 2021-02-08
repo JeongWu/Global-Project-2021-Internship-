@@ -13,6 +13,26 @@ var KTAppsProjectsListDatatable = (function () {
         source: {
           read: {
             url: "/get-team-data",
+            map: function (raw) {
+              var dataSet = raw;
+
+              if (typeof raw.data !== "undefined") {
+                dataSet = raw.data;
+              }
+              console.log(dataSet);
+              var data=dataSet.map(i=>i.divisionName);
+              var list=new Set(data);
+              list.forEach(function(d){
+                $('.datatable-input[data-col-index="1"]').append('<option value="' + d + '">' + d + '</option>');
+              }
+
+              );
+              $('#kt_subheader_total').append(dataSet.length+' Total');
+
+   
+              
+              return dataSet;
+            },
             // params: {
             //   name: "TEAM 1",
             // },
@@ -168,7 +188,7 @@ var KTAppsProjectsListDatatable = (function () {
               },
               3: {
                 title: "TFT",
-                class: " label-light-primary",
+                class: " label-light-success",
               },
             };
 
@@ -240,29 +260,59 @@ var KTAppsProjectsListDatatable = (function () {
 
             var output = "";
 
-            var user_img = "assets/media/users/100_2.jpg";
+            // var user_img = "assets/media/users/100_2.jpg";
 
             output =
               '<div class="d-flex align-items-center">\
             <div class="symbol-group symbol-hover">';
 
             var memberList = data.teamMembers;
+            console.log(memberList);
+            // if (memberList.length === 0) {
+            //   memberList = [
+            //     { name: "Jane", image: "assets/media/users/100_2.jpg" },
+            //     { name: "Bob", image: "assets/media/users/100_2.jpg" },
+            //     { name: "Chris", image: "assets/media/users/100_2.jpg" },
+            //     { name: "Tom", image: "assets/media/users/100_2.jpg" },
+            //     { name: "Amy", image: "assets/media/users/100_2.jpg" },
+            //     { name: "member1", image: "assets/media/users/100_2.jpg" },
+            //   ];
+            // }
 
-            memberList.forEach((member) => {
+            if (memberList.length > 4) {
+              memberList.forEach((member, index) => {
+                if (index < 4) {
+                  output +=
+                    '<div class="symbol symbol-30 symbol-circle" data-toggle="tooltip" title="' +
+                    member.name +
+                    '">\
+                <img class="" src=    "assets/media/users/100_2.jpg" alt="photo">\
+                </div>';
+                }
+              });
               output +=
-                '<a href="#">\
-                <div class="symbol symbol-30 symbol-circle" data-toggle="tooltip" title="' +
-                member.name +
-                '">\
-              <img class="" src="' +
-                user_img +
-                '" alt="photo">\
-              </div>\
-              </a>';
-            });
+                ' <div class="symbol symbol-30 symbol-circle symbol-light">\
+              <span class="symbol-label font-weight-bold"> +' +
+                (memberList.length - 4) +
+                "</span>\
+          </div>\
+          </div>\
+    </div>";
+            } else {
+              memberList.forEach((member) => {
+                output +=
+                  '<div class="symbol symbol-30 symbol-circle" data-toggle="tooltip" title="' +
+                  member.name +
+                  '">\
+                <img class="" src=    "assets/media/users/100_2.jpg" alt="photo">\
+                </div>';
+              });
 
-            output += "</div>\
-        </div>";
+              output += "</div>\
+              </div>";
+            }
+
+            // console.log(output);
 
             return output;
           },
@@ -357,11 +407,11 @@ var KTAppsProjectsListDatatable = (function () {
       });
     });
 
-    //reset button 
+    //reset button
     $("#kt_reset").on("click", function (e) {
       e.preventDefault();
 
-      datatable.setDataSourceParam("query",{});
+      datatable.setDataSourceParam("query", {});
       $(".datatable-input").each(function () {
         $(this).val("").change();
       });

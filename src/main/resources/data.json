@@ -17,6 +17,7 @@
             "localName": "Div_CMC_Local",
             "useFlag": "Y"
         },
+        "divisionName": "Div_CMC",
         "name": "Team_CMC",
         "localName": "Team_CMC_Local",
         "teamType": "TEAM",
@@ -45,100 +46,7 @@
             "adminAccessIp": null,
             "useFlag": "Y"
         },
-        "members": [
-            {
-                "memberSeq": 1,
-                "name": "Mem_Peter",
-                "localName": "Mem_Peter_Local",
-                "memberId": "tvhung.cmc",
-                "email": "tvhung.cmc@gmail.com",
-                "contactPhone": "0972060092",
-                "password": "1",
-                "introduction": "Peter Intro",
-                "image": "assets/media/image/1.jpg",
-                "position": "DIRECTOR",
-                "level": 1,
-                "joiningDate": "20200101",
-                "career": 0,
-                "retirementDate": null,
-                "lastPasswordChange": null,
-                "passwordTempFlag": "N",
-                "passwordErrorCount": 0,
-                "lassLoginDate": null,
-                "adminFlag": "N",
-                "adminAccessIp": null,
-                "useFlag": "Y"
-            },
-            {
-                "memberSeq": 3,
-                "name": "Mem_Kevin",
-                "localName": "Mem_Kevin_Local",
-                "memberId": "nqngoccmc",
-                "email": "nqngoc.cmc@gmail.com",
-                "contactPhone": "0123456789",
-                "password": "1",
-                "introduction": "Kevin Intro",
-                "image": "assets/media/image/1.jpg",
-                "position": null,
-                "level": 1,
-                "joiningDate": "20200101",
-                "career": 0,
-                "retirementDate": null,
-                "lastPasswordChange": null,
-                "passwordTempFlag": "N",
-                "passwordErrorCount": 0,
-                "lassLoginDate": null,
-                "adminFlag": "N",
-                "adminAccessIp": null,
-                "useFlag": "Y"
-            },
-            {
-                "memberSeq": 4,
-                "name": "Mem_4_Y",
-                "localName": "Mem_4_Y_Local",
-                "memberId": "nqngoccmc",
-                "email": "nqngoc.cmc2@gmail.com",
-                "contactPhone": "0123456789",
-                "password": "1",
-                "introduction": "Tung Intro",
-                "image": "assets/media/image/1.jpg",
-                "position": null,
-                "level": 1,
-                "joiningDate": "20200101",
-                "career": 0,
-                "retirementDate": null,
-                "lastPasswordChange": null,
-                "passwordTempFlag": "N",
-                "passwordErrorCount": 0,
-                "lassLoginDate": null,
-                "adminFlag": "N",
-                "adminAccessIp": null,
-                "useFlag": "Y"
-            },
-            {
-                "memberSeq": 5,
-                "name": "Mem_5_Y",
-                "localName": "Mem_5_Y_Local",
-                "memberId": "nqngoccmc",
-                "email": "nqngoc.cmc3@gmail.com",
-                "contactPhone": "0123456789",
-                "password": "1",
-                "introduction": "Janus Intro",
-                "image": "assets/media/image/1.jpg",
-                "position": null,
-                "level": 1,
-                "joiningDate": "20200101",
-                "career": 0,
-                "retirementDate": null,
-                "lastPasswordChange": null,
-                "passwordTempFlag": "N",
-                "passwordErrorCount": 0,
-                "lassLoginDate": null,
-                "adminFlag": "N",
-                "adminAccessIp": null,
-                "useFlag": "Y"
-            }
-        ]
+        "members": []
     },
     {
         "teamSeq": 2,
@@ -158,6 +66,7 @@
             "localName": "Div_Eximbay_Local",
             "useFlag": "Y"
         },
+        "divisionName": "Div_Eximbay",
         "name": "Team_Exim",
         "localName": "Team_Exim_Local",
         "teamType": "TEAM",
@@ -186,77 +95,7 @@
             "adminAccessIp": null,
             "useFlag": "Y"
         },
-        "members": [
-            {
-                "memberSeq": 2,
-                "name": "Mem_Bayar",
-                "localName": "Mem_Bayar_Local",
-                "memberId": "bayar",
-                "email": "bayar@gmail.com",
-                "contactPhone": "0987654321",
-                "password": "1",
-                "introduction": "Bayar Instro",
-                "image": "assets/media/image/1.jpg",
-                "position": "LEAD",
-                "level": 1,
-                "joiningDate": "20200101",
-                "career": 0,
-                "retirementDate": null,
-                "lastPasswordChange": null,
-                "passwordTempFlag": "N",
-                "passwordErrorCount": 0,
-                "lassLoginDate": null,
-                "adminFlag": "N",
-                "adminAccessIp": null,
-                "useFlag": "Y"
-            },
-            {
-                "memberSeq": 6,
-                "name": "Mem_6_N",
-                "localName": "Mem_6_N_Local",
-                "memberId": "nqngoccmc",
-                "email": "nqngoc.cmc4@gmail.com",
-                "contactPhone": "0123456789",
-                "password": "1",
-                "introduction": "Jane Intro",
-                "image": "assets/media/image/1.jpg",
-                "position": null,
-                "level": 1,
-                "joiningDate": "20200101",
-                "career": 0,
-                "retirementDate": null,
-                "lastPasswordChange": null,
-                "passwordTempFlag": "N",
-                "passwordErrorCount": 0,
-                "lassLoginDate": null,
-                "adminFlag": "N",
-                "adminAccessIp": null,
-                "useFlag": "N"
-            },
-            {
-                "memberSeq": 7,
-                "name": "Mem_7_Y",
-                "localName": "Mem_7_Y_Local",
-                "memberId": "nqngoccmc",
-                "email": "nqngoc.cmc4@gmail.com",
-                "contactPhone": "0123456789",
-                "password": "1",
-                "introduction": "Jane Intro",
-                "image": "assets/media/image/1.jpg",
-                "position": null,
-                "level": 1,
-                "joiningDate": "20200101",
-                "career": 0,
-                "retirementDate": null,
-                "lastPasswordChange": null,
-                "passwordTempFlag": "N",
-                "passwordErrorCount": 0,
-                "lassLoginDate": null,
-                "adminFlag": "N",
-                "adminAccessIp": null,
-                "useFlag": "Y"
-            }
-        ]
+        "members": []
     },
     {
         "teamSeq": 3,
@@ -276,37 +115,14 @@
             "localName": "Div_CMC_Local",
             "useFlag": "Y"
         },
+        "divisionName": "Div_CMC",
         "name": "Team_3_Y",
         "localName": "Team_3_Y_Local",
         "teamType": "TEAM",
         "image": "assets/media/image/1.jpg",
         "useFlag": "Y",
         "leaderOrManager": null,
-        "members": [
-            {
-                "memberSeq": 1,
-                "name": "Mem_Peter",
-                "localName": "Mem_Peter_Local",
-                "memberId": "tvhung.cmc",
-                "email": "tvhung.cmc@gmail.com",
-                "contactPhone": "0972060092",
-                "password": "1",
-                "introduction": "Peter Intro",
-                "image": "assets/media/image/1.jpg",
-                "position": "DIRECTOR",
-                "level": 1,
-                "joiningDate": "20200101",
-                "career": 0,
-                "retirementDate": null,
-                "lastPasswordChange": null,
-                "passwordTempFlag": "N",
-                "passwordErrorCount": 0,
-                "lassLoginDate": null,
-                "adminFlag": "N",
-                "adminAccessIp": null,
-                "useFlag": "Y"
-            }
-        ]
+        "members": []
     },
     {
         "teamSeq": 4,
@@ -326,6 +142,7 @@
             "localName": "Div_CMC_Local",
             "useFlag": "Y"
         },
+        "divisionName": "Div_CMC",
         "name": "Team_4_Y",
         "localName": "Team_4_Y_Local",
         "teamType": "TEAM",
@@ -352,6 +169,7 @@
             "localName": "Div_CMC_Local",
             "useFlag": "Y"
         },
+        "divisionName": "Div_CMC",
         "name": "Team_5_N",
         "localName": "Team_5_N_Local",
         "teamType": "TEAM",
@@ -378,6 +196,7 @@
             "localName": "Div_Eximbay_Local",
             "useFlag": "Y"
         },
+        "divisionName": "Div_Eximbay",
         "name": "Team_6_Y",
         "localName": "Team_6_Y_Local",
         "teamType": "TEAM",
@@ -404,6 +223,4894 @@
             "localName": "Div_Eximbay_Local",
             "useFlag": "Y"
         },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 8,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 9,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 10,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 11,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 12,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 13,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 14,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 15,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 16,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 17,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 18,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 19,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 20,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 21,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 22,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 23,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 24,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 25,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 26,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 27,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 28,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 29,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 30,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 31,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 32,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 33,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 34,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 35,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 36,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 37,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 38,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 39,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 40,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 41,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 42,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 43,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 44,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 45,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 46,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 47,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 101,
+        "division": {
+            "divisionSeq": 1,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_CMC",
+            "localName": "Div_CMC_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_CMC",
+        "name": "Team_CMC",
+        "localName": "Team_CMC_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 102,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_Exim",
+        "localName": "Team_Exim_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 103,
+        "division": {
+            "divisionSeq": 1,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_CMC",
+            "localName": "Div_CMC_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_CMC",
+        "name": "Team_3_Y",
+        "localName": "Team_3_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 104,
+        "division": {
+            "divisionSeq": 1,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_CMC",
+            "localName": "Div_CMC_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_CMC",
+        "name": "Team_4_Y",
+        "localName": "Team_4_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 105,
+        "division": {
+            "divisionSeq": 1,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_CMC",
+            "localName": "Div_CMC_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_CMC",
+        "name": "Team_5_N",
+        "localName": "Team_5_N_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "N",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 106,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_6_Y",
+        "localName": "Team_6_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 107,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 108,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 109,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 110,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 111,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 112,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 113,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 114,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 115,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 116,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 117,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 118,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 119,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 120,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 121,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 122,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 123,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 124,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 125,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 126,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 127,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 128,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 129,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 130,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 131,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 132,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 133,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 134,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 135,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 136,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 137,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 138,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 139,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 140,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 141,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 142,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 143,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 144,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 145,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 146,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 147,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 201,
+        "division": {
+            "divisionSeq": 1,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_CMC",
+            "localName": "Div_CMC_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_CMC",
+        "name": "Team_CMC",
+        "localName": "Team_CMC_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 202,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_Exim",
+        "localName": "Team_Exim_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 203,
+        "division": {
+            "divisionSeq": 1,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_CMC",
+            "localName": "Div_CMC_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_CMC",
+        "name": "Team_3_Y",
+        "localName": "Team_3_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 204,
+        "division": {
+            "divisionSeq": 1,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_CMC",
+            "localName": "Div_CMC_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_CMC",
+        "name": "Team_4_Y",
+        "localName": "Team_4_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 205,
+        "division": {
+            "divisionSeq": 1,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_CMC",
+            "localName": "Div_CMC_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_CMC",
+        "name": "Team_5_N",
+        "localName": "Team_5_N_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "N",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 206,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_6_Y",
+        "localName": "Team_6_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 207,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 208,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 209,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 210,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 211,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 212,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 213,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 214,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 215,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 216,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 217,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 218,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 219,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 220,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 221,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 222,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 223,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 224,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 225,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 226,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 227,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 228,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 229,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 230,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 231,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 232,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 233,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 234,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 235,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 236,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 237,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 238,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 239,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 240,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 241,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 242,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 243,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 244,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 245,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 246,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 247,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 301,
+        "division": {
+            "divisionSeq": 1,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_CMC",
+            "localName": "Div_CMC_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_CMC",
+        "name": "Team_CMC",
+        "localName": "Team_CMC_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 302,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_Exim",
+        "localName": "Team_Exim_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 303,
+        "division": {
+            "divisionSeq": 1,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_CMC",
+            "localName": "Div_CMC_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_CMC",
+        "name": "Team_3_Y",
+        "localName": "Team_3_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 304,
+        "division": {
+            "divisionSeq": 1,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_CMC",
+            "localName": "Div_CMC_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_CMC",
+        "name": "Team_4_Y",
+        "localName": "Team_4_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 305,
+        "division": {
+            "divisionSeq": 1,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_CMC",
+            "localName": "Div_CMC_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_CMC",
+        "name": "Team_5_N",
+        "localName": "Team_5_N_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "N",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 306,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_6_Y",
+        "localName": "Team_6_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 307,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 308,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 309,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 310,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 311,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 312,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 313,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 314,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 315,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 316,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 317,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 318,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 319,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 320,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 321,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 322,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 323,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 324,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 325,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 326,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 327,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 328,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 329,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 330,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 331,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 332,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 333,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 334,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 335,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 336,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 337,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 338,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 339,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 340,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 341,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 342,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 343,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 344,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 345,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 346,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
+        "name": "Team_7_Y",
+        "localName": "Team_7_Y_Local",
+        "teamType": "TEAM",
+        "image": "assets/media/image/1.jpg",
+        "useFlag": "Y",
+        "leaderOrManager": null,
+        "members": []
+    },
+    {
+        "teamSeq": 347,
+        "division": {
+            "divisionSeq": 2,
+            "company": {
+                "companySeq": 1,
+                "name": "Com_CMC",
+                "localName": "Com_CMC_Local",
+                "logo": "1",
+                "domain": "cmc.com.vn",
+                "googleSignIn": "Y",
+                "googleClientId": "868467514990-ljupm1j8i582dkn75kn0a8ii2bjgsp3k.apps.googleusercontent.com",
+                "googleClientSecretKey": "uQCCsOQ7ckn42igMnEi0WgRn"
+            },
+            "name": "Div_Eximbay",
+            "localName": "Div_Eximbay_Local",
+            "useFlag": "Y"
+        },
+        "divisionName": "Div_Eximbay",
         "name": "Team_7_Y",
         "localName": "Team_7_Y_Local",
         "teamType": "TEAM",
