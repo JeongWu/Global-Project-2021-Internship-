@@ -19,7 +19,7 @@ public class TeamUpdateModel {
 
     
     // //need to be fixed
-    private String division;
+    private DivisionDto division;
     // @NotNull
     private TeamType teamType;
     

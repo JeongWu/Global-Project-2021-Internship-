@@ -20,215 +20,219 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--begin::Body-->
 
 <body id="kt_body"
-	class="header-mobile-fixed subheader-enabled aside-enabled aside-fixed aside-secondary-enabled page-loading">
+    class="header-mobile-fixed subheader-enabled aside-enabled aside-fixed aside-secondary-enabled page-loading">
 
-	<!--begin::Main-->
-	<!--begin::Header Mobile-->
-	<header-mobile th:replace="/pages/fragments/header :: header-mobile"></header-mobile>
-	<!--end::Header Mobile-->
+    <!--begin::Main-->
+    <!--begin::Header Mobile-->
+    <header-mobile th:replace="/pages/fragments/header :: header-mobile"></header-mobile>
+    <!--end::Header Mobile-->
 
-	<div class="d-flex flex-column flex-root">
-		<!--begin::Page-->
-		<div class="d-flex flex-row flex-column-fluid page">
-			<!--begin::Aside-->
-			<aside th:replace="/pages/fragments/aside :: aside"></aside>
-			<!--end::Aside-->
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+        <div class="d-flex flex-row flex-column-fluid page">
+            <!--begin::Aside-->
+            <aside th:replace="/pages/fragments/aside :: aside"></aside>
+            <!--end::Aside-->
 
-			<!--begin::Wrapper-->
-			<div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
-				<!--begin::Content-->
-				<div class="content  d-flex flex-column flex-column-fluid" id="kt_content">
-					<!--begin::Subheader-->
-					<div class="subheader py-2 py-lg-4  subheader-transparent " id="kt_subheader">
-						<div
-							class=" container  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
-							<!--begin::Details-->
-							<div class="d-flex align-items-center flex-wrap mr-2">
+            <!--begin::Wrapper-->
+            <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+                <!--begin::Content-->
+                <div class="content  d-flex flex-column flex-column-fluid" id="kt_content">
+                    <!--begin::Subheader-->
+                    <div class="subheader py-2 py-lg-4  subheader-transparent " id="kt_subheader">
+                        <div
+                            class=" container  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                            <!--begin::Details-->
+                            <div class="d-flex align-items-center flex-wrap mr-2">
 
-								<!--begin::Title-->
-								<h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">
-									Edit Team </h5>
-								<!--end::Title-->
+                                <!--begin::Title-->
+                                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">
+                                    Edit Team </h5>
+                                <!--end::Title-->
 
-								<!--begin::Separator-->
-								<div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-5 bg-gray-200">
-								</div>
-								<!--end::Separator-->
-								<!--begin::Search Form-->
-								<div class="d-flex align-items-center" id="kt_subheader_search">
-									<span class="text-dark-50 font-weight-bold" id="kt_subheader_total"
-										> 
-									</span>
+                                <!--begin::Separator-->
+                                <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-5 bg-gray-200">
+                                </div>
+                                <!--end::Separator-->
+                                <!--begin::Search Form-->
+                                <div class="d-flex align-items-center" id="kt_subheader_search">
+                                    <span class="text-dark-50 font-weight-bold" id="kt_subheader_total">
+                                    </span>
 
-								</div>
-								<!--end::Search Form-->
-
-
-							</div>
-							<!--end::Details-->
-
-							<!--begin::Toolbar-->
-							<div class="d-flex align-items-center">
+                                </div>
+                                <!--end::Search Form-->
 
 
-								<!--begin::Button-->
-								<button class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2" id="excelBtn">
+                            </div>
+                            <!--end::Details-->
 
-									Back </button>
-								<a href="http://localhost:8080/team/edit/1"
-									class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2">
-
-									Submit </a>
-								<!--end::Button-->
+                            <!--begin::Toolbar-->
+                            <div class="d-flex align-items-center">
 
 
-							</div>
-							<!--end::Toolbar-->
-						</div>
-					</div>
-					<!--end::Subheader-->
+                                <!--begin::Button-->
+                                <a href="http://localhost:8080/team/list"
+                                    class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2"
+                                    id="cancelBtn">
 
-					<!--begin::Entry-->
-					<div class="d-flex flex-column-fluid">
-						<!--begin::Container-->
-						<div class=" container ">
+                                    Back </a>
+                                <a 
+                                    class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2"
+                                    id="submitBtn">
+                                    Submit </a>
+                                <!--end::Button-->
+
+
+                            </div>
+                            <!--end::Toolbar-->
+                        </div>
+                    </div>
+                    <!--end::Subheader-->
+
+                    <!--begin::Entry-->
+                    <div class="d-flex flex-column-fluid">
+                        <!--begin::Container-->
+                        <div class=" container ">
                             <!--begin::Card-->
-							<div class="card card-custom gutter-b">
-  
-                               <div class="card-body px-0">
-                                <form class="form" id="kt_form" th:action="@{~/teams/save}"
-                                method="post" th:object="${dataModel}">
-                                <input type="text" th:field="*{teamSeq}" hidden />
-                                <div class="tab-content">
-                                    <!--begin::Tab-->
-                                    <div class="tab-pane show active px-7" id="kt_user_edit_tab_1"
-                                    role="tabpanel">
-                                    <!--begin::Row-->
-                                    <div class="row">
-                                        <div class="col-xl-2"></div>
-                                        <div class="col-xl-7 my-2">
-                                            <!--begin::Group-->
-                                            <div class="form-group row">
-                                                <label style="padding-right: 0"
-                                                    class="col-form-label col-3 text-left">Team Name
-                                                    (English)*</label>
-                                                <div class="col-9">
-                                                    <input
-                                                        class="form-control form-control-lg form-control-solid"
-                                                        type="text" value="" required th:field="*{name}" />
-                                                </div>
-                                            </div>
-                                            <!--end::Group-->
-                                            <!--begin::Group-->
-                                            <div class="form-group row">
-                                                <label class="col-form-label col-3 text-left">Team
-                                                    Name (Korea)*</label>
-                                                <div class="col-9">
-                                                    <input
-                                                        class="form-control form-control-lg form-control-solid"
-                                                        type="text" value="" required th:field="*{localName}" />
-                                                </div>
-                                            </div>
-                                            <!--end::Group-->
-                                            <!--begin::Select-->
-                                            <div class="form-group row">
-                                                <label for="division"
-                                                    class="col-xl-3 col-lg-3 col-form-label">Division *</label>
-                                                <div class="col-lg-9 col-xl-9">
-                                                    <input
-                                                    class="form-control form-control-lg form-control-solid"
-                                                    type="text" value=""    required th:field="*{division}">
-                                                   
-                                                </div>
-                                            </div>
-                                            <!--end::Select-->
-                                            <!--begin::Select-->
-                                            <div class="form-group row">
-                                                <label for="teamType"
-                                                    class="col-xl-3 col-lg-3 col-form-label">Team Type *</label>
-                                                <div class="col-lg-9 col-xl-9">
-                                                    <input
-                                                    class="form-control form-control-lg form-control-solid"
-                                                    type="text" value=""    required th:field="*{TeamType}">
-                                                </div>
-                                            </div>
-                                            <!--end::Select-->
-                                            <!-- begin::Group -->
-                                            <div class="form-group row">
-                                                            <label class="col-xl-3 col-lg-3 col-form-label text-left">Introduction</label>
+                            <div class="card card-custom gutter-b">
+
+                                <div class="card-body px-0">
+                                    <form class="form" id="kt_form" method="post"
+                                    th:action="@{/post-edit-team}"
+                                        th:object="${dataModel}">
+                                        <input type="text" id="teamSeq" th:field="*{teamSeq}" hidden />
+                                        <div class="tab-content">
+                                            <!--begin::Tab-->
+                                            <div class="tab-pane show active px-7" id="kt_user_edit_tab_1"
+                                                role="tabpanel">
+                                                <!--begin::Row-->
+                                                <div class="row">
+                                                    <div class="col-xl-1"></div>
+                                                    <div class="col-xl-10 my-8">
+                                                        <!--begin::Group-->
+                                                        <div class="form-group row">
+                                                            <label style="padding-right: 0"
+                                                                class="col-form-label col-3 text-left">Team Name
+                                                                (English)*</label>
+                                                            <div class="col-9">
+                                                                <input
+                                                                    class="form-control form-control-lg form-control-solid"
+                                                                    type="text" required th:field="*{name}" disabled />
+                                                            </div>
+                                                        </div>
+                                                        <!--end::Group-->
+                                                        <!--begin::Group-->
+                                                        <div class="form-group row">
+                                                            <label class="col-form-label col-3 text-left">Team
+                                                                Name (Korea)*</label>
+                                                            <div class="col-9">
+                                                                <input
+                                                                    class="form-control form-control-lg form-control-solid"
+                                                                    type="text" required th:field="*{localName}"
+                                                                    disabled />
+                                                            </div>
+                                                        </div>
+                                                        <!--end::Group-->
+                                                        <!--begin::Select-->
+                                                        <div class="form-group row">
+                                                            <label for="division"
+                                                                class="col-xl-3 col-lg-3 col-form-label">Division
+                                                                *</label>
                                                             <div class="col-lg-9 col-xl-9">
-                                                                <div class="image-input image-input-outline"
-                                                                    id="kt_user_add_avatar">
-                                                                    <div class="image-input-wrapper"
-                                                                        style="background-image: url(assets/media/users/100_6.jpg)"></div>
-                                                                    <label
-                                                                        class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
-                                                                        data-action="change" data-toggle="tooltip" title=""
-                                                                        data-original-title="Change avatar"> <i
-                                                                        class="fa fa-pen icon-sm text-muted"></i> <input
-                                                                        type="file" name="profile_avatar"
-                                                                        accept=".png, .jpg, .jpeg" /> <input type="hidden"
-                                                                        name="profile_avatar_remove" id="image"
-                                                                        th:field="*{image}" />
-                                                                    </label> <span
-                                                                        class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
-                                                                        data-action="cancel" data-toggle="tooltip"
-                                                                        title="Cancel avatar"> <i
-                                                                        class="ki ki-bold-close icon-xs text-muted"></i>
+                                                                <input
+                                                                    class="form-control form-control-lg form-control-solid"
+                                                                    type="text" required th:field="*{division.name}"
+                                                                    disabled>
+
+                                                            </div>
+                                                        </div>
+                                                        <!--end::Select-->
+                                                        <!--begin::Select-->
+                                                        <div class="form-group row">
+                                                            <label for="teamType"
+                                                                class="col-xl-3 col-lg-3 col-form-label">Team Type
+                                                                *</label>
+                                                            <div class="col-lg-10 col-xl-9">
+                                                                <input
+                                                                    class="form-control form-control-lg form-control-solid"
+                                                                    type="text" required th:field="*{teamType}"
+                                                                    disabled>
+                                                            </div>
+                                                        </div>
+                                                        <!--end::Select-->
+                                                        <!-- begin::Group -->
+                                                        <div class="form-group row">
+                                                            <label
+                                                                class="col-xl-3 col-lg-3 col-form-label">Introduction</label>
+                                                            <div class="col-lg-9 col-xl-9">
+                                                                <div class="image-input image-input-empty image-input-outline" id="kt_user_edit_avatar" style="background-image: url(assets/media/users/blank.png)">
+                                                                    <div class="image-input-wrapper" th:style="'background-image: url('+${image} +');'"></div>
+                            
+                                                                    <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                                                                        <i class="fa fa-pen icon-sm text-muted"></i>
+                                                                        <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg"/>
+                                                                        <input type="hidden" name="profile_avatar_remove"/>
+                                                                    </label>
+                            
+                                                                    <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+                                                                        <i class="ki ki-bold-close icon-xs text-muted"></i>
                                                                     </span>
+                                                                 
                                                                 </div>
                                                                 <textarea
                                                                     class="form-control form-control-lg form-control-solid"
                                                                     id="introduction" rows="3" placeholder="Type notes"
                                                                     th:field="*{introduction}"></textarea>
                                                             </div>
+
                                                         </div>
-                                            <!-- end::Group -->
-                                          
-                                        </div>
-                                    </div>
-                                    <!--end::Row-->
-                                </div>
-                                <!--end::Tab-->
+                                                        <!-- end::Group -->
+
+                                                    </div>
+                                                    <div class="col-xl-1"></div>
+                                                </div>
+                                                <!--end::Row-->
+                                            </div>
+                                            <!--end::Tab-->
                                     </form>
-                               </div>
                                 </div>
-							
-							<!--end::Card-->
+                            </div>
 
-							<!--begin::Modal-->
+                            <!--end::Card-->
 
-							<!--end::Modal-->
-						</div>
-						<!--end::Container-->
-					</div>
-					<!--end::Entry-->
-				</div>
-				<!--end::Content-->
+                            <!--begin::Modal-->
 
-				<!--begin::Footer-->
-				<footer th:replace="pages/fragments/footer :: footer"></footer>
-				<!--end::Footer-->
-			</div>
-			<!--end::Wrapper-->
-		</div>
-		<!--end::Page-->
-	</div>
-	<!--end::Main-->
+                            <!--end::Modal-->
+                        </div>
+                        <!--end::Container-->
+                    </div>
+                    <!--end::Entry-->
+                </div>
+                <!--end::Content-->
 
-	<!--begin::quick panel-->
-	<panel th:replace="/pages/fragments/panels :: panel"></panel>
-	<!--end::quick panel--->
+                <!--begin::Footer-->
+                <footer th:replace="pages/fragments/footer :: footer"></footer>
+                <!--end::Footer-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
+    </div>
+    <!--end::Main-->
 
-	<!--begin::Scrolltop-->
-	<scroll th:replace="/pages/fragments/scroll-top :: scroll-top"></scroll>
-	<!--end::Scrolltop-->
+    <!--begin::quick panel-->
+    <panel th:replace="/pages/fragments/panels :: panel"></panel>
+    <!--end::quick panel--->
 
-	<script th:replace="/pages/fragments/script :: scriptFragment"></script>
-	
-	<!--begin::Page Scripts(used by this page)-->
-	<script th:src="@{/assets/js/pages/quarterly-okr/team-edit.js?v=7.0.6}"></script>
-	<!--end::Page Scripts-->
+    <!--begin::Scrolltop-->
+    <scroll th:replace="/pages/fragments/scroll-top :: scroll-top"></scroll>
+    <!--end::Scrolltop-->
+
+    <script th:replace="/pages/fragments/script :: scriptFragment"></script>
+
+    <!--begin::Page Scripts(used by this page)-->
+    <script th:src="@{/assets/js/pages/quarterly-okr/team-edit.js?v=7.0.6}"></script>
+    <!--end::Page Scripts-->
 </body>
 <!--end::Body-->
 
