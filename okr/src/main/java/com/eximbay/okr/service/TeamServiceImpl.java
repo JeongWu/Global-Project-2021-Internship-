@@ -147,9 +147,23 @@ public class TeamServiceImpl implements ITeamService {
 
     @Override
     public List<TeamListTableModel> buildListTableModel() {
-        List<TeamDto> teams = findAll();
-        List<TeamListTableModel> teamListTableModels=teamMemberService.addMembersAndLeaderForDataTable(teams);
-        return teamListTableModels;
+        List<Team> teams = teamRepository.findAll();
+
+        List<TeamListTableModel> teamListModels = mapper.mapAsList(teams, TeamListTableModel.class);
+
+        for (int i = 0; i < teamListModels.size(); i++) {
+            List<TeamMemberDto> teamMemberDtos = mapper.mapAsList(teams.get(i).getTeamMembers(), TeamMemberDto.class);
+
+            Optional<MemberDto> leaderOrManager = teamMemberService
+                    .findTeamLeaderOrManager(teamMemberDtos);
+            teamListModels.get(i).setLeaderOrManager(leaderOrManager.orElse(null));
+
+            List<Member> members = teamMemberService.findCurrentlyValid(teamMemberDtos).stream()
+                    .map(m -> m.getTeamMemberId().getMember()).distinct().collect(Collectors.toList());
+            teamListModels.get(i).setMembers(mapper.mapAsList(members, MemberDto.class));
+        }
+        return teamListModels;
+
     }
 
     @Override

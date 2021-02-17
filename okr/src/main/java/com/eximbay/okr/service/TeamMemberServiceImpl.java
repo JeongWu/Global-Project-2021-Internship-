@@ -116,32 +116,4 @@ public class TeamMemberServiceImpl implements ITeamMemberService {
         return result;
     }
 
-    @Override
-    public List<TeamListTableModel> addMembersAndLeaderForDataTable(List<TeamDto> teams) {
-      
-        List<TeamMember> teamMembers = teamMemberRepository.findAll(teamMemberQuery.findActiveMemberOnly()
-        .and(teamMemberQuery.findActiveTeamOnly()).and(teamMemberQuery.findCurrentlyValid()));
-
-        List<TeamListTableModel> teamDtos = mapper.mapAsList(teams, TeamListTableModel.class);
-
-        for (TeamListTableModel team : teamDtos) {
-            Integer teamSeq = team.getTeamSeq();
-            Optional<Member> leaderOrManager = teamMembers.stream()
-                    .filter(m -> m.getTeamMemberId().getTeam().getTeamSeq().equals(team.getTeamSeq()))
-                    .filter(m -> FlagOption.Y.equals(m.getTeamLeadFlag())
-                            || FlagOption.Y.equals(m.getTeamManagerFlag()))
-                    .map(m -> m.getTeamMemberId().getMember()).findFirst();
-            team.setLeaderOrManager(leaderOrManager.map(m -> mapper.map(m, MemberDto.class)).orElse(null));
-
-            List<Member> members = teamMembers.stream()
-                    .filter(m -> m.getTeamMemberId().getTeam().getTeamSeq().equals(teamSeq))
-                    .map(m -> m.getTeamMemberId().getMember()).distinct().collect(Collectors.toList());
-            team.setMembers(mapper.mapAsList(members, MemberDto.class));
-
-            DivisionDto divisionDto = mapper.map(team.getDivision(), DivisionDto.class);
-            team.setDivisionName(divisionDto.getName());
-
-        }
-        return teamDtos;
-    }
 }
