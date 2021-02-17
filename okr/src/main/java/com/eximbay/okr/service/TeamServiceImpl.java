@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.eximbay.okr.config.security.MyUserDetails;
 import com.eximbay.okr.constant.FlagOption;
+import com.eximbay.okr.dto.DivisionDto;
 import com.eximbay.okr.dto.MemberDto;
 import com.eximbay.okr.dto.TeamDto;
 import com.eximbay.okr.dto.TeamHistoryDto;
@@ -154,13 +155,15 @@ public class TeamServiceImpl implements ITeamService {
         for (int i = 0; i < teamListModels.size(); i++) {
             List<TeamMemberDto> teamMemberDtos = mapper.mapAsList(teams.get(i).getTeamMembers(), TeamMemberDto.class);
 
-            Optional<MemberDto> leaderOrManager = teamMemberService
-                    .findTeamLeaderOrManager(teamMemberDtos);
+            Optional<MemberDto> leaderOrManager = teamMemberService.findTeamLeaderOrManager(teamMemberDtos);
             teamListModels.get(i).setLeaderOrManager(leaderOrManager.orElse(null));
 
             List<Member> members = teamMemberService.findCurrentlyValid(teamMemberDtos).stream()
                     .map(m -> m.getTeamMemberId().getMember()).distinct().collect(Collectors.toList());
             teamListModels.get(i).setMembers(mapper.mapAsList(members, MemberDto.class));
+
+            DivisionDto divisionDto = mapper.map(teamListModels.get(i).getDivision(), DivisionDto.class);
+            teamListModels.get(i).setDivisionName(divisionDto.getLocalName());
         }
         return teamListModels;
 

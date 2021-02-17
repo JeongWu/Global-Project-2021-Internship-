@@ -79,7 +79,7 @@ var KTAppsProjectsListDatatable = (function () {
             var output = "";
 
             var teamImg = data.image;
-            var teamName = data.name;
+            var teamName = data.localName;
 
             var stateNo = KTUtil.getRandomInt(0, 7);
             var states = [
@@ -354,7 +354,7 @@ var KTAppsProjectsListDatatable = (function () {
                 </a>\
                       <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
                         <ul class="nav nav-hoverable flex-column">\
-                        <li class="nav-item"><a class="nav-link" href="edit/'+id+'"><i class="nav-icon la la-edit"></i><span class="nav-text">Edit Details</span></a></li>\
+                            <li class="nav-item"><a class="nav-link" href="/edit/'+id+'"><i class="nav-icon la la-edit"></i><span class="nav-text">Edit Details</span></a></li>\
                             <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-refresh"></i><span class="nav-text">Change Members</span></a></li>\
                             <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-cog"></i><span class="nav-text">Set Team Manager</span></a></li>\
                             <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-eye"></i><span class="nav-text">View History</span></a></li>\
@@ -371,7 +371,7 @@ var KTAppsProjectsListDatatable = (function () {
     // $("#kt_datatable_search_name").on("propertychange change keyup paste input", function () {
     $("#kt_datatable_search_name").on("change keyup paste", function () {
       // console.log($(this).val());
-      datatable.search($(this).val().toLowerCase(), "name");
+      datatable.search($(this).val().toLowerCase(), "localName");
     });
 
     $("#kt_datatable_search_division").on("change", function () {
