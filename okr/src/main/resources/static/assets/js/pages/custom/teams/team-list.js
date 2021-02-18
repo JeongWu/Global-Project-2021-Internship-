@@ -92,37 +92,10 @@ var KTAppsProjectsListDatatable = (function () {
             var state = states[stateNo];
 
             if (teamImg === null) {
-              output =
-                '<div class="d-flex align-items-center">\
-                        <div class="symbol symbol-40 symbol-' +
-                state +
-                ' flex-shrink-0">\
-                            <div class="symbol-label">' +
-                teamName.substring(0, 1) +
-                '</div>\
-                        </div>\
-                        <div class="ml-2">\
-                            <div class="text-dark-75 font-weight-bold line-height-sm">' +
-                teamName +
-                "</div>\
-                        </div>\
-                    </div>";
-
-              return output;
+              output = '<div class="d-flex align-items-center">';
+              output += makeRandomImage(teamName, "big");
+            
             } else {
-              // var stateNo = KTUtil.getRandomInt(0, 7);
-              // var states = [
-              //   "success",
-              //   "primary",
-              //   "danger",
-              //   "success",
-              //   "warning",
-              //   "dark",
-              //   "primary",
-              //   "info",
-              // ];
-              // var state = states[stateNo];
-
               output =
                 '<div class="d-flex align-items-center">\
                       <div class="symbol symbol-40 symbol-' +
@@ -133,16 +106,18 @@ var KTAppsProjectsListDatatable = (function () {
                 teamImg +
                 ")" +
                 '"></div>\
-                      </div>\
-                      <div class="ml-2">\
-                          <div class="text-dark-75 font-weight-bold line-height-sm">' +
+                      </div>"';
+
+            }
+              output +=
+                '<div class="ml-2">\
+              <div class="text-dark-75 font-weight-bold line-height-sm">' +
                 teamName +
                 "</div>\
-                      </div>\
-                  </div>";
+                </div>\
+            </div>";
 
               return output;
-            }
           },
         },
 
@@ -203,38 +178,12 @@ var KTAppsProjectsListDatatable = (function () {
           template: function (data) {
             var output = "";
 
-            // console.log(data.leaderOrManager);
-
             var managerInfo = data.leaderOrManager;
 
             if (managerInfo !== null) {
-              // var stateNo = KTUtil.getRandomInt(0, 7);
-              // var states = [
-              //   "success",
-              //   "primary",
-              //   "danger",
-              //   "success",
-              //   "warning",
-              //   "dark",
-              //   "primary",
-              //   "info",
-              // ];
-              // var state = states[stateNo];
               if (managerInfo.image === null) {
                 output = '<div class="d-flex align-items-center">';
-                output += makeRandomImage(managerInfo.name, "big");
-
-                // output =
-                //   '<div class="d-flex align-items-center">\
-                //   <div class="symbol symbol-40 symbol-circle symbol-light-' +
-                //   state +
-                //   ' flex-shrink-0 data-toggle="tooltip" title="' +
-                //   managerInfo.name +
-                //   '">\
-                //           <span class="symbol-label font-size-h4">' +
-                //   managerInfo.name.substring(0, 1) +
-                //   "</span>\
-                //       </div>\
+                output += makeRandomImage(managerInfo.name, "big", "circle");
                 output += " </div>";
               } else {
                 output =
@@ -273,7 +222,7 @@ var KTAppsProjectsListDatatable = (function () {
                 if (index < 4) {
                   //add function no image for memeber
                   if (member.image === null) {
-                    output += makeRandomImage(member.name, "small");
+                    output += makeRandomImage(member.name, "small", "circle");
                   } else {
                     output +=
                       '<div class="symbol symbol-30 symbol-circle flex-shrink-0 data-toggle="tooltip" title="' +
@@ -297,7 +246,7 @@ var KTAppsProjectsListDatatable = (function () {
             } else {
               memberList.forEach((member) => {
                 if (member.image === null) {
-                  output += makeRandomImage(member.name, "small");
+                  output += makeRandomImage(member.name, "small", "circle");
                 } else {
                   output +=
                     '<div class="symbol symbol-30 symbol-circle flex-shrink-0 data-toggle="tooltip" title="' +
@@ -374,7 +323,7 @@ var KTAppsProjectsListDatatable = (function () {
       ],
     });
 
-    var makeRandomImage = function (name, size) {
+    var makeRandomImage = function (name, size, shape) {
       var output = "";
 
       var stateNo = KTUtil.getRandomInt(0, 7);
@@ -390,29 +339,22 @@ var KTAppsProjectsListDatatable = (function () {
       ];
       var state = states[stateNo];
 
-      if (size === "big") {
-        output =
-          '<div class="symbol symbol-40 symbol-circle symbol-light-' +
-          state +
-          ' flex-shrink-0" data-toggle="tooltip" title="' +
-          name +
-          '">\
-                          <span class="symbol-label font-size-h4">' +
-          name.substring(0, 1) +
-          "</span>\
+      output =
+        '<div class="symbol symbol-' +
+        (size === "big" ? "40" : "30") +
+        " " +
+        (shape === "circle" && "symbol-circle") +
+        " symbol-light-" +
+        state +
+        ' flex-shrink-0" data-toggle="tooltip" title="' +
+        name +
+        '">\
+                          <span class="symbol-label font-size-' +
+        (size === "big" && "h4") +
+        '">' +
+        name.substring(0, 1) +
+        "</span>\
                                   </div>";
-      } else {
-        output =
-          '<div class="symbol symbol-30 symbol-circle symbol-light-' +
-          state +
-          ' flex-shrink-0" data-toggle="tooltip" title="' +
-          name +
-          '">\
-                          <span class="symbol-label font-size-h9">' +
-          name.substring(0, 1) +
-          "</span>\
-                                  </div>";
-      }
 
       return output;
     };
