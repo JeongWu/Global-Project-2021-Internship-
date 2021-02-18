@@ -78,37 +78,9 @@ var KTAppsProjectsListDatatable = (function () {
             var teamImg = data.image;
             var teamName = data.localName;
 
-            var stateNo = KTUtil.getRandomInt(0, 7);
-            var states = [
-              "success",
-              "primary",
-              "danger",
-              "success",
-              "warning",
-              "dark",
-              "primary",
-              "info",
-            ];
-            var state = states[stateNo];
+            output = '<div class="d-flex align-items-center">';
+            output += makeImageSymbol(teamName,teamImg, "big");
 
-            if (teamImg === null) {
-              output = '<div class="d-flex align-items-center">';
-              output += makeRandomImage(teamName, "big");
-            
-            } else {
-              output =
-                '<div class="d-flex align-items-center">\
-                      <div class="symbol symbol-40 symbol-' +
-                state +
-                ' flex-shrink-0">\
-            <div class="symbol-label" style="' +
-                "background-image:url(" +
-                teamImg +
-                ")" +
-                '"></div>\
-                      </div>"';
-
-            }
               output +=
                 '<div class="ml-2">\
               <div class="text-dark-75 font-weight-bold line-height-sm">' +
@@ -181,22 +153,10 @@ var KTAppsProjectsListDatatable = (function () {
             var managerInfo = data.leaderOrManager;
 
             if (managerInfo !== null) {
-              if (managerInfo.image === null) {
-                output = '<div class="d-flex align-items-center">';
-                output += makeRandomImage(managerInfo.name, "big", "circle");
-                output += " </div>";
-              } else {
-                output =
-                  '<div class="d-flex align-items-center">\
-                  <div class="symbol symbol-40 symbol-circle symbol-sm title="' +
-                  managerInfo.name +
-                  '">\
-                          <img class="" src="' +
-                  managerInfo.image +
-                  '" alt="ManagerImg">\
-                      </div>\
-                                         </div>';
-              }
+
+              output = '<div class="d-flex align-items-center">';
+              output += makeImageSymbol(managerInfo.name,managerInfo.image, "big", "circle");
+              output += " </div>";
             }
 
             return output;
@@ -220,19 +180,7 @@ var KTAppsProjectsListDatatable = (function () {
             if (memberList.length > 4) {
               memberList.forEach((member, index) => {
                 if (index < 4) {
-                  //add function no image for memeber
-                  if (member.image === null) {
-                    output += makeRandomImage(member.name, "small", "circle");
-                  } else {
-                    output +=
-                      '<div class="symbol symbol-30 symbol-circle flex-shrink-0 data-toggle="tooltip" title="' +
-                      member.name +
-                      '">\
-              <img class="" src="' +
-                      member.image +
-                      '" alt="photo">\
-              </div>';
-                  }
+                  output += makeImageSymbol(member.name,member.image, "small", "circle");
                 }
               });
               output +=
@@ -245,18 +193,7 @@ var KTAppsProjectsListDatatable = (function () {
     </div>";
             } else {
               memberList.forEach((member) => {
-                if (member.image === null) {
-                  output += makeRandomImage(member.name, "small", "circle");
-                } else {
-                  output +=
-                    '<div class="symbol symbol-30 symbol-circle flex-shrink-0 data-toggle="tooltip" title="' +
-                    member.name +
-                    '">\
-            <img class="" src="' +
-                    member.image +
-                    '" alt="photo">\
-            </div>';
-                }
+                output += makeImageSymbol(member.name,member.image, "small", "circle");
               });
 
               output += "</div>\
@@ -323,7 +260,8 @@ var KTAppsProjectsListDatatable = (function () {
       ],
     });
 
-    var makeRandomImage = function (name, size, shape) {
+
+    var makeImageSymbol = function (name,image, size, shape) {
       var output = "";
 
       var stateNo = KTUtil.getRandomInt(0, 7);
@@ -340,22 +278,33 @@ var KTAppsProjectsListDatatable = (function () {
       var state = states[stateNo];
 
       output =
-        '<div class="symbol symbol-' +
-        (size === "big" ? "40" : "30") +
-        " " +
-        (shape === "circle" && "symbol-circle") +
-        " symbol-light-" +
-        state +
-        ' flex-shrink-0" data-toggle="tooltip" title="' +
-        name +
-        '">\
-                          <span class="symbol-label font-size-' +
+      '<div class="symbol symbol-' +
+      (size === "big" ? "40" : "30") +
+      " " +
+      (shape === "circle" && "symbol-circle") +
+      " symbol-light-" +
+      state +
+      ' flex-shrink-0" data-toggle="tooltip" title="' +
+      name +
+      '">';
+      
+
+      if(image===null){
+        output +=
+        '<span class="symbol-label font-size-' +
         (size === "big" && "h4") +
         '">' +
         name.substring(0, 1) +
-        "</span>\
-                                  </div>";
+        "</span>";
 
+      }else{
+        output +=
+        '<img class="" src="' +
+                    image +
+                    '" alt="photo">';
+      }
+
+      output+='</div>';
       return output;
     };
 
