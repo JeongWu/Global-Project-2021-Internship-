@@ -1,7 +1,14 @@
 package com.eximbay.okr.controller;
 
+import java.util.List;
+import java.util.Optional;
+
+import com.eximbay.okr.dto.CodeGroupDto;
+import com.eximbay.okr.entity.CodeList;
 import com.eximbay.okr.entity.Dictionary;
 import com.eximbay.okr.model.dictionary.DictionaryAddModel;
+import com.eximbay.okr.model.dictionary.SelectTypeModel;
+import com.eximbay.okr.service.Interface.ICodeGroupService;
 import com.eximbay.okr.service.Interface.IDictionaryService;
 
 import org.springframework.stereotype.Controller;
@@ -29,8 +36,11 @@ public class DictionaryController {
     @GetMapping("/add")
     public String addDivision(Model model) {
         model.addAttribute("subheader", "Add Dictionary");
-        // DictionaryAddModel dictionaryAddModel =
-        // dictionaryService.buildDictionaryAddModel();
+
+        SelectTypeModel selectTypeModel = dictionaryService.buidSelectTypeModel();
+
+        model.addAttribute("TypeModel", selectTypeModel);
+
         DictionaryAddModel dictionaryAddModel = new DictionaryAddModel();
         model.addAttribute("dataModel", dictionaryAddModel);
         return "pages/dictionary/add_dictionary";
@@ -45,7 +55,7 @@ public class DictionaryController {
             case "saveAndExit":
                 return "redirect:/teams";
             default:
-                return "pages/dictionary/dictionary_list";
+                return "pages/dictionary/dictionary-list";
         }
     }
 

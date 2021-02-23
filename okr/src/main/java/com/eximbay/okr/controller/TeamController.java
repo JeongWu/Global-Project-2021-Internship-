@@ -33,17 +33,17 @@ public class TeamController {
 
     @GetMapping
     public String viewAllTeams(Model model, @PageableDefault Pageable pageable) {
-        // AllDetailsTeamModel dataModel = teamService.buildAllDetailsTeamModel(pageable);
-        // model.addAttribute("model", dataModel);
-        // return "pages/teams/teams";
-          // model.addAttribute("teamType",TeamType.values());
-          TeamListPageModel pageModel = new TeamListPageModel();
-          long totalCount = teamService.countAllTeam();
-          pageModel.setSubheader("Team");
-          pageModel.setMutedHeader(totalCount + " total");
-          model.addAttribute("model", pageModel);
-          model.addAttribute("teamType", TeamType.values());
-          return "pages/teams/team-list";
+        AllDetailsTeamModel dataModel = teamService.buildAllDetailsTeamModel(pageable);
+        model.addAttribute("model", dataModel);
+        return "pages/teams/teams";
+        //   // model.addAttribute("teamType",TeamType.values());
+        //   TeamListPageModel pageModel = new TeamListPageModel();
+        //   long totalCount = teamService.countAllTeam();
+        //   pageModel.setSubheader("Team");
+        //   pageModel.setMutedHeader(totalCount + " total");
+        //   model.addAttribute("model", pageModel);
+        //   model.addAttribute("teamType", TeamType.values());
+        //   return "pages/teams/team-list";
     }
     
     @GetMapping("/view/edit/{id}")

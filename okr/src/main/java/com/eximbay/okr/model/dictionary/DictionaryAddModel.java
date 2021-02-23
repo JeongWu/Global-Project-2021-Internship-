@@ -24,7 +24,7 @@ public class DictionaryAddModel {
 
     private String taskMetric;
 
-    private String taskIndicatory;
+    private String taskIndicator;
     
     private String description;
     

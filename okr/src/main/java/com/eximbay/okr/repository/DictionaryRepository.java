@@ -1,4 +1,4 @@
-package com.eximbay.okr.repository.dictionary;
+package com.eximbay.okr.repository;
 
 import com.eximbay.okr.entity.Dictionary;
 

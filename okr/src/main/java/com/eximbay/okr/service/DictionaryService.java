@@ -3,10 +3,14 @@ package com.eximbay.okr.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.eximbay.okr.dto.CodeGroupDto;
 import com.eximbay.okr.dto.dictionary.DictionaryDto;
+import com.eximbay.okr.entity.CodeGroup;
 import com.eximbay.okr.entity.Dictionary;
 import com.eximbay.okr.model.dictionary.DictionaryAddModel;
-import com.eximbay.okr.repository.dictionary.DictionaryRepository;
+import com.eximbay.okr.model.dictionary.SelectTypeModel;
+import com.eximbay.okr.repository.DictionaryRepository;
+import com.eximbay.okr.service.Interface.ICodeGroupService;
 import com.eximbay.okr.service.Interface.IDictionaryService;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
@@ -20,6 +24,8 @@ import ma.glasnost.orika.MapperFacade;
 public class DictionaryService implements IDictionaryService {
     private final DictionaryRepository dictionaryRepository;
     private final MapperFacade mapper;
+    private final ICodeGroupService codeGroupService;
+
 
     @Override
     public List<DictionaryDto> findAll() {
@@ -47,10 +53,40 @@ public class DictionaryService implements IDictionaryService {
     }
 
     @Override
-    public DictionaryAddModel buildDictionaryAddModel() {
-        DictionaryAddModel divisionAddModel = new DictionaryAddModel();
-        // divisionAddModel.setCompany(companyRepository.findById(1).orElse(null));
-        return divisionAddModel;
+    public SelectTypeModel buidSelectTypeModel() {
+
+        SelectTypeModel selectTypeModel=new SelectTypeModel();
+
+        Optional<CodeGroupDto> dictionaryTypeDto= codeGroupService.findByGroupCode("DICTIONARY_TYPE");
+        selectTypeModel.setDictionaryType(dictionaryTypeDto.get().getCodeLists());
+
+        Optional<CodeGroupDto> dicCategoryDto= codeGroupService.findByGroupCode("DIC_CATEGORY");
+        selectTypeModel.setCategory(dicCategoryDto.get().getCodeLists());
+
+        Optional<CodeGroupDto> dicCategoryGroupDto= codeGroupService.findByGroupCode("DIC_CATEGORY_GROUP");
+        selectTypeModel.setCategoryGroup(dicCategoryGroupDto.get().getCodeLists());
+
+        Optional<CodeGroupDto> jobTypeDto= codeGroupService.findByGroupCode("JOB_TYPE");
+        selectTypeModel.setJobType(jobTypeDto.get().getCodeLists());
+
+        // Optional<CodeGroupDto> objectiveLevelDto= codeGroupService.findByGroupCode("OBJECTIVE_LEVEL");
+        // selectTypeModel.setObjectiveLevel(objectiveLevelDto.get().getCodeLists());
+
+        // Optional<CodeGroupDto> objectiveTypeDto= codeGroupService.findByGroupCode("OBJECTIVE_TYPE");
+        // selectTypeModel.setObjectiveType(objectiveTypeDto.get().getCodeLists());
+
+        Optional<CodeGroupDto> positionDto= codeGroupService.findByGroupCode("POSITION");
+        selectTypeModel.setPosition(positionDto.get().getCodeLists());
+
+        Optional<CodeGroupDto> taskIndicatorDto= codeGroupService.findByGroupCode("TASK_INDICATOR");
+        selectTypeModel.setTaskIndicator(taskIndicatorDto.get().getCodeLists());
+        Optional<CodeGroupDto> taskMetricDto= codeGroupService.findByGroupCode("TASK_METRIC");
+        selectTypeModel.setTaskMetric(taskMetricDto.get().getCodeLists());
+        Optional<CodeGroupDto> taskTypeDto= codeGroupService.findByGroupCode("TASK_TYPE");
+        selectTypeModel.setTaskType(taskTypeDto.get().getCodeLists());
+
+        return selectTypeModel;
+       
     }
 
     @Override
