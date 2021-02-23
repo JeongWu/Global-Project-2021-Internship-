@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.eximbay.okr.constant.FlagOption;
+
 import groovy.transform.EqualsAndHashCode;
 import lombok.Data;
 
@@ -49,7 +51,7 @@ public class Dictionary {
     private String description;
 
     @Column(name = "USE_FLAG", length = 1, nullable = false)
-    private String useFlag;
+    private String useFlag = FlagOption.Y;
 
 
 }

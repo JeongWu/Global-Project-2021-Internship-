@@ -58,16 +58,18 @@
 									<!--begin::Group-->
 									<!--begin::Select-->
 									<div class="form-group row">
-										<label for="jobType" class="col-xl-2 col-lg-2 col-form-label">사전 구분 *</label>
+										<label for="dictionaryType" class="col-xl-2 col-lg-2 col-form-label">사전 구분
+											*</label>
 										<div class="col-lg-4 col-xl-4">
-											<select name="jobType" class="form-control" id="jobType" required
-												th:field="*{jobType}">
+											<select name="dictionaryType" class="form-control" id="dictionaryType"
+												required th:field="*{dictionaryType}">
 												<option value="">Choose...</option>
 												<option value="KEYRESULT">핵심 결과</option>
 												<option value="COMPETENCE">역량</option>
 											</select>
 										</div>
-										<label for="jobType" class="col-xl-2 col-lg-2 col-form-label">직무 구분 *</label>
+										<label for="jobType" class="col-xl-2 col-lg-2 col-form-label">직무 구분
+											*</label>
 										<div class="col-lg-4 col-xl-4">
 											<select name="jobType" class="form-control" id="jobType" required
 												th:field="*{jobType}">
@@ -79,8 +81,8 @@
 									<!--end::Select-->
 									<!--end::Group-->
 
-									<!--begin::Group-->
-									<div class="form-group row">
+									<!--begin::Group form1-->
+									<div class="form1 form-group row">
 										<label class="col-2 col-form-label text-left">핵심
 											결과 *</label>
 										<div class="col-10">
@@ -91,9 +93,21 @@
 									</div>
 									<!--end::Group-->
 
-									<!--begin::Group-->
+									 <!--begin::Group form2-->
+									 <div class="form2 form-group row">
+                                        <label class="col-2 col-form-label text-left">
+                                            역량 *</label>
+                                        <div class="col-10">
+                                            <input name="localName" id="team_name_korean"
+                                                class="form-control form-control-lg form-control-solid" type="text"
+                                                value="" required th:field="*{sentence}">
+                                        </div>
+                                    </div>
+                                    <!--end::Group-->
+
+									<!--begin::Group form1-->
 									<!--begin::Select-->
-									<div class="form-group row">
+									<div class="form1 form-group row">
 										<label for="jobType" class="col-xl-2 col-lg-2 col-form-label">과제 구분 *</label>
 										<div class="col-lg-4 col-xl-4">
 											<select name="jobType" class="form-control" id="jobType" required
@@ -103,7 +117,8 @@
 												<option value="QUALITATIVE">정성적</option>
 											</select>
 										</div>
-										<label for="jobType" class="col-xl-2 col-lg-2 col-form-label">측정 기준 *</label>
+										<label for="jobType" class="col-xl-2 col-lg-2 col-form-label">측정 기준
+											*</label>
 										<div class="col-lg-4 col-xl-4">
 											<select name="jobType" class="form-control" id="jobType" required
 												th:field="*{jobType}">
@@ -116,9 +131,34 @@
 									<!--end::Select-->
 									<!--end::Group-->
 
+									<!--begin::Group form2-->
+                                    <!--begin::Select-->
+                                    <div class="form2 form-group row">
+                                        <label for="jobType" class="col-xl-2 col-lg-2 col-form-label">역량 구분 *</label>
+                                        <div class="col-lg-4 col-xl-4">
+                                            <select name="jobType" class="form-control" id="jobType" required
+                                                th:field="*{jobType}">
+                                                <option value="">Choose...</option>
+                                                <option value="QUANTITATIVE">적량적</option>
+                                                <option value="QUALITATIVE">정성적</option>
+                                            </select>
+                                        </div>
+                                        <label for="jobType" class="col-xl-2 col-lg-2 col-form-label">역량 항목 *</label>
+                                        <div class="col-lg-4 col-xl-4">
+                                            <select name="jobType" class="form-control" id="jobType" required
+                                                th:field="*{jobType}">
+                                                <option value="">Choose...</option>
+                                                <option value="UPWARD">상향</option>
+                                                <option value="DOWNWARD">하향</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!--end::Select-->
+                                    <!--end::Group-->
+
 									<!--begin::Group-->
 									<!--begin::Select-->
-									<div class="form-group row">
+									<div class="form1 form-group row">
 										<label for="jobType" class="col-xl-2 col-lg-2 col-form-label">측정 지표 *</label>
 										<div class="col-lg-4 col-xl-4">
 											<select name="jobType" class="form-control" id="jobType" required
@@ -135,7 +175,7 @@
 									<!--end::Group-->
 
 									<!--begin::Group-->
-									<div class="form-group row">
+									<div class="general form-group row">
 										<label class="col-form-label col-2 text-left">설명</label>
 										<div class="col-10">
 											<textarea class="form-control form-control-lg form-control-solid"
@@ -146,7 +186,7 @@
 									<!--end::Group-->
 
 									<!--begin::Group-->
-									<div class="form-group row">
+									<div class="general form-group row">
 										<label class="col-2 col-form-label text-left">Active</label>
 										<div class="col-8">
 											<span class="switch switch-icon"> <label> <input type="checkbox"
@@ -172,7 +212,28 @@
 		<script type="text/javascript">
 			$().ready(function () {
 				$("#dictionaryForm").validate();
-			})
+				$(".general").hide();
+				$(".form1").hide();
+				$(".form2").hide();
+			});
+			$("#dictionaryType").change(function () {
+
+				var type = $("#dictionaryType option:selected").val();
+				if (type == "KEYRESULT") {
+					$(".form2").hide();
+					$(".general").show();
+					$(".form1").show();
+				} else if (type == "COMPETENCE") {
+					$(".form1").hide();
+					$(".general").show();
+					$(".form2").show();
+				} else {
+					$(".general").hide();
+					$(".form1").hide();
+					$(".form2").hide();
+				}
+
+			});
 		</script>
 	</th:block>
 </body>
