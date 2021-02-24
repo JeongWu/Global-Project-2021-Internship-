@@ -59,6 +59,7 @@ public class DictionaryController {
                 return "redirect:/dictionary/add";
             case "saveAndExit":
                 return "redirect:/teams";
+                // return "redirect:/dictionary";
             default:
                 return "pages/dictionary/dictionary-list";
         }

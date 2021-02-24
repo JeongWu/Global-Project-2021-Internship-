@@ -97,10 +97,12 @@
 									<!--end::Select-->
 									<!--end::Group-->
 
-									<!--begin::Group form1-->
-									<div class="form1 form-group row">
-										<label class="col-2 col-form-label text-left">핵심
+									<!--begin::Group form-->
+									<div class="general form-group row" hidden>
+										<label class="form1 col-2 col-form-label text-left">핵심
 											결과 *</label>
+										<label class="form2 col-2 col-form-label text-left">
+											역량 *</label>
 										<div class="col-10">
 											<input name="sentence" id="sentence"
 												class="form-control form-control-lg form-control-solid" type="text"
@@ -109,21 +111,9 @@
 									</div>
 									<!--end::Group-->
 
-									 <!--begin::Group form2-->
-									 <div class="form2 form-group row">
-                                        <label class="col-2 col-form-label text-left">
-                                            역량 *</label>
-                                        <div class="col-10">
-                                            <input name="sentence" id="sentence"
-                                                class="form-control form-control-lg form-control-solid" type="text"
-                                                value="" required th:field="*{sentence}">
-                                        </div>
-                                    </div>
-                                    <!--end::Group-->
-
 									<!--begin::Group form1-->
 									<!--begin::Select-->
-									<div class="form1 form-group row">
+									<div class="form1 form-group row" hidden>
 										<label for="taskType" class="col-xl-2 col-lg-2 col-form-label">과제 구분 *</label>
 										<div class="col-lg-4 col-xl-4">
 											<select name="taskType" class="form-control" id="taskType" required
@@ -155,7 +145,7 @@
 
 									<!--begin::Group form2-->
                                     <!--begin::Select-->
-                                    <div class="form2 form-group row">
+                                    <div class="form2 form-group row" hidden>
                                         <label for="categoryGroup" class="col-xl-2 col-lg-2 col-form-label">역량 구분 *</label>
                                         <div class="col-lg-4 col-xl-4">
                                             <select name="categoryGroup" class="form-control" id="categoryGroup" required
@@ -186,7 +176,7 @@
 
 									<!--begin::Group form1-->
 									<!--begin::Select-->
-									<div class="form1 form-group row">
+									<div class="form1 form-group row" hidden>
 										<label for="taskIndicator" class="col-xl-2 col-lg-2 col-form-label">측정 지표 *</label>
 										<div class="col-lg-4 col-xl-4">
 											<select name="taskIndicator" class="form-control" id="taskIndicator" required
@@ -206,7 +196,7 @@
 									<!--end::Group-->
 
 									<!--begin::Group-->
-									<div class="general form-group row">
+									<div class="general form-group row" hidden>
 										<label class="col-form-label col-2 text-left">설명</label>
 										<div class="col-10">
 											<textarea class="form-control form-control-lg form-control-solid"
@@ -217,7 +207,7 @@
 									<!--end::Group-->
 
 									<!--begin::Group-->
-									<div class="general form-group row">
+									<div class="general form-group row" hidden>
 										<label class="col-2 col-form-label text-left">Active</label>
 										<div class="col-8">
 											<span class="switch switch-icon"> <label> <input type="checkbox"
@@ -243,25 +233,31 @@
 		<script type="text/javascript">
 			$().ready(function () {
 				$("#dictionary_form").validate();
-				$(".general").hide();
-				$(".form1").hide();
-				$(".form2").hide();
+				// $(".general").hide();
+				// $(".form1").hide();
+				// $(".form2").hide();
 			});
 			$("#dictionaryType").change(function () {
 
 				var type = $("#dictionaryType option:selected").val();
 				if (type == "KEY_RESULT") {
-					$(".form2").hide();
-					$(".general").show();
-					$(".form1").show();
+					$(".form2").attr("hidden", true);
+					$(".general,.form1").attr("hidden", false);
+					// $(".form2").hide();
+					// $(".general").show();
+					// $(".form1").show();
 				} else if (type == "COMPETENCE") {
-					$(".form1").hide();
-					$(".general").show();
-					$(".form2").show();
+					$(".form1").attr("hidden", true);
+					$(".general,.form2").attr("hidden", false);
+
+					// $(".form1").hide();
+					// $(".general").show();
+					// $(".form2").show();
 				} else {
-					$(".general").hide();
-					$(".form1").hide();
-					$(".form2").hide();
+					$(".form1,.general,.form2").attr("hidden", true);
+					// $(".general").hide();
+					// $(".form1").hide();
+					// $(".form2").hide();
 				}
 
 			});
