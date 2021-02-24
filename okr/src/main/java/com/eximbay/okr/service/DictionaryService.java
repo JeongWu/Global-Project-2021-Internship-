@@ -3,16 +3,22 @@ package com.eximbay.okr.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.eximbay.okr.constant.FlagOption;
 import com.eximbay.okr.dto.CodeGroupDto;
 import com.eximbay.okr.dto.dictionary.DictionaryDto;
 import com.eximbay.okr.entity.CodeGroup;
 import com.eximbay.okr.entity.Dictionary;
+import com.eximbay.okr.exception.UserException;
 import com.eximbay.okr.model.dictionary.DictionaryAddModel;
+import com.eximbay.okr.model.dictionary.DictionaryUpdateModel;
 import com.eximbay.okr.model.dictionary.SelectTypeModel;
 import com.eximbay.okr.repository.DictionaryRepository;
 import com.eximbay.okr.service.Interface.ICodeGroupService;
 import com.eximbay.okr.service.Interface.IDictionaryService;
 import org.springframework.transaction.annotation.Transactional;
+
+import javassist.NotFoundException;
+
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -26,17 +32,16 @@ public class DictionaryService implements IDictionaryService {
     private final MapperFacade mapper;
     private final ICodeGroupService codeGroupService;
 
-
     @Override
     public List<DictionaryDto> findAll() {
-        List<Dictionary> dictionaries= dictionaryRepository.findAll();
+        List<Dictionary> dictionaries = dictionaryRepository.findAll();
         return mapper.mapAsList(dictionaries, DictionaryDto.class);
     }
 
     @Override
     public Optional<DictionaryDto> findById(Integer id) {
         Optional<Dictionary> dictionary = dictionaryRepository.findById(id);
-        return dictionary.map(m-> mapper.map(m, DictionaryDto.class));
+        return dictionary.map(m -> mapper.map(m, DictionaryDto.class));
     }
 
     @Override
@@ -55,43 +60,45 @@ public class DictionaryService implements IDictionaryService {
     @Override
     public SelectTypeModel buidSelectTypeModel() {
 
-        SelectTypeModel selectTypeModel=new SelectTypeModel();
+        SelectTypeModel selectTypeModel = new SelectTypeModel();
 
-        Optional<CodeGroupDto> dictionaryTypeDto= codeGroupService.findByGroupCode("DICTIONARY_TYPE");
+        Optional<CodeGroupDto> dictionaryTypeDto = codeGroupService.findByGroupCode("DICTIONARY_TYPE");
         selectTypeModel.setDictionaryType(dictionaryTypeDto.get().getCodeLists());
 
-        Optional<CodeGroupDto> dicCategoryDto= codeGroupService.findByGroupCode("DIC_CATEGORY");
+        Optional<CodeGroupDto> dicCategoryDto = codeGroupService.findByGroupCode("DIC_CATEGORY");
         selectTypeModel.setCategory(dicCategoryDto.get().getCodeLists());
 
-        Optional<CodeGroupDto> dicCategoryGroupDto= codeGroupService.findByGroupCode("DIC_CATEGORY_GROUP");
+        Optional<CodeGroupDto> dicCategoryGroupDto = codeGroupService.findByGroupCode("DIC_CATEGORY_GROUP");
         selectTypeModel.setCategoryGroup(dicCategoryGroupDto.get().getCodeLists());
 
-        Optional<CodeGroupDto> jobTypeDto= codeGroupService.findByGroupCode("JOB_TYPE");
+        Optional<CodeGroupDto> jobTypeDto = codeGroupService.findByGroupCode("JOB_TYPE");
         selectTypeModel.setJobType(jobTypeDto.get().getCodeLists());
 
-        // Optional<CodeGroupDto> objectiveLevelDto= codeGroupService.findByGroupCode("OBJECTIVE_LEVEL");
+        // Optional<CodeGroupDto> objectiveLevelDto=
+        // codeGroupService.findByGroupCode("OBJECTIVE_LEVEL");
         // selectTypeModel.setObjectiveLevel(objectiveLevelDto.get().getCodeLists());
 
-        // Optional<CodeGroupDto> objectiveTypeDto= codeGroupService.findByGroupCode("OBJECTIVE_TYPE");
+        // Optional<CodeGroupDto> objectiveTypeDto=
+        // codeGroupService.findByGroupCode("OBJECTIVE_TYPE");
         // selectTypeModel.setObjectiveType(objectiveTypeDto.get().getCodeLists());
 
-        Optional<CodeGroupDto> positionDto= codeGroupService.findByGroupCode("POSITION");
+        Optional<CodeGroupDto> positionDto = codeGroupService.findByGroupCode("POSITION");
         selectTypeModel.setPosition(positionDto.get().getCodeLists());
 
-        Optional<CodeGroupDto> taskIndicatorDto= codeGroupService.findByGroupCode("TASK_INDICATOR");
+        Optional<CodeGroupDto> taskIndicatorDto = codeGroupService.findByGroupCode("TASK_INDICATOR");
         selectTypeModel.setTaskIndicator(taskIndicatorDto.get().getCodeLists());
-        Optional<CodeGroupDto> taskMetricDto= codeGroupService.findByGroupCode("TASK_METRIC");
+        Optional<CodeGroupDto> taskMetricDto = codeGroupService.findByGroupCode("TASK_METRIC");
         selectTypeModel.setTaskMetric(taskMetricDto.get().getCodeLists());
-        Optional<CodeGroupDto> taskTypeDto= codeGroupService.findByGroupCode("TASK_TYPE");
+        Optional<CodeGroupDto> taskTypeDto = codeGroupService.findByGroupCode("TASK_TYPE");
         selectTypeModel.setTaskType(taskTypeDto.get().getCodeLists());
 
         return selectTypeModel;
-       
+
     }
 
     @Override
     public void addDictionary(DictionaryAddModel dictionaryAddModel) {
-    
+
         Dictionary dictionary = mapper.map(dictionaryAddModel, Dictionary.class);
         if (dictionaryAddModel.isUseFlag()) {
             dictionary.setUseFlag("Y");
@@ -99,6 +106,30 @@ public class DictionaryService implements IDictionaryService {
             dictionary.setUseFlag("N");
         }
         dictionaryRepository.save(dictionary);
+
+    }
+
+    @Override
+    public DictionaryUpdateModel buildUpdateDictionaryModel(Integer id) {
+        Optional<Dictionary> dictionary = dictionaryRepository.findById(id);
+        if (dictionary.isEmpty()) throw new UserException(new NotFoundException("Not found Object with Id = "+ id));
+
+        DictionaryUpdateModel updateModel  = mapper.map(dictionary.get(), DictionaryUpdateModel.class);
+
+        updateModel.setUseFlag(dictionary.get().getUseFlag().equals(FlagOption.Y));
+
+        return updateModel;
+    }
+
+    @Override
+    public void updateFormModel(DictionaryUpdateModel updateFormModel) {
+        Optional<Dictionary> dictionary = dictionaryRepository.findById(updateFormModel.getDictionarySeq());
+        if (dictionary.isEmpty()) throw new UserException(new NotFoundException("Not found Object with Id = "+ updateFormModel.getDictionarySeq()));
+        mapper.map(updateFormModel, dictionary.get());
+        if (updateFormModel.isUseFlag()) dictionary.get().setUseFlag(FlagOption.Y);
+        else dictionary.get().setUseFlag(FlagOption.N);
+        
+        dictionaryRepository.save(dictionary.get());
 
     }
 }
