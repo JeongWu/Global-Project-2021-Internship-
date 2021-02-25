@@ -45,7 +45,7 @@ public class Dictionary {
     private String taskMetric;
 
     @Column(name = "TASK_INDICATOR", length = 20)
-    private String taskIndicatory;
+    private String taskIndicator;
 
     @Column(name = "DESCRIPTION", length = 1000)
     private String description;
