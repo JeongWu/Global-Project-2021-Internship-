@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 
-@Controller
+@RestController
 @RequestMapping("api/teams")
 @AllArgsConstructor
 public class TeamAPI {
