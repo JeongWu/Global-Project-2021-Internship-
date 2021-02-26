@@ -12,5 +12,4 @@ public class DivisionChangeMembersModel {
     private String mutedHeader;
     private DivisionDto division;
     List<MemberDto> availableMembers;
-    List<MemberForDivisionChangeMembersModel> members;
 }

@@ -6,12 +6,18 @@ import java.util.Optional;
 import com.eximbay.okr.dto.CodeGroupDto;
 import com.eximbay.okr.entity.CodeList;
 import com.eximbay.okr.entity.Dictionary;
+import com.eximbay.okr.model.dictionary.AllCategoryGroupModel;
+import com.eximbay.okr.model.dictionary.AllCategoryModel;
+import com.eximbay.okr.model.dictionary.AllDictionaryTypeModel;
+import com.eximbay.okr.model.dictionary.AllJobTypeModel;
 import com.eximbay.okr.model.dictionary.DictionaryAddModel;
 import com.eximbay.okr.model.dictionary.DictionaryUpdateModel;
 import com.eximbay.okr.model.dictionary.SelectTypeModel;
+import com.eximbay.okr.repository.DictionaryRepository;
 import com.eximbay.okr.service.Interface.ICodeGroupService;
 import com.eximbay.okr.service.Interface.IDictionaryService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +28,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.eximbay.okr.utils.MapperUtil;
 import lombok.AllArgsConstructor;
 
 @Controller
@@ -32,10 +40,25 @@ public class DictionaryController {
 
     private final IDictionaryService dictionaryService;
 
+    @Autowired
+    private DictionaryRepository dictionaryRepository;
+
     @GetMapping
     public String viewAllDictionary(Model model) {
 
-        return null;
+        // To get Dictionary data for search option
+        List<Dictionary> dictionaries = dictionaryRepository.findAll();
+        List<AllDictionaryTypeModel> dictionaryTypes = MapperUtil.mapList(dictionaries, AllDictionaryTypeModel.class);
+        List<AllJobTypeModel> jobTypeModels = MapperUtil.mapList(dictionaries, AllJobTypeModel.class);
+        List<AllCategoryGroupModel> categoryGroupModels = MapperUtil.mapList(dictionaries, AllCategoryGroupModel.class);
+        List<AllCategoryModel> categoryModels = MapperUtil.mapList(dictionaries, AllCategoryModel.class);
+
+        model.addAttribute("dictionaryTypes", dictionaryTypes);
+        model.addAttribute("jobTypeModels", jobTypeModels);
+        model.addAttribute("categoryGroupModels", categoryGroupModels);
+        model.addAttribute("categoryModels", categoryModels);
+
+        return "pages/dictionary/dictionary_list";
     }
 
     @GetMapping("/add")
@@ -58,17 +81,16 @@ public class DictionaryController {
             case "saveAndAddNew":
                 return "redirect:/dictionary/add";
             case "saveAndExit":
-                return "redirect:/teams";
-                // return "redirect:/dictionary";
+                return "redirect:/dictionary";
             default:
                 return "pages/dictionary/dictionary-list";
         }
     }
 
     @GetMapping("/edit/{id}")
-    public String showEditForm(@PathVariable Integer id, Model model){
+    public String showEditForm(@PathVariable Integer id, Model model) {
         model.addAttribute("subheader", "Edit Dictionary");
-        
+
         SelectTypeModel selectTypeModel = dictionaryService.buidSelectTypeModel();
 
         model.addAttribute("TypeModel", selectTypeModel);
@@ -79,11 +101,11 @@ public class DictionaryController {
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String saveDictionary(@Validated DictionaryUpdateModel updateFormModel, BindingResult error){
-        if (error.hasErrors()) return "redirect:/dictionary/edit/"+ updateFormModel.getDictionarySeq();
+    public String saveDictionary(@Validated DictionaryUpdateModel updateFormModel, BindingResult error) {
+        if (error.hasErrors())
+            return "redirect:/dictionary/edit/" + updateFormModel.getDictionarySeq();
         dictionaryService.updateFormModel(updateFormModel);
-        // return "redirect:/dictionary";
-        return "redirect:/dictionary/add";
+        return "redirect:/dictionary";
     }
 
 }

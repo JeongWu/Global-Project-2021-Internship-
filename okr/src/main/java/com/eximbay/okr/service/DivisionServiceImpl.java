@@ -119,6 +119,13 @@ public class DivisionServiceImpl implements IDivisionService {
         List<MemberDto> availableMembers = divisionMemberService.findAvailableMemberToAddToDivision(mapper.map(division.get(), DivisionDto.class));
         dataModel.setAvailableMembers(availableMembers);
         dataModel.setDivision(mapper.map(division.get(), DivisionDto.class));
+        return dataModel;
+    }
+
+    @Override
+    public List<MemberForDivisionChangeMembersModel> getMembersForDivisionChangeMembersModel(Integer id) {
+        Optional<Division> division = divisionRepository.findById(id);
+        if (division.isEmpty()) throw new UserException(new NotFoundException("Not found Object with Id = "+ id));
 
         List<DivisionMemberWithTimeDto> memberDtos = divisionMemberService.findActiveMembersOfDivisionWithTime(mapper.map(division.get(), DivisionDto.class));
         List<MemberForDivisionChangeMembersModel> memberModels = new ArrayList<>();
@@ -129,8 +136,7 @@ public class DivisionServiceImpl implements IDivisionService {
             item.setApplyBeginDate(m.getApplyBeginDate());
             memberModels.add(item);
         });
-        dataModel.setMembers(memberModels);
-        return dataModel;
+        return memberModels;
     }
 
     @Override

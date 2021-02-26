@@ -30,7 +30,7 @@ public class DivisionController {
 
     @GetMapping
     public String viewAllDivisions(Model model) {
-        DivisionsModel divisionsModel = divisionService.buildDivisionsModel();
+        DivisionsModel divisionsModel = new DivisionsModel();
         model.addAttribute("model", divisionsModel);
         return "pages/divisions/divisions";
     }
