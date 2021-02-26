@@ -116,4 +116,15 @@ public class TeamMemberServiceImpl implements ITeamMemberService {
         return result;
     }
 
+    @Override
+    public List<MemberDto> findActiveMembersOfTeam(TeamDto teamDtos) {
+        List<TeamMember> teamMembers = teamMemberRepository.findAll(
+            teamMemberQuery.findByTeamSeq(teamDtos.getTeamSeq())
+                        .and(teamMemberQuery.findCurrentlyValid())
+                        .and(teamMemberQuery.findActiveMemberOnly())
+        );
+        List<MemberDto> currentMembers = mapper.mapAsList(teamMembers.stream().map(m->m.getTeamMemberId().getMember()).collect(Collectors.toList()), MemberDto.class);
+        return currentMembers;
+    }
+
 }

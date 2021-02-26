@@ -11,7 +11,7 @@ var KTAppsProjectsListDatatable = (function () {
         type: "remote",
         source: {
           read: {
-            url: "/api/datatables/team",
+            url: "/api/teams/datatables",
             map: function (raw) {
               var dataSet = raw;
 

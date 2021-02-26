@@ -16,6 +16,10 @@ import java.time.format.DateTimeFormatter;
 @AllArgsConstructor
 public class TeamMemberQuery {
 
+    public Specification<TeamMember> findByTeamSeq(Integer teamSeq){
+        return (root, query, cb) -> cb.equal(root.get(TeamMember_.TEAM_MEMBER_ID).get(TeamMemberId_.TEAM).get(Team_.TEAM_SEQ), teamSeq);
+    }
+   
     public Specification<TeamMember> findByMemberSeq(Integer memberSeq){
         return (root, query, cb) -> cb.equal(root.get(TeamMember_.TEAM_MEMBER_ID).get(TeamMemberId_.MEMBER).get(Member_.MEMBER_SEQ), memberSeq);
     }

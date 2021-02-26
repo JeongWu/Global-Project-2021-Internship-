@@ -22,7 +22,7 @@
         <div>
             <div class="card card-custom gutter-b">
                 <div class="card-body px-0">
-                    <form class="form" id="kt_form" method="post" th:action="@{/post-edit-team}"
+                    <form class="form" id="kt_form" method="post" th:action="@{/teams/view/save}"
                         th:object="${dataModel}">
                         <input type="text" id="teamSeq" th:field="*{teamSeq}" hidden />
                         <div class="tab-content">

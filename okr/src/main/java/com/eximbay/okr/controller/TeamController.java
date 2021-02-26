@@ -6,6 +6,7 @@ import com.eximbay.okr.constant.Subheader;
 import com.eximbay.okr.entity.Team;
 import com.eximbay.okr.enumeration.TeamType;
 import com.eximbay.okr.model.AllDetailsTeamModel;
+import com.eximbay.okr.model.AllTeamUpdateModel;
 import com.eximbay.okr.model.EditForViewAllTeamsModel;
 import com.eximbay.okr.model.EditTeamModel;
 import com.eximbay.okr.model.TeamListPageModel;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @AllArgsConstructor
@@ -61,6 +63,16 @@ public class TeamController {
 		System.out.println( viewModel.getModel());
 		return "pages/teams/edit-teams";
 	}
+
+    @RequestMapping(value = "/view/save", method = RequestMethod.POST)
+    public String update(@Validated AllTeamUpdateModel req, BindingResult error) {
+
+        if (error.hasErrors())
+            return "redirect:/teams/view/edit/" + req.getTeamSeq();
+            
+        teamService.updateForViewAllTeamModel(req);
+        return "redirect:/teams";
+    }
 
     @RequestMapping("/list")
     public String viewTeamList(Model model) {

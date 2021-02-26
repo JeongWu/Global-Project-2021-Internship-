@@ -13,6 +13,7 @@ public interface ITeamMemberService extends ISerivce <TeamMemberDto, TeamMemberI
     List<TeamMemberDto> findCurrentlyValid(List<TeamMemberDto> teamDtos);
     Optional<MemberDto> findTeamLeaderOrManager(List<TeamMemberDto> teamMemberDtos);
     List<TeamDto> findActiveTeamsOfMember(MemberDto memberDto);
+    List<MemberDto> findActiveMembersOfTeam(TeamDto teamDtos);
     List<TeamDto> addLeaderToTeamList(List<TeamDto> teams);
     Page<TeamWithMembersAndLeaderDto> addMembersAndLeader(Page<Team> teams);
 
