@@ -19,8 +19,7 @@ public class TeamUpdateFormModel {
     @NotBlank
     private String localName;
     
-    //need to be fixed
-    private String division;
+	private DivisionDto divisionDto;
     @NotNull
     private TeamType teamType;
     

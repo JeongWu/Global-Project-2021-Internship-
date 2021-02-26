@@ -149,7 +149,7 @@ public class TeamServiceImpl implements ITeamService {
     @Override
     public List<TeamListTableModel> buildListTableModel() {
         List<Team> teams = teamRepository.findAll();
-
+        // List<TeamDto> teamDtos = mapper.mapAsList(teams, TeamDto.class);
         List<TeamListTableModel> teamListModels = mapper.mapAsList(teams, TeamListTableModel.class);
 
         for (int i = 0; i < teamListModels.size(); i++) {
@@ -161,6 +161,8 @@ public class TeamServiceImpl implements ITeamService {
             List<Member> members = teamMemberService.findCurrentlyValid(teamMemberDtos).stream()
                     .map(m -> m.getTeamMemberId().getMember()).distinct().collect(Collectors.toList());
             teamListModels.get(i).setMembers(mapper.mapAsList(members, MemberDto.class));
+            // List<MemberDto> memberDtos = teamMemberService.findActiveMembersOfTeam(teamDtos.get(i));
+            // teamListModels.get(i).setMembers(memberDtos);
 
             DivisionDto divisionDto = mapper.map(teamListModels.get(i).getDivision(), DivisionDto.class);
             teamListModels.get(i).setDivisionName(divisionDto.getLocalName());
@@ -179,28 +181,35 @@ public class TeamServiceImpl implements ITeamService {
     	EditTeamModel dataModel = new EditTeamModel();
     	dataModel.setSubheader("Edit ");
     	Optional<Team> team = teamRepository.findById(id);
-    	Optional<TeamUpdateFormModel> model = team.map(m->mapper.map(m, TeamUpdateFormModel.class));
+    	Optional<TeamDto> teamDto = findById(id);
+    	Optional<TeamUpdateFormModel> model = teamDto.map(m->mapper.map(m, TeamUpdateFormModel.class));
     	if(model.isEmpty()) throw new UserException(new NotFoundException("Not found Object with Id = "+id));
     	dataModel.setMutedHeader(model.get().getName());
-    	model.get().setUseFlag(team.get().getUseFlag().equals(FlagOption.Y));
+    	
+    	model.get().setUseFlag(teamDto.get().getUseFlag().equals(FlagOption.Y));
+    	model.get().setDivisionDto(teamDto.get().getDivision());
     	dataModel.setModel(model.get());
     	return dataModel;
     }
 
+    
     @Override
     @Transactional
     public void updateFormModel(TeamUpdateFormModel updateFormModel) {
-    	Optional<Team> team = teamRepository.findById(updateFormModel.getTeamSeq());
-    	if(team.isEmpty()) throw new UserException(new NotFoundException("Not found Object with Id = "+ updateFormModel.getTeamSeq()));
-    	mapper.map(updateFormModel, team.get());
+    	Optional<TeamDto> teamDto = findById(updateFormModel.getTeamSeq());
+    	if(teamDto.isEmpty()) throw new UserException(new NotFoundException("Not found Object with Id = "+ updateFormModel.getTeamSeq()));
+    	mapper.map(updateFormModel, teamDto.get());
+
+    	if(updateFormModel.isUseFlag()) teamDto.get().setUseFlag(FlagOption.Y);
+    	else teamDto.get().setUseFlag(FlagOption.N);
     	
-    	if(updateFormModel.isUseFlag()) team.get().setUseFlag(FlagOption.Y);
-    	else team.get().setUseFlag(FlagOption.N);
-    	TeamHistoryDto teamHistoryDto = mapper.map(team.get(), TeamHistoryDto.class);
+    	teamDto.get().getDivision().setDivisionSeq(updateFormModel.getDivisionDto().getDivisionSeq());
+    	
+    	TeamHistoryDto teamHistoryDto = mapper.map(teamDto.get(), TeamHistoryDto.class);
     	teamHistoryDto.setJustification(updateFormModel.getJustification());
-    	teamHistoryDto.setTeam(mapper.map(team.get(), TeamDto.class));
+    	teamHistoryDto.setTeam(mapper.map(teamDto.get(), TeamDto.class));
     	teamHistoryService.save(teamHistoryDto);
-    	Team saveTeam = teamRepository.save(team.get());
+    	TeamDto saveTeam = save(teamDto.get());
     }
 
     @Override

@@ -5,9 +5,10 @@
 
 <body th:object="${dataModel}">
 
+
 	<div layout:fragment="right-floating-toolbar"
 		class="d-flex align-items-center flex-wrap">
-		<a th:href="@{~/teams}"
+		<a th:href="@{~/teams/list}"
 			class="btn btn-primary button-color btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2 w-120px justify-content-center">Back</a>
 		<!--begin::Dropdown-->
 		<div class="btn-group ml-2 pl-0 py-4 w-120px">
@@ -53,8 +54,8 @@
 		<!--end::Dropdown-->
 	</div>
 	<div layout:fragment="content" class="container">
-		<div class="card card-custom">
-			<div class="card-body p-0">
+		<div class="card card-custom gutter-b">
+			<div class="card-body">
 				<div class="w-50 pt-20 pl-20">
 					<h3 class="text-primary">Team Details</h3>
 					<div class="w-200px h-4px bg-primary"></div>
@@ -67,6 +68,7 @@
 							<div class="row">
 								<div class="col-xl-12 my-2">
 									<input type="hidden" th:field="*{teamSeq}" name="teamSeq">
+									
 									<!--begin::Group-->
 									<!-- <div class="form-group row">
 									<label style="padding-right: 0" class="col-3 col-form-label text-left">TeamSeq</label>
@@ -103,16 +105,15 @@
 									<!--begin::Select-->
 									<div class="form-group row">
 										<label for="division" class="col-xl-3 col-lg-3 col-form-label">Division
-											*</label>
+											*</label> 
 										<div class="col-lg-9 col-xl-9">
-											<select name="division" class="form-control" id="division"
-												required th:field="*{division.divisionSeq}">
-												<option value="">Choose...</option>
-												<option th:value="${dataModel.division.name}">
-												<option value="1">Division2</option>
-												<option value="Division3">Division3</option>
-												<option value="Division4">Division4</option>
-											</select>
+													<select name="division" class="form-control" id="division"
+													required th:field="*{division}">
+													<option value="">Choose...</option>
+													<th:block th:each="divisionDto: ${divisionDto}" >
+                                                        <option th:value="${divisionDto.divisionSeq}" th:text="${divisionDto.name}"></option>
+                                                    </th:block>
+												</select>
 										</div>
 									</div>
 									<!--end::Select-->
@@ -184,7 +185,7 @@
 								</div>
 								<!--end::Group-->
 							</div>
-					</div>
+						</div>
 					</form>
 				</div>
 			</div>

@@ -1,5 +1,7 @@
 package com.eximbay.okr.controller;
 
+import java.util.List;
+
 import com.eximbay.okr.constant.Subheader;
 import com.eximbay.okr.entity.Team;
 import com.eximbay.okr.enumeration.TeamType;
@@ -9,8 +11,10 @@ import com.eximbay.okr.model.EditTeamModel;
 import com.eximbay.okr.model.TeamListPageModel;
 import com.eximbay.okr.model.TeamUpdateFormModel;
 import com.eximbay.okr.model.team.TeamAddModel;
+import com.eximbay.okr.service.Interface.IDivisionService;
 import com.eximbay.okr.service.Interface.ITeamService;
 import lombok.*;
+import com.eximbay.okr.dto.DivisionDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -30,6 +34,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/teams")
 public class TeamController {
     private final ITeamService teamService;
+    private final IDivisionService divisionService;
+    // private final ITeamHistoryService teamHistoryService;
 
     @GetMapping
     public String viewAllTeams(Model model, @PageableDefault Pageable pageable) {
@@ -68,12 +74,14 @@ public class TeamController {
         return "pages/teams/team-list";
     }
     
-	@GetMapping("/edit/{id}")
+    @GetMapping("/edit/{id}")
 	public String showEditForm(@PathVariable Integer id, Model model) {
 		EditTeamModel viewModel = teamService.buildEditTeamModel(id);
 		model.addAttribute("model", viewModel);
 		model.addAttribute("dataModel", viewModel.getModel());
-		return "pages/teams/edit";
+		List<DivisionDto> divisionList = divisionService.findAll();
+		model.addAttribute("divisionList", divisionList);
+		return "pages/teams/team-edit-details";
 	}
 
 	@PostMapping(value = "/save", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
@@ -81,31 +89,38 @@ public class TeamController {
 		if (error.hasErrors())
 			return "rediect:/teams/edit/" + updateFormModel.getTeamSeq();
 		teamService.updateFormModel(updateFormModel);
-		return "redirect:/";
+		return "redirect:/teams/list";
 	}
 
 	@GetMapping("/add")
 	public String addTeam(Model model) {
 		model.addAttribute("subheader", Subheader.ADD_TEAM);
-		
-//		TeamAddModel teamAddModel = teamService.buildDefaultTeamAddModel();
 		TeamAddModel teamAddModel = new TeamAddModel();
 		model.addAttribute("dataModel", teamAddModel);
-		return "pages/teams/add_team";
+		List<DivisionDto> divisionDto = divisionService.findAll();
+		model.addAttribute("divisionDto", divisionDto);
+		return "pages/teams/team-add";
 	}
 
 	@PostMapping(value = "/add")
     public String addTeam(@ModelAttribute TeamAddModel teamAddModel) {
-        Team team = teamService.addTeam(teamAddModel);
+		Team team = teamService.addTeam(teamAddModel);
         switch (teamAddModel.getAction()) {
             case "saveAndAddNew":
                 return "redirect:/teams/add";
             case "saveAndAddMember" :
                 return "redirect:/teams/change-members/" + team.getTeamSeq();
             case "saveAndExit" :
-                return "redirect:/teams";
+                return "redirect:/teams/list";
             default:
-                return "pages/teams/teams";
+                return "redirect:/teams/list";
         }
     }
+// 	 @GetMapping("/history/{id}")
+// 	    public String viewTeamHistory(@PathVariable Integer id, Model model) {
+// 	        TeamHistoriesModel teamHistoriesModel = teamHistoryService.buildTeamHistoriesModel(id);
+// 	        model.addAttribute("model", teamHistoriesModel);
+// //			model.addAttribute("dataModel", teamHistoriesModel.getTeamHistories());
+// 	        return "pages/teams/team_history";
+// 	    }
 }
