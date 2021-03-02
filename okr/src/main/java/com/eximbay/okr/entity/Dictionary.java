@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.eximbay.okr.constant.FlagOption;
+import com.eximbay.okr.listener.AbstractAuditable;
 
 import groovy.transform.EqualsAndHashCode;
 import lombok.Data;
@@ -16,7 +17,7 @@ import lombok.Data;
 @Data
 @Table(name = "dictionary")
 @Entity
-public class Dictionary {
+public class Dictionary extends AbstractAuditable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

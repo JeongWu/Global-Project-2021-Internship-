@@ -6,7 +6,6 @@ import java.util.Optional;
 import com.eximbay.okr.constant.FlagOption;
 import com.eximbay.okr.dto.CodeGroupDto;
 import com.eximbay.okr.dto.dictionary.DictionaryDto;
-import com.eximbay.okr.entity.CodeGroup;
 import com.eximbay.okr.entity.Dictionary;
 import com.eximbay.okr.exception.UserException;
 import com.eximbay.okr.model.dictionary.DictionaryAddModel;
@@ -58,7 +57,7 @@ public class DictionaryService implements IDictionaryService {
     }
 
     @Override
-    public SelectTypeModel buidSelectTypeModel() {
+    public SelectTypeModel buildSelectTypeModel() {
 
         SelectTypeModel selectTypeModel = new SelectTypeModel();
 
@@ -72,8 +71,9 @@ public class DictionaryService implements IDictionaryService {
         selectTypeModel.setCategoryGroup(dicCategoryGroupDto.get().getCodeLists());
 
         Optional<CodeGroupDto> jobTypeDto = codeGroupService.findByGroupCode("JOB_TYPE");
+    
         selectTypeModel.setJobType(jobTypeDto.get().getCodeLists());
-
+ 
         // Optional<CodeGroupDto> objectiveLevelDto=
         // codeGroupService.findByGroupCode("OBJECTIVE_LEVEL");
         // selectTypeModel.setObjectiveLevel(objectiveLevelDto.get().getCodeLists());
@@ -101,9 +101,9 @@ public class DictionaryService implements IDictionaryService {
 
         Dictionary dictionary = mapper.map(dictionaryAddModel, Dictionary.class);
         if (dictionaryAddModel.isUseFlag()) {
-            dictionary.setUseFlag("Y");
+            dictionary.setUseFlag(FlagOption.Y);
         } else {
-            dictionary.setUseFlag("N");
+            dictionary.setUseFlag(FlagOption.N);
         }
         dictionaryRepository.save(dictionary);
 

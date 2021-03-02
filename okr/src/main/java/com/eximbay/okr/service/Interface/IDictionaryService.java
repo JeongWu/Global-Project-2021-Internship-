@@ -8,7 +8,7 @@ import com.eximbay.okr.model.dictionary.SelectTypeModel;
 
 public interface IDictionaryService extends ISerivce<DictionaryDto, Integer> {
 
-    SelectTypeModel buidSelectTypeModel();
+    SelectTypeModel buildSelectTypeModel();
 
     void addDictionary(DictionaryAddModel dictionaryAddModel);
 

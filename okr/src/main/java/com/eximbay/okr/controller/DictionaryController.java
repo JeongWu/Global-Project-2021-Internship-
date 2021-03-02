@@ -1,10 +1,8 @@
 package com.eximbay.okr.controller;
 
 import java.util.List;
-import java.util.Optional;
 
-import com.eximbay.okr.dto.CodeGroupDto;
-import com.eximbay.okr.entity.CodeList;
+
 import com.eximbay.okr.entity.Dictionary;
 import com.eximbay.okr.model.dictionary.AllCategoryGroupModel;
 import com.eximbay.okr.model.dictionary.AllCategoryModel;
@@ -14,7 +12,6 @@ import com.eximbay.okr.model.dictionary.DictionaryAddModel;
 import com.eximbay.okr.model.dictionary.DictionaryUpdateModel;
 import com.eximbay.okr.model.dictionary.SelectTypeModel;
 import com.eximbay.okr.repository.DictionaryRepository;
-import com.eximbay.okr.service.Interface.ICodeGroupService;
 import com.eximbay.okr.service.Interface.IDictionaryService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +25,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.eximbay.okr.utils.MapperUtil;
 import lombok.AllArgsConstructor;
@@ -61,11 +57,21 @@ public class DictionaryController {
         return "pages/dictionary/dictionary_list";
     }
 
+    @GetMapping("/keyresult")
+    public String viewAllKeyResult(Model model) {
+
+        SelectTypeModel selectTypeModel = dictionaryService.buildSelectTypeModel();
+
+        model.addAttribute("TypeModel", selectTypeModel);
+     
+        return "pages/dictionary/keyresult_list";
+    }
+
     @GetMapping("/add")
     public String addDictionary(Model model) {
         model.addAttribute("subheader", "Add Dictionary");
 
-        SelectTypeModel selectTypeModel = dictionaryService.buidSelectTypeModel();
+        SelectTypeModel selectTypeModel = dictionaryService.buildSelectTypeModel();
 
         model.addAttribute("TypeModel", selectTypeModel);
 
@@ -91,7 +97,7 @@ public class DictionaryController {
     public String showEditForm(@PathVariable Integer id, Model model) {
         model.addAttribute("subheader", "Edit Dictionary");
 
-        SelectTypeModel selectTypeModel = dictionaryService.buidSelectTypeModel();
+        SelectTypeModel selectTypeModel = dictionaryService.buildSelectTypeModel();
 
         model.addAttribute("TypeModel", selectTypeModel);
 
