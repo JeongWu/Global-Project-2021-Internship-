@@ -2,6 +2,7 @@ package com.eximbay.okr.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import com.eximbay.okr.constant.FlagOption;
 import com.eximbay.okr.dto.CodeGroupDto;
@@ -62,17 +63,18 @@ public class DictionaryService implements IDictionaryService {
         SelectTypeModel selectTypeModel = new SelectTypeModel();
 
         Optional<CodeGroupDto> dictionaryTypeDto = codeGroupService.findByGroupCode("DICTIONARY_TYPE");
-        selectTypeModel.setDictionaryType(dictionaryTypeDto.get().getCodeLists());
+        // dictionaryTypeDto.get().getCodeLists().stream().filter(m->m.getUseFlag().equals(FlagOption.Y)).collect(Collectors.toList());
+        selectTypeModel.setDictionaryType(dictionaryTypeDto.get().getCodeLists().stream().filter(m->m.getUseFlag().equals(FlagOption.Y)).collect(Collectors.toList()));
 
         Optional<CodeGroupDto> dicCategoryDto = codeGroupService.findByGroupCode("DIC_CATEGORY");
-        selectTypeModel.setCategory(dicCategoryDto.get().getCodeLists());
+        selectTypeModel.setCategory(dicCategoryDto.get().getCodeLists().stream().filter(m->m.getUseFlag().equals(FlagOption.Y)).collect(Collectors.toList()));
 
         Optional<CodeGroupDto> dicCategoryGroupDto = codeGroupService.findByGroupCode("DIC_CATEGORY_GROUP");
-        selectTypeModel.setCategoryGroup(dicCategoryGroupDto.get().getCodeLists());
+        selectTypeModel.setCategoryGroup(dicCategoryGroupDto.get().getCodeLists().stream().filter(m->m.getUseFlag().equals(FlagOption.Y)).collect(Collectors.toList()));
 
         Optional<CodeGroupDto> jobTypeDto = codeGroupService.findByGroupCode("JOB_TYPE");
     
-        selectTypeModel.setJobType(jobTypeDto.get().getCodeLists());
+        selectTypeModel.setJobType(jobTypeDto.get().getCodeLists().stream().filter(m->m.getUseFlag().equals(FlagOption.Y)).collect(Collectors.toList()));
  
         // Optional<CodeGroupDto> objectiveLevelDto=
         // codeGroupService.findByGroupCode("OBJECTIVE_LEVEL");
@@ -83,14 +85,14 @@ public class DictionaryService implements IDictionaryService {
         // selectTypeModel.setObjectiveType(objectiveTypeDto.get().getCodeLists());
 
         Optional<CodeGroupDto> positionDto = codeGroupService.findByGroupCode("POSITION");
-        selectTypeModel.setPosition(positionDto.get().getCodeLists());
+        selectTypeModel.setPosition(positionDto.get().getCodeLists().stream().filter(m->m.getUseFlag().equals(FlagOption.Y)).collect(Collectors.toList()));
 
         Optional<CodeGroupDto> taskIndicatorDto = codeGroupService.findByGroupCode("TASK_INDICATOR");
-        selectTypeModel.setTaskIndicator(taskIndicatorDto.get().getCodeLists());
+        selectTypeModel.setTaskIndicator(taskIndicatorDto.get().getCodeLists().stream().filter(m->m.getUseFlag().equals(FlagOption.Y)).collect(Collectors.toList()));
         Optional<CodeGroupDto> taskMetricDto = codeGroupService.findByGroupCode("TASK_METRIC");
-        selectTypeModel.setTaskMetric(taskMetricDto.get().getCodeLists());
+        selectTypeModel.setTaskMetric(taskMetricDto.get().getCodeLists().stream().filter(m->m.getUseFlag().equals(FlagOption.Y)).collect(Collectors.toList()));
         Optional<CodeGroupDto> taskTypeDto = codeGroupService.findByGroupCode("TASK_TYPE");
-        selectTypeModel.setTaskType(taskTypeDto.get().getCodeLists());
+        selectTypeModel.setTaskType(taskTypeDto.get().getCodeLists().stream().filter(m->m.getUseFlag().equals(FlagOption.Y)).collect(Collectors.toList()));
 
         return selectTypeModel;
 
