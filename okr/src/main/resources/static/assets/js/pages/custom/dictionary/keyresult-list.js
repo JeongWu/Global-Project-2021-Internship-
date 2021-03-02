@@ -155,24 +155,14 @@ var KTAppsProjectsListDatatable = (function () {
           overflow: "visible",
           // autoHide: false,
           template: function (data) {
-            var id = data.teamSeq;
+            // var id = data.teamSeq;
             return (
               '\
                     <div class="dropdown dropdown-inline">\
                     <a href="javascript:;" class="btn btn-sm btn-light btn-text-primary btn-icon mr-2" data-toggle="dropdown">\
                     <i class="flaticon-more-1"></i>\
                 </a>\
-                      <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
-                        <ul class="nav nav-hoverable flex-column">\
-                        <li class="nav-item"><a class="nav-link" href="edit/' +
-              id +
-              '"><i class="nav-icon la la-edit"></i><span class="nav-text">Edit Details</span></a></li>\
-                            <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-refresh"></i><span class="nav-text">Change Members</span></a></li>\
-                            <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-cog"></i><span class="nav-text">Set Team Manager</span></a></li>\
-                            <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-eye"></i><span class="nav-text">View History</span></a></li>\
-                        </ul>\
                       </div>\
-                </div>\
                     '
             );
           },
@@ -189,6 +179,7 @@ var KTAppsProjectsListDatatable = (function () {
     });
 
     $("#kt_datatable_search_jobType").on("change", function () {
+
       datatable.search($(this).val().toLowerCase(), "jobType");
     });
 

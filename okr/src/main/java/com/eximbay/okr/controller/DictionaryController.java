@@ -42,17 +42,18 @@ public class DictionaryController {
     @GetMapping
     public String viewAllDictionary(Model model) {
 
-        // To get Dictionary data for search option
-        List<Dictionary> dictionaries = dictionaryRepository.findAll();
-        List<AllDictionaryTypeModel> dictionaryTypes = MapperUtil.mapList(dictionaries, AllDictionaryTypeModel.class);
-        List<AllJobTypeModel> jobTypeModels = MapperUtil.mapList(dictionaries, AllJobTypeModel.class);
-        List<AllCategoryGroupModel> categoryGroupModels = MapperUtil.mapList(dictionaries, AllCategoryGroupModel.class);
-        List<AllCategoryModel> categoryModels = MapperUtil.mapList(dictionaries, AllCategoryModel.class);
-
-        model.addAttribute("dictionaryTypes", dictionaryTypes);
-        model.addAttribute("jobTypeModels", jobTypeModels);
-        model.addAttribute("categoryGroupModels", categoryGroupModels);
-        model.addAttribute("categoryModels", categoryModels);
+         //To get Dictionary data for search option
+         List<Dictionary> dictionaries = dictionaryRepository.findAll();
+         List<AllDictionaryTypeModel> dictionaryTypes = MapperUtil.mapList(dictionaries, AllDictionaryTypeModel.class);
+         List<AllJobTypeModel> jobTypeModels = MapperUtil.mapList(dictionaries, AllJobTypeModel.class);
+         List<AllCategoryGroupModel> categoryGroupModels = MapperUtil.mapList(dictionaries, AllCategoryGroupModel.class);
+         List<AllCategoryModel> categoryModels = MapperUtil.mapList(dictionaries, AllCategoryModel.class);
+ 
+         model.addAttribute("dictionaryTypes", dictionaryTypes);
+         model.addAttribute("jobTypeModels", jobTypeModels);
+         model.addAttribute("categoryGroupModels", categoryGroupModels);
+         model.addAttribute("categoryModels", categoryModels);
+ 
 
         return "pages/dictionary/dictionary_list";
     }
@@ -89,7 +90,7 @@ public class DictionaryController {
             case "saveAndExit":
                 return "redirect:/dictionary";
             default:
-                return "pages/dictionary/dictionary-list";
+                return "redirect:/dictionary";
         }
     }
 

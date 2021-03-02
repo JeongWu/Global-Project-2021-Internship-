@@ -4,7 +4,7 @@
 
 <head>
 	<meta charset="utf-8" />
-    <title>Member List</title>
+    <title>Dictionary List</title>
     <meta name="description" content="Page with empty content" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!--begin::Fonts-->
@@ -60,7 +60,7 @@
 							<!--begin::Toolbar-->
                             <div class="d-flex align-items-center">
                                <!--begin::Button-->
-								<a href="dictionary/add" class="btn btn-fixed-height btn-white btn-hover-primary font-weight-bold px-2 px-lg-5 mr-2">
+								<a href="/add_dictionary" class="btn btn-fixed-height btn-white btn-hover-primary font-weight-bold px-2 px-lg-5 mr-2">
 									<span class="svg-icon svg-icon-success svg-icon-lg">
 									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -129,17 +129,12 @@
 				</div>
 				<div class="col-lg-2 col-xl-2 mt-5 mt-lg-0">
 					<div class="row align-items-center">
-						<div class="col-md-4 my-2 my-md-0">
-							
-						</div>
-						<div class="col-md-8 my-2 my-md-0">
-							
-						</div>
+						<div class="col-md-4 my-2 my-md-0"></div>
+						<div class="col-md-8 my-2 my-md-0"></div>
 					</div>
 				</div>
 			</div>
 		</div>
-
 			<div class="mb-7">
 				<div class="row align-items-center">
 					<div class="col-lg-10 col-xl-10">
@@ -149,17 +144,16 @@
 									<select class="form-control datatable-input" id="kt_datatable_search_type">
 										<option value="">All</option>
                                         <option th:each="dictionaryTypes, diviStat :${dictionaryTypes}"
-                                        th:value="${dictionaryTypes.dictionaryType}" th:text="${dictionaryTypes.dictionaryType}"></option>
+                                        th:text="${dictionaryTypes.dictionaryType}"></option>
 									</select>
 								</div>
 							</div>
-
 							<div class="col-md-2 my-2 my-md-0">
 								<div class="d-flex align-items-center">
 									<select class="form-control datatable-input" id="kt_datatable_search_job">
 										<option value="">All</option>
 										<option th:each="jobTypeModels, diviStat :${jobTypeModels}"
-                                        th:value="${jobTypeModels.jobType}" th:text="${jobTypeModels.jobType}"></option>
+                                       th:text="${jobTypeModels.jobType}"></option>
 									</select>
 								</div>
 							</div>
@@ -168,8 +162,7 @@
 									<select class="form-control datatable-input" id="kt_datatable_search_categorygroup">
 										<option value="">All</option>
 										<option th:each="categoryGroupModels, diviStat :${categoryGroupModels}"
-                                        th:value="${categoryGroupModels.categoryGroup}" th:text="${categoryGroupModels.categoryGroup}"></option>
-									
+                                         th:text="${categoryGroupModels.categoryGroup}"></option>
 									</select>
 								</div>
 							</div>
@@ -178,8 +171,7 @@
 									<select class="form-control datatable-input" id="kt_datatable_search_category">
 										<option value="">All</option>
 										<option th:each="categoryModels, diviStat :${categoryModels}"
-                                        th:value="${categoryModels.category}" th:text="${categoryModels.category}"></option>
-									
+                                         th:text="${categoryModels.category}"></option>
 									</select>
 								</div>
 							</div>
@@ -189,7 +181,6 @@
 										<option value="">All</option>
 										<option value="Y">Y</option>
 										<option value="N">N</option>
-									
 									</select>
 								</div>
 							</div>
@@ -205,7 +196,6 @@
 							<div class="col-md-6 my-2 my-md-0">
 								<button class="btn btn-light-primary px-6 font-weight-bold" id="kt_reset">
 									<span>
-										
 										<span>Reset</span>
 									</span>
 								</button>

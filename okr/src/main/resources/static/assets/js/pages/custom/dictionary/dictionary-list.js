@@ -13,7 +13,7 @@ var KTDefaultDatatableDemo = function() {
                 type: 'remote',
                 source: {
                     read : {
-                        url : '/api/dictionary/datatables',
+						url : '/api/dictionary/datatables',
                     }
                 },
                 pageSize: 10,
@@ -46,7 +46,7 @@ var KTDefaultDatatableDemo = function() {
 					field: 'dictionaryType',
 					title: 'Type',	
                     textAlign: 'center',
-					width: 50
+					width: 70
 
 				},{
 					field: 'jobType',
@@ -104,7 +104,7 @@ var KTDefaultDatatableDemo = function() {
 	                            </button>\
 							  	<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
 									<ul class="nav nav-hoverable flex-column">\
-							    		<li class="nav-item"><a class="nav-link" href="/dictionary/edit/'+dictionarySeq+'"><i class="nav-icon la la-edit"></i><span class="nav-text">Edit Dictionary</span></a></li>\
+							    		<li class="nav-item"><a class="nav-link" href="/edit-dictionary/'+dictionarySeq+'"><i class="nav-icon la la-edit"></i><span class="nav-text">Edit Dictionary</span></a></li>\
 									\
 									</ul>\
 							  	</div>\
