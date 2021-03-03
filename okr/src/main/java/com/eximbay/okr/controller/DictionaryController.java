@@ -65,7 +65,16 @@ public class DictionaryController {
 
         model.addAttribute("TypeModel", selectTypeModel);
      
-        return "pages/dictionary/keyresult_list";
+        return "pages/dictionary/keyresult";
+    }
+    @GetMapping("/test")
+    public String test(Model model) {
+
+        SelectTypeModel selectTypeModel = dictionaryService.buildSelectTypeModel();
+
+        model.addAttribute("TypeModel", selectTypeModel);
+     
+        return "pages/dictionary/test";
     }
 
     @GetMapping("/add")

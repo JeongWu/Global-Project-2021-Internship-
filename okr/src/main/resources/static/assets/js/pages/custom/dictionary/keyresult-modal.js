@@ -191,8 +191,7 @@ var KTAppsProjectsListDatatable = (function () {
     // });
 
     $(
-      "#kt_datatable_search_division, #kt_datatable_search_type",
-      "#kt_datatable_search_active"
+      "#kt_datatable_search_sentence, #kt_datatable_search_jobType",
     ).selectpicker();
 
     //search button-not neccessary(search directly in the view)
