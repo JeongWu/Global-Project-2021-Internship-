@@ -1,16 +1,10 @@
 "use strict";
-// Class definition
+
 
 var KTDatatableModal = (function () {
-  var initDatatable = function () {
-    $("#modal-button").on("click", function () {
-      console.log("modal button click");
-      initSubDatatable();
-      $("#kt_datatable_modal").modal("show");
-    });
-  };
 
   var initSubDatatable = function () {
+
     var el = $("#kt_datatable_sub");
     var datatable = el.KTDatatable({
       data: {
@@ -118,7 +112,7 @@ var KTDatatableModal = (function () {
       ],
     });
 
-    var modal = datatable.closest(".modal");
+    var modal = $('#kt_datatable_modal');
 
     $("#kt_datatable_search_sentence").on("change keyup paste", function () {
       datatable.search($(this).val().toLowerCase(), "sentence");
@@ -143,28 +137,30 @@ var KTDatatableModal = (function () {
       });
     });
 
-    // fix datatable layout after modal shown
-    datatable.hide();
-    modal
-      .on("shown.bs.modal", function () {
-        var modalContent = $(this).find(".modal-content");
-        datatable.spinnerCallback(true, modalContent);
-        datatable.spinnerCallback(false, modalContent);
-      })
-      .on("hidden.bs.modal", function () {
-        el.KTDatatable("destroy");
-      });
+     // fix datatable layout after modal shown
+     datatable.hide();
+     var alreadyReloaded = false;
+     modal.on('shown.bs.modal', function() {
+         if (!alreadyReloaded) {
+             var modalContent = $(this).find('.modal-content');
+             datatable.spinnerCallback(true, modalContent);
 
-    datatable.on("datatable-on-layout-updated", function () {
-      datatable.show();
-      datatable.redraw();
-    });
+             datatable.reload();
+
+             datatable.on('datatable-on-layout-updated', function() {
+                 datatable.show();
+                 datatable.spinnerCallback(false, modalContent);
+                 datatable.redraw();
+             });
+
+             alreadyReloaded = true;
+         }
+     });
   };
 
   return {
-    // public functions
     init: function () {
-      initDatatable();
+    initSubDatatable();
     },
   };
 })();

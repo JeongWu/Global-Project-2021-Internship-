@@ -10,7 +10,7 @@
 <body>
 
     <div layout:fragment="content" class="container">
-        <button id="modal-button" class="btn btn-sm btn-clean" title="View records">
+        <button id="modal-button" class="btn btn-sm btn-clean" title="View records"  data-toggle="modal"  data-target="#kt_datatable_modal">
             <i class="flaticon2-document"></i> Details
         </button>
 
@@ -72,16 +72,13 @@
                         </div>
                         <!--end::Search Form-->
 
+                        <div class="mb-5">
                         <!--begin: Datatable-->
                         <div class="datatable datatable-bordered datatable-head-custom" id="kt_datatable_sub"></div>
                         <!--end: Datatable-->
-
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light-primary font-weight-bold text-uppercase"
-                            data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary font-weight-bold text-uppercase">Submit</button>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -89,7 +86,7 @@
     </div>
 </body>
 <th:block layout:fragment="script">
-    <script th:src="@{/assets/js/pages/custom/dictionary/test.js?v=7.0.6}"></script>
+    <script th:src="@{/assets/js/pages/custom/dictionary/keyresult.js?v=7.0.6}"></script>
 </th:block>
 
 </html>

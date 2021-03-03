@@ -74,7 +74,7 @@ public class DictionaryController {
 
         model.addAttribute("TypeModel", selectTypeModel);
      
-        return "pages/dictionary/test";
+        return "pages/dictionary/keyresult-modal";
     }
 
     @GetMapping("/add")
