@@ -67,15 +67,7 @@ public class DictionaryController {
      
         return "pages/dictionary/keyresult";
     }
-    @GetMapping("/test")
-    public String test(Model model) {
 
-        SelectTypeModel selectTypeModel = dictionaryService.buildSelectTypeModel();
-
-        model.addAttribute("TypeModel", selectTypeModel);
-     
-        return "pages/dictionary/keyresult-modal";
-    }
 
     @GetMapping("/add")
     public String addDictionary(Model model) {

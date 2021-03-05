@@ -49,3 +49,4 @@ function getImagesUrl(path, prefix){
 function applyRedTextToSpan(text){
     return `<span style="color: red">${text}</span>`
 }
+
