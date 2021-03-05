@@ -77,7 +77,8 @@
 												required th:field="*{dictionaryType}">
 												<option value="">Choose...</option>
 												<th:block th:each="codeList: ${TypeModel.dictionaryType}">
-													<option th:value="${codeList.codeName}" th:text="${codeList.codeName}"></option>
+													<option th:value="${codeList.codeListId.code}"
+														th:text="${codeList.codeName}"></option>
 												</th:block>
 											</select>
 										</div>
@@ -88,7 +89,8 @@
 												th:field="*{jobType}">
 												<option value="">Choose...</option>
 												<th:block th:each="codeList: ${TypeModel.jobType}">
-													<option th:value="${codeList.codeName}" th:text="${codeList.codeName}"></option>
+													<option th:value="${codeList.codeListId.code}"
+														th:text="${codeList.codeName}"></option>
 												</th:block>
 												<!-- <option value="GENERAL">일반</option> -->
 											</select>
@@ -120,7 +122,8 @@
 												th:field="*{taskType}">
 												<option value="">Choose...</option>
 												<th:block th:each="codeList: ${TypeModel.taskType}">
-													<option th:value="${codeList.codeName}" th:text="${codeList.codeName}"></option>
+													<option th:value="${codeList.codeListId.code}"
+													th:text="${codeList.codeName}"></option>
 												</th:block>
 												<!-- <option value="QUANTITATIVE">적량적</option>
 												<option value="QUALITATIVE">정성적</option> -->
@@ -133,7 +136,8 @@
 												th:field="*{taskMetric}">
 												<option value="">Choose...</option>
 												<th:block th:each="codeList: ${TypeModel.taskMetric}">
-													<option th:value="${codeList.codeName}" th:text="${codeList.codeName}"></option>
+													<option th:value="${codeList.codeListId.code}"
+													th:text="${codeList.codeName}"></option>
 												</th:block>
 												<!-- <option value="UPWARD">상향</option>
 												<option value="DOWNWARD">하향</option> -->
@@ -152,7 +156,8 @@
                                                 th:field="*{categoryGroup}">
                                                 <option value="">Choose...</option>
 												<th:block th:each="codeList: ${TypeModel.categoryGroup}">
-													<option th:value="${codeList.codeName}" th:text="${codeList.codeName}"></option>
+													<option th:value="${codeList.codeListId.code}"
+														th:text="${codeList.codeName}"></option>
 												</th:block>
                                                 <!-- <option value="QUANTITATIVE">적량적</option>
                                                 <option value="QUALITATIVE">정성적</option> -->
@@ -164,7 +169,8 @@
                                                 th:field="*{category}">
                                                 <option value="">Choose...</option>
 												<th:block th:each="codeList: ${TypeModel.category}">
-													<option th:value="${codeList.codeName}" th:text="${codeList.codeName}"></option>
+													<option th:value="${codeList.codeListId.code}"
+														th:text="${codeList.codeName}"></option>
 												</th:block>
                                                 <!-- <option value="UPWARD">상향</option>
                                                 <option value="DOWNWARD">하향</option> -->
@@ -183,7 +189,8 @@
 												th:field="*{taskIndicator}">
 												<option value="">Choose...</option>
 												<th:block th:each="codeList: ${TypeModel.taskIndicator}">
-													<option th:value="${codeList.codeName}" th:text="${codeList.codeName}"></option>
+													<option th:value="${codeList.codeListId.code}"
+														th:text="${codeList.codeName}"></option>
 												</th:block>
 												<!-- <option value="PERCENTAGE">%</option>
 												<option value="AMOUNT">원</option>
@@ -240,13 +247,13 @@
 			$("#dictionaryType").change(function () {
 
 				var type = $("#dictionaryType option:selected").val();
-				if (type == "핵심결과") {
+				if (type == "KEY_RESULT") {
 					$(".form2").attr("hidden", true);
 					$(".general,.form1").attr("hidden", false);
 					// $(".form2").hide();
 					// $(".general").show();
 					// $(".form1").show();
-				} else if (type == "역량") {
+				} else if (type == "COMPETENCE") {
 					$(".form1").attr("hidden", true);
 					$(".general,.form2").attr("hidden", false);
 

@@ -10,27 +10,48 @@
 <body>
 
     <div layout:fragment="content" class="container">
-        <button id="modal-button" class="btn btn-sm btn-clean" title="View records" data-toggle="modal" data-target="#kt_datatable_modal_keyresult">
+        <button id="modal-button" class="btn btn-sm btn-clean" title="View records" data-toggle="modal"
+            data-target="#kt_datatable_modal_keyresult">
             <i class="flaticon2-document"></i> Details(click for modal)
         </button>
-        <hr/>
+        <hr />
         <h6>Test adding to key result</h6>
         <form class="col-5 pt-2 form">
             <!--begin::Form group-->
             <div class="form-group">
-                <label >Key Result</label>
-                <input class="form-control" type="text" id="sentence" />
+                <label>Key Result</label>
+                <input class="key-result form-control" type="text"/>
             </div>
             <!--end::Form group-->
 
-           <!--begin::Form group-->
-           <div class="form-group">
-            <label>Properties</label>
-            <input class="form-control" type="text" id="taskType"/>
+            <!--begin::Form group-->
+            <div class="form-group">
+                <label>Properties</label>
+
+                <select class="custom-select col mr-2 task-type">
+                    <option selected="selected" value="">Task Type</option>
+                    <th:block th:each="codeList: ${TypeModel.taskType}">
+                        <option th:value="${codeList.codeListId.code}" th:text="${codeList.codeName}"></option>
+                    </th:block>
+                </select>
+                <select class="custom-select col mr-2 task-metric">
+                    <option selected="selected" value="">Task Metric</option>
+                    <th:block th:each="codeList: ${TypeModel.taskMetric}">
+                        <option th:value="${codeList.codeListId.code}" th:text="${codeList.codeName}"></option>
+                    </th:block>
+                </select>
+                <select class="custom-select col mr-2 task-indicator">
+                    <option selected="selected" value="">Task Indicator</option>
+                    <th:block th:each="codeList: ${TypeModel.taskIndicator}">
+                        <option th:value="${codeList.codeListId.code}" th:text="${codeList.codeName}"></option>
+                    </th:block>
+                </select>
+
+            <!-- <input class="form-control" type="text" id="taskType"/>
             <input class="form-control" type="text" id="taskMetric"/>
-            <input class="form-control" type="text" id="taskIndicator"/>
-        </div>
-        <!--end::Form group-->
+            <input class="form-control" type="text" id="taskIndicator"/> -->
+            </div>
+            <!--end::Form group-->
         </form>
 
         <!--begin::Modal-->
