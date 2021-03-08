@@ -100,6 +100,11 @@
             <version>5.4.27.Final</version>
             <scope>provided</scope>
         </dependency>
+		 <dependency>
+            <groupId>com.github.darrachequesne</groupId>
+            <artifactId>spring-data-jpa-datatables</artifactId>
+            <version>5.0.0</version>
+        </dependency>
 	</dependencies>
 
 	<build>

@@ -16,5 +16,6 @@ public interface ITeamMemberService extends ISerivce <TeamMemberDto, TeamMemberI
     List<MemberDto> findActiveMembersOfTeam(TeamDto teamDtos);
     List<TeamDto> addLeaderToTeamList(List<TeamDto> teams);
     Page<TeamWithMembersAndLeaderDto> addMembersAndLeader(Page<Team> teams);
+    List<TeamMemberDto> findSearchBelong(MemberDto memberDto);
 
 }
