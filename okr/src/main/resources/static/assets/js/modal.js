@@ -1,4 +1,5 @@
 var KTDatatableModalForKeyResult = (function () {
+ 
   var initSubDatatable = function () {
     var el = $("#kt_datatable_sub");
     var datatable = el.KTDatatable({
@@ -199,6 +200,8 @@ var KTDatatableModalForKeyResult = (function () {
       });
     });
 
+   
+
     // fix datatable layout after modal shown
     datatable.hide();
     var alreadyReloaded = false;
@@ -216,14 +219,25 @@ var KTDatatableModalForKeyResult = (function () {
             "click",
             ".selectButton",
             function (e) {
+              var index=localStorage.getItem("index");
+              console.log("index")
+              console.log(index)
               // console.log(e.currentTarget.dataset.sentence);
               // console.log(e.currentTarget.dataset.tasktype);
               // console.log(e.currentTarget.dataset.taskmetric);
               // console.log(e.currentTarget.dataset.taskindicator);
-              $(".key-result").val(e.currentTarget.dataset.sentence);
-              $(".task-type").val(e.currentTarget.dataset.tasktype);
-              $(".task-metric").val(e.currentTarget.dataset.taskmetric);
-              $(".task-indicator").val(e.currentTarget.dataset.taskindicator);
+              $('.key-result:eq('+index+')').val(e.currentTarget.dataset.sentence);
+              $('.task-type:eq('+index+')').val(e.currentTarget.dataset.tasktype);
+              $('.task-metric:eq('+index+')').val(e.currentTarget.dataset.taskmetric);
+              $('.task-indicator:eq('+index+')').val(e.currentTarget.dataset.taskindicator);
+            
+              // $('.key-result[data-index="'+index+'"]').val(e.currentTarget.dataset.sentence);
+              // $('.task-type[data-index="'+index+'"]').val(e.currentTarget.dataset.tasktype);
+              // $('.task-metric[data-index="'+index+'"]').val(e.currentTarget.dataset.taskmetric);
+              // $('.task-indicator[data-index="'+index+'"]').val(e.currentTarget.dataset.taskindicator);
+      
+
+              
             }
           );
 
@@ -238,8 +252,8 @@ var KTDatatableModalForKeyResult = (function () {
   };
 
   return {
-    init: function () {
-      initSubDatatable();
+    init: function (index) {
+      initSubDatatable(index);
     },
   };
 })();

@@ -107,7 +107,10 @@ public class MemberController {
             MemberDto dto = memberService.findById(id)
             .orElseThrow(()-> new NullPointerException("Null"));
             model.addAttribute("member", dto);
+            System.out.println(dto);
+
             model.addAttribute("team", teamMemberService.findSearchBelong(dto));
+            System.out.println(teamMemberService.findSearchBelong(dto));
             return "pages/members/member_edit";
         }
 

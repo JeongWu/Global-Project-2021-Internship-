@@ -33,16 +33,16 @@ public class Objective extends AbstractAuditable {
     @Column(name = "END_DATE", length = 8, nullable = false)
     private String endDate;
 
-    @Column(name = "OBJECTIVE_LEVEL", length = 10, nullable = false)
-    private String objectiveLevel;
+    // @Column(name = "OBJECTIVE_LEVEL", length = 10, nullable = false)
+    // private String objectiveLevel;
 
-    @ManyToOne
-    @JoinColumn(name = "COMPANY_SEQ")
-    private Company company;
+    // @ManyToOne
+    // @JoinColumn(name = "COMPANY_SEQ")
+    // private Company company;
 
-    @ManyToOne
-    @JoinColumn(name = "DIVISION_SEQ")
-    private Division division;
+    // @ManyToOne
+    // @JoinColumn(name = "DIVISION_SEQ")
+    // private Division division;
 
     @ManyToOne
     @JoinColumn(name = "TEAM_SEQ")
