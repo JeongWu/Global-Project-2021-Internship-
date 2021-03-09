@@ -157,7 +157,7 @@ var KTDatatableModalForKeyResult = (function () {
               '" data-taskIndicator="' +
               data.taskIndicator +
               '" data-toggle="modal"  data-target="#kt_datatable_modal_keyresult">\
-                      <i class="flaticon2-check-mark"></i>\
+                      <i class="la la-spell-check"></i>\
                   </button>\
                       '
             );
