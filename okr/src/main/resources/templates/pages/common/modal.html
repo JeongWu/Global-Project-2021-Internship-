@@ -27,10 +27,7 @@
                                     <select class="form-control datatable-input"
                                         id="kt_datatable_search_jobType" name="jobType">
                                         <option value="">Choose...</option>
-                                        <th:block th:each="codeList: ${TypeModel.jobType}">
-                                            <option th:value="${codeList.codeName}"
-                                                th:text="${codeList.codeName}"></option>
-                                        </th:block>
+                                       
                                     </select>
                                 </div>
                                 <div class="col-md-8 my-2 my-md-0">

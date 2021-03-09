@@ -8,6 +8,24 @@ var KTDatatableModalForKeyResult = (function () {
         source: {
           read: {
             url: "/api/dictionary/keyResult/datatables",
+            map: function (raw) {
+              var dataSet = raw;
+
+              if (typeof raw.data !== "undefined") {
+                dataSet = raw.data;
+              }
+              console.log(dataSet);
+              var data = dataSet.map((i) => i.jobTypeCodeName);
+              var list = new Set(data);
+              list.forEach(function (d) {
+                $('#kt_datatable_search_jobType').append(
+                  '<option value="' + d + '">' + d + "</option>"
+                );
+              });
+              $("#kt_datatable_search_jobType").selectpicker();
+
+              return dataSet;
+            },
           },
         },
         pageSize: 10, // display 20 records per page
@@ -176,7 +194,7 @@ var KTDatatableModalForKeyResult = (function () {
       datatable.search($(this).val().toLowerCase(), "jobTypeCodeName");
     });
 
-    $("#kt_datatable_search_jobType").selectpicker();
+
 
     $("#kt_search").on("click", function (e) {
       e.preventDefault();
