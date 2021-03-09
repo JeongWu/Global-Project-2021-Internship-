@@ -18,6 +18,7 @@ import ma.glasnost.orika.MapperFacade;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -33,15 +34,12 @@ public class DictionaryAPI {
     private final DictionaryQuery dictionaryQuery;
 
 
-    @ResponseBody
-    @RequestMapping("/datatables")
+    @PostMapping("/datatables")
     public List<DictionaryDto> getDictionaryData() {
-        List<Dictionary> dictionaries = dictionaryRepository.findAll();
-        List<DictionaryDto> dictionaryList = MapperUtil.mapList(dictionaries, DictionaryDto.class);
-        return dictionaryList;
+         List<DictionaryDto> dictionaries = dictionaryService.findAll();
+        return dictionaries;
     }
 
-    @ResponseBody
     @RequestMapping("/keyResult/datatables")
     public List<DictionaryViewModel> getDictionaryOfKeyResult() {
        

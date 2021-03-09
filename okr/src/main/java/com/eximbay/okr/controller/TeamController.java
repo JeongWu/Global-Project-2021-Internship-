@@ -64,7 +64,8 @@ public class TeamController {
 		return "pages/teams/edit-teams";
 	}
 
-    @RequestMapping(value = "/view/save", method = RequestMethod.POST)
+    // @RequestMapping(value = "/view/save", method = RequestMethod.POST)
+    @PostMapping("/view/save")
     public String update(@Validated AllTeamUpdateModel req, BindingResult error) {
 
         if (error.hasErrors())
@@ -74,7 +75,7 @@ public class TeamController {
         return "redirect:/teams";
     }
 
-    @RequestMapping("/list")
+    @GetMapping("/list")
     public String viewTeamList(Model model) {
         // model.addAttribute("teamType",TeamType.values());
         TeamListPageModel pageModel = new TeamListPageModel();
