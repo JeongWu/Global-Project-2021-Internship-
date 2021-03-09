@@ -149,8 +149,8 @@ public class TeamServiceImpl implements ITeamService {
     @Override
     public List<TeamListTableModel> buildListTableModel() {
         List<Team> teams = teamRepository.findAll();
-        // List<TeamDto> teamDtos = mapper.mapAsList(teams, TeamDto.class);
         List<TeamListTableModel> teamListModels = mapper.mapAsList(teams, TeamListTableModel.class);
+        // List<TeamDto> teamDtos = mapper.mapAsList(teams, TeamDto.class);
 
         for (int i = 0; i < teamListModels.size(); i++) {
             List<TeamMemberDto> teamMemberDtos = mapper.mapAsList(teams.get(i).getTeamMembers(), TeamMemberDto.class);
@@ -161,6 +161,7 @@ public class TeamServiceImpl implements ITeamService {
             List<Member> members = teamMemberService.findCurrentlyValid(teamMemberDtos).stream()
                     .map(m -> m.getTeamMemberId().getMember()).distinct().collect(Collectors.toList());
             teamListModels.get(i).setMembers(mapper.mapAsList(members, MemberDto.class));
+
             // List<MemberDto> memberDtos = teamMemberService.findActiveMembersOfTeam(teamDtos.get(i));
             // teamListModels.get(i).setMembers(memberDtos);
 
