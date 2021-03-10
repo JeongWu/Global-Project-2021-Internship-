@@ -1,266 +1,332 @@
 "use strict";
 // Class definition
 
-var KTDefaultDatatableDemo = function() {
-	// Private functions
+var KTDefaultDatatableDemo = (function () {
+  // Private functions
 
-	var demo = function() {
+  var demo = function () {
+    var options = {
+      data: {
+        type: "remote",
+        source: {
+          read: {
+            url: "get-member-data",
+          },
+        },
+        pageSize: 10,
+      },
 
-		var options = {
-			
-			data: {
-                type: 'remote',
-                source: {
-                    read : {
-                        url : 'get-member-data',
-                    }
-                },
-                pageSize: 10,
-            },
-	
+      // // layout definition
+      // layout: {
+      // 	scroll: true, // enable/disable datatable scroll both horizontal and vertical when needed.
+      // 	height: 550, // datatable's body's fixed height
+      // 	footer: false, // display/hide footer
+      // },
 
-			// layout definition
-			layout: {
-				scroll: true, // enable/disable datatable scroll both horizontal and vertical when needed.
-				height: 550, // datatable's body's fixed height
-				footer: false, // display/hide footer
-			},
+      // column sorting
+      sortable: true,
 
-			// column sorting
-			sortable: true,
+      pagination: true,
 
-			pagination: true,
+      search: {
+        input: $("#kt_datatable_search_query"),
+        key: "generalSearch",
+      },
 
-			search: {
-				input: $('#kt_datatable_search_query'), 
-				key: 'generalSearch'
-			},
+      // columns definition
+      columns: [
+        {
+          field: "memberSeq",
+          title: "#",
+          width: 30,
+        },
+        {
+          field: "name",
+          title: "Member",
+          width: 100,
+          template: function (data) {
+            var output = "";
+            var stateNo = KTUtil.getRandomInt(0, 7);
+            var states = [
+              "success",
+              "primary",
+              "danger",
+              "success",
+              "warning",
+              "dark",
+              "primary",
+              "info",
+            ];
+            var state = states[stateNo];
 
-			// columns definition
-			columns: [
-				 {
-					field: 'memberSeq',
-					title: '#',
-					width: 30,
-				}, {
-					field: 'name',
-					title: 'Member',	
-					width: 100,
-					template: function (data) {
-					  var output = "";
-					  var stateNo = KTUtil.getRandomInt(0, 7);
-					  var states = [
-						"success",
-						"primary",
-						"danger",
-						"success",
-						"warning",
-						"dark",
-						"primary",
-						"info",
-					  ];
-					  var state = states[stateNo];
-		  
-					  output =
-						'<div class="d-flex align-items-center">\
+            output =
+              '<div class="d-flex align-items-center">\
 								  <div class="symbol symbol-40 symbol-' +
-						state +
-						' flex-shrink-0">\
+              state +
+              ' flex-shrink-0">\
 									  <div class="symbol-label">' +
-						data.name.substring(0, 1) +
-						'</div>\
+              data.name.substring(0, 1) +
+              '</div>\
 								  </div>\
 								  <div class="ml-2">\
-										  <h7 class="font-weight-bold mb-3">' + data.name + "</h7> </div>\
+										  <h7 class="font-weight-bold mb-3">' +
+              data.name +
+              "</h7> </div>\
 								  </div>\
 							  </div>";
 
-					  return output;
-					},
-
-				},{
-					field: 'position',
-					title: 'Position',
-					width: 70,
-					textAlign: 'center',
-					template: function (row){
-						var output = '';
-						var memberPosition = row.position;
-						output =
-						'<div class="align-items-center">\
-								<h7>' + memberPosition + "</h7> </div>\
+            return output;
+          },
+        },
+        {
+          field: "position",
+          title: "Position",
+          width: 70,
+          textAlign: "center",
+          template: function (row) {
+            var output = "";
+            var memberPosition = row.position;
+            output =
+              '<div class="align-items-center">\
+								<h7>' +
+              memberPosition +
+              "</h7> </div>\
 						</div>";
-						return output;
-					}
-				},
-			
-				 {
-					field: 'teamName',
-					title: 'Belong To',
-					width: 200,
-					textAlign: 'center',
-					template: function(row){
-						var output = '';
-						var temp= '';
-						var arrName = [];
-						var arrImage = [];
-						var columnTotal = row.teamMembers.length;
-				
-						var states = ['success','primary','danger','success','warning','dark','primary','info'];
-						
+            return output;
+          },
+        },
 
-						for (let i = 0; i<columnTotal; i++){
-							var teamMembers = row.teamMembers[i].teamMemberId.team
-								temp = teamMembers.name;
-								arrName.push(temp);
-						}
+        {
+          field: "teamName",
+          title: "Belong To",
+          width: 200,
+          textAlign: "center",
+          template: function (row) {
+            var output = "";
+            var temp = "";
+            var arrName = [];
+            var arrImage = [];
+            var columnTotal = row.teamMembers.length;
 
-						for (let i = 0; i<columnTotal; i++){
-							var teamMembers = row.teamMembers[i].teamMemberId.team
-								temp = teamMembers.image;
-								arrImage.push(temp);
-						}
+            var states = [
+              "success",
+              "primary",
+              "danger",
+              "success",
+              "warning",
+              "dark",
+              "primary",
+              "info",
+            ];
 
-						output =
-						'<div class="d-flex align-items-center">\
+            for (let i = 0; i < columnTotal; i++) {
+              var teamMembers = row.teamMembers[i].teamMemberId.team;
+              temp = teamMembers.name;
+              arrName.push(temp);
+            }
+
+            for (let i = 0; i < columnTotal; i++) {
+              var teamMembers = row.teamMembers[i].teamMemberId.team;
+              temp = teamMembers.image;
+              arrImage.push(temp);
+            }
+
+            output =
+              '<div class="d-flex align-items-center">\
 							<div class="symbol-group symbol-hover">';
 
-						if (columnTotal < 3 ){
-							for (let i = 0; i < columnTotal; i++){
-								if(arrImage[i] == null){
-									var stateNo = KTUtil.getRandomInt(0, 7);
-									var state = states[stateNo];
-									output += 
-										'<div class="symbol symbol-40 symbol-circle symbol-light-'+state+' data-toggle="tooltip" title="'+arrName[i] +'" >\
-										<a href="/team?id='+arrName[i]+'">\
-										<span class="symbol-label font-size-h4">' + arrName[i].substring(0, 1) + '</span>\
+            if (columnTotal < 3) {
+              for (let i = 0; i < columnTotal; i++) {
+                if (arrImage[i] == null) {
+                  var stateNo = KTUtil.getRandomInt(0, 7);
+                  var state = states[stateNo];
+                  output +=
+                    '<div class="symbol symbol-40 symbol-circle symbol-light-' +
+                    state +
+                    ' data-toggle="tooltip" title="' +
+                    arrName[i] +
+                    '" >\
+										<a href="/team?id=' +
+                    arrName[i] +
+                    '">\
+										<span class="symbol-label font-size-h4">' +
+                    arrName[i].substring(0, 1) +
+                    "</span>\
 										</a>\
-										</div>';
-								}
-								else{
-
-									output +='<a href="/team?id='+arrName[i]+'">\
-											<div class="symbol symbol-40 symbol-circle" data-toggle="tooltip" title="' +arrName[i] +'">\
-													<img class="" src="/assets/media/image/' + arrImage[i] +'.jpg" alt="photo">\
+										</div>";
+                } else {
+                  output +=
+                    '<a href="/team?id=' +
+                    arrName[i] +
+                    '">\
+											<div class="symbol symbol-40 symbol-circle" data-toggle="tooltip" title="' +
+                    arrName[i] +
+                    '">\
+													<img class="" src="/assets/media/image/' +
+                    arrImage[i] +
+                    '.jpg" alt="photo">\
 											</div>\
 											</a>';
-								}
-							}
-						}
-						else {
-								for (let i = 0; i < 3; i++){
-									if(arrImage[i] == null){
-										var stateNo = KTUtil.getRandomInt(0, 7);
-										var state = states[stateNo];
-											output += 
-											'<div class="symbol symbol-40 symbol-circle symbol-light-'+state+' data-toggle="tooltip" title="'+arrName[i] +'" >\
-											<a href="/team?id='+arrName[i]+'">\
-											<span class="symbol-label font-size-h4">' + arrName[i].substring(0, 1) + '</span>\
+                }
+              }
+            } else {
+              for (let i = 0; i < 3; i++) {
+                if (arrImage[i] == null) {
+                  var stateNo = KTUtil.getRandomInt(0, 7);
+                  var state = states[stateNo];
+                  output +=
+                    '<div class="symbol symbol-40 symbol-circle symbol-light-' +
+                    state +
+                    ' data-toggle="tooltip" title="' +
+                    arrName[i] +
+                    '" >\
+											<a href="/team?id=' +
+                    arrName[i] +
+                    '">\
+											<span class="symbol-label font-size-h4">' +
+                    arrName[i].substring(0, 1) +
+                    "</span>\
 											</a>\
-											</div>';
-									}
-									else{
-										output +='<a href="/team?id='+arrName[i]+'">\
-										<div class="symbol symbol-40 symbol-circle" data-toggle="tooltip" title="' +arrName[i] +'">\
-												<img class="" src="/assets/media/image/' + arrImage[i] +'.jpg" alt="photo">\
+											</div>";
+                } else {
+                  output +=
+                    '<a href="/team?id=' +
+                    arrName[i] +
+                    '">\
+										<div class="symbol symbol-40 symbol-circle" data-toggle="tooltip" title="' +
+                    arrName[i] +
+                    '">\
+												<img class="" src="/assets/media/image/' +
+                    arrImage[i] +
+                    '.jpg" alt="photo">\
 										</div>\
 										</a>';
-									}
-								}
-								output +='<div class="dropdown">\
+                }
+              }
+              output +=
+                '<div class="dropdown">\
 								<button class="symbol symbol-40 symbol-circle symbol-light btn btn-sm" data-toggle="dropdown">\
-									<span class="symbol-label font-weight-bold"> +' +(arrName.length - 3)+'</span>\
+									<span class="symbol-label font-weight-bold"> +' +
+                (arrName.length - 3) +
+                '</span>\
 								</button>\
 								<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
 													<ul class="nav nav-hoverable flex-column">';
 
-								for (let i = 3; i <columnTotal; i++){
-									if(arrImage[i] == null){
-										var stateNo = KTUtil.getRandomInt(0, 7);
-										var state = states[stateNo];
-										output += '<li class="nav-item">\
-														<a class="nav-link" href="/team?id='+arrName[i]+'">\
-															<div class="symbol symbol-40 symbol-circle symbol-light-'+state+' data-toggle="tooltip" title="'+arrName[i] +'" >\
-															<span class="symbol-label font-size-h4">'+ arrName[i].substring(0, 1) +'</span>\
+              for (let i = 3; i < columnTotal; i++) {
+                if (arrImage[i] == null) {
+                  var stateNo = KTUtil.getRandomInt(0, 7);
+                  var state = states[stateNo];
+                  output +=
+                    '<li class="nav-item">\
+														<a class="nav-link" href="/team?id=' +
+                    arrName[i] +
+                    '">\
+															<div class="symbol symbol-40 symbol-circle symbol-light-' +
+                    state +
+                    ' data-toggle="tooltip" title="' +
+                    arrName[i] +
+                    '" >\
+															<span class="symbol-label font-size-h4">' +
+                    arrName[i].substring(0, 1) +
+                    '</span>\
 															</div>\
-															<span class="nav-text">'+arrName[i]+'</span>\
+															<span class="nav-text">' +
+                    arrName[i] +
+                    "</span>\
 														</a>\
-													</li>';
-									}
-									else{
-										output +='<li class="nav-link">\
+													</li>";
+                } else {
+                  output +=
+                    '<li class="nav-link">\
 													<div class="symbol symbol-40 symbol-circle" >\
-														<img src="/assets/media/image/' + arrImage[i] +'.jpg" alt="photo">\
+														<img src="/assets/media/image/' +
+                    arrImage[i] +
+                    '.jpg" alt="photo">\
 													</div> &nbsp &nbsp\
-													<a class="" href="/team?id='+arrName[i]+'">\
-															<span class="nav-text">'+arrName[i]+'</span>\
+													<a class="" href="/team?id=' +
+                    arrName[i] +
+                    '">\
+															<span class="nav-text">' +
+                    arrName[i] +
+                    "</span>\
 													</a>\
-											</li>';
-									}
-									
-								}
-								output+='</ul>\
+											</li>";
+                }
+              }
+              output += "</ul>\
 									</div>\
 									</div>\
 									</div>\
-									</div>';
-							}			
-							return output;
-					
-					},
-					},
-				{
-					field: 'joiningDate',
-					title: 'Joining Date',
-					textAlign: 'center',
-					template: function (row){
-						var output = '';
-						var memberJoiningDate = row.joiningDate;
-						output =
-						'<div class="align-items-center">\
-								<h7> '+ memberJoiningDate.substring(0,4) + '년 '+ memberJoiningDate.substring(4,6) + '월 '+ memberJoiningDate.substring(6,8) + '일</h7> </div>\
-						</div>';
-						return output;
-					}
-					
-				},{
-					field: 'career',
-					title: 'Career (Month)',
-					textAlign: 'center',
-					template: function (row){
-						var output = '';
-						var memberCareer = row.career;
-						output =
-						'<div class="align-items-center">\
-								<h7>' + memberCareer + "</h7> </div>\
+									</div>";
+            }
+            return output;
+          },
+        },
+        {
+          field: "joiningDate",
+          title: "Joining Date",
+          textAlign: "center",
+          template: function (row) {
+            var output = "";
+            var memberJoiningDate = row.joiningDate;
+            output =
+              '<div class="align-items-center">\
+								<h7> ' +
+              memberJoiningDate.substring(0, 4) +
+              "년 " +
+              memberJoiningDate.substring(4, 6) +
+              "월 " +
+              memberJoiningDate.substring(6, 8) +
+              "일</h7> </div>\
 						</div>";
-						return output;
-					}
-				},{
-					field: 'level',
-					title: 'Level',
-					textAlign: 'center',
-					width: 40,
-					template: function (row){
-						var output = '';
-						var memberLevel = row.level;
-						output =
-						'<div class="align-items-center">\
-								<h7>' + memberLevel + "</h7> </div>\
+            return output;
+          },
+        },
+        {
+          field: "career",
+          title: "Career (Month)",
+          textAlign: "center",
+          template: function (row) {
+            var output = "";
+            var memberCareer = row.career;
+            output =
+              '<div class="align-items-center">\
+								<h7>' +
+              memberCareer +
+              "</h7> </div>\
 						</div>";
-						return output;
-					}
-				},
-				{
-					field: 'editCompanyOkrFlag',
-					title: 'Edit Company OKR',
-					autoHide: false,
-					// callback function support for column rendering
-					template: function(row) {
-						var output = '';
+            return output;
+          },
+        },
+        {
+          field: "level",
+          title: "Level",
+          textAlign: "center",
+          width: 40,
+          template: function (row) {
+            var output = "";
+            var memberLevel = row.level;
+            output =
+              '<div class="align-items-center">\
+								<h7>' +
+              memberLevel +
+              "</h7> </div>\
+						</div>";
+            return output;
+          },
+        },
+        {
+          field: "editCompanyOkrFlag",
+          title: "Edit Company OKR",
+          autoHide: false,
+          // callback function support for column rendering
+          template: function (row) {
+            var output = "";
 
-						if (row.editCompanyOkrFlag == 'Y'){
-							output = '<div class="col-3">\
+            if (row.editCompanyOkrFlag == "Y") {
+              output =
+                '<div class="col-3">\
 							<span class="switch switch-icon">\
 							 <label>\
 							  <input type="checkbox" checked="checked"  disabled="disabled" />\
@@ -269,9 +335,9 @@ var KTDefaultDatatableDemo = function() {
 							</span>\
 						   </div>\
 						  </div>';
-						}
-						else{
-							output = '<div class="col-3">\
+            } else {
+              output =
+                '<div class="col-3">\
 							<span class="switch switch-icon">\
 							 <label>\
 							  <input type="checkbox"  disabled="disabled" />\
@@ -280,31 +346,40 @@ var KTDefaultDatatableDemo = function() {
 							</span>\
 						   </div>\
 						  </div>';
-						}
-						return output;	
-					},
-				}, 
-				
-				{
-					field: 'active',
-					title: 'Active',
-					autoHide: false,
-					template: function(row) {
-						var Active = {
-							Y: {'title': 'Active', 'state': 'primary'},
-							N: {'title': 'Inactive', 'state': 'danger'},
-						};
-						return '<span class="label label-' + Active[row.useFlag].state + ' label-dot mr-2"></span><span class="font-weight-bold text-' + Active[row.useFlag].state + '">' +
-							Active[row.useFlag].title + '</span>';
-					},
-				}, {
-					field: 'Actions',
-					title: 'Actions',
-					textAlign: 'center',
-					width: 75,
-					autoHide: false,
-					template: function(row) {
-						return '\
+            }
+            return output;
+          },
+        },
+
+        {
+          field: "active",
+          title: "Active",
+          autoHide: false,
+          template: function (row) {
+            var Active = {
+              Y: { title: "Active", state: "primary" },
+              N: { title: "Inactive", state: "danger" },
+            };
+            return (
+              '<span class="label label-' +
+              Active[row.useFlag].state +
+              ' label-dot mr-2"></span><span class="font-weight-bold text-' +
+              Active[row.useFlag].state +
+              '">' +
+              Active[row.useFlag].title +
+              "</span>"
+            );
+          },
+        },
+        {
+          field: "Actions",
+          title: "Actions",
+          textAlign: "center",
+          width: 75,
+          autoHide: false,
+          template: function (row) {
+            return (
+              '\
 						\
 					\
 							<div class="dropdown dropdown-inline">\
@@ -313,85 +388,105 @@ var KTDefaultDatatableDemo = function() {
 	                            </a>\
 							  	<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
 									<ul class="nav nav-hoverable flex-column">\
-							    		<li class="nav-item"><a class="nav-link" href="/edit-details/'+row.memberSeq+'"><i class="nav-icon la la-edit"></i><span class="nav-text">Edit Details</span></a></li>\
-							    		<li class="nav-item"><a class="nav-link" href="/member-history-view/'+row.memberSeq+'"><i class="nav-icon la la-leaf"></i><span class="nav-text">View History</span></a></li>\
+							    		<li class="nav-item"><a class="nav-link" href="/edit-details/' +
+              row.memberSeq +
+              '"><i class="nav-icon la la-edit"></i><span class="nav-text">Edit Details</span></a></li>\
+							    		<li class="nav-item"><a class="nav-link" href="/member-history-view/' +
+              row.memberSeq +
+              '"><i class="nav-icon la la-leaf"></i><span class="nav-text">View History</span></a></li>\
 									\
 									</ul>\
 							  	</div>\
 							</div>\
 						\
-						';
-					},
-				}],
-				};
+						'
+            );
+          },
+        },
+      ],
+    };
 
-		var datatable = $('#kt_datatable').KTDatatable(options);
-	
-		$('#kt_datatable_destroy').on('click', function() {
-			// datatable.destroy();
-			$('#kt_datatable').KTDatatable('destroy');
-		});
+    var datatable = $("#kt_datatable").KTDatatable(options);
 
-		$('#kt_datatable_init').on('click', function() {
-			datatable = $('#kt_datatable').KTDatatable(options);
-		});
+    $("#kt_datatable_destroy").on("click", function () {
+      // datatable.destroy();
+      $("#kt_datatable").KTDatatable("destroy");
+    });
 
-		$('#kt_datatable_reload').on('click', function() {
-			// datatable.reload();
-			$('#kt_datatable').KTDatatable('reload');
-		});
+    $("#kt_datatable_init").on("click", function () {
+      datatable = $("#kt_datatable").KTDatatable(options);
+    });
 
+    $("#kt_datatable_reload").on("click", function () {
+      // datatable.reload();
+      $("#kt_datatable").KTDatatable("reload");
+    });
 
-		//Excel Dowload Function
-		$("#btnExport").click(function () {
-			$("#kt_datatable").table2excel({
-				name: "Worksheet Name",
-				filename: "Member",
-				fileext: ".xls"
-			});
-		});
+    //Excel Dowload Function
+    $("#btnExport").click(function () {
+      $("#kt_datatable").table2excel({
+        name: "Worksheet Name",
+        filename: "Member",
+        fileext: ".xls",
+      });
+    });
 
-		//Reset button
-		$('#kt_reset').on('click', function(e) {
-			e.preventDefault();
-			$('.datatable-input').each(function() {
-				$(this).val('');
-			});
-			datatable.setDataSourceParam('query', {});
-			datatable.reload();
-		});
+    //Reset button
+    $("#kt_reset").on("click", function (e) {
+      e.preventDefault();
+      $(".datatable-input").each(function () {
+        $(this).val("");
+      });
+      datatable.setDataSourceParam("query", {});
+      datatable.reload();
+    });
 
-		//Search function
-		$('#kt_datatable_search_level').on('change', function() {
-			datatable.search($(this).val().toLowerCase(), 'level');
-		});
-		
-		$('#kt_datatable_search_company_okr').on('change', function() {
-			datatable.search($(this).val().toLowerCase(), 'editCompanyOkrFlag');
-			console.log($(this).val().toLowerCase());
-		});
+    //realtime search in the view
+    // $("#kt_datatable_search_name").on("propertychange change keyup paste input", function () {
+    $("#kt_datatable_search_name").on("change keyup paste", function () {
+      // console.log($(this).val());
+      console.log($("#kt_datatable_search_name"));
+      datatable.search($(this).val().toLowerCase(), "name");
+    });
 
-		$('#kt_datatable_search_active').on('change', function() {
-			datatable.search($(this).val().toLowerCase(), 'useFlag');
-		});
+    //Search function
+    $("#kt_datatable_search_level").on("change", function () {
+      datatable.search($(this).val().toLowerCase(), "level");
+    });
 
-		$('#kt_datatable_search_team').on('change', function() {
+    $("#kt_datatable_search_company_okr").on("change", function () {
+      datatable.search($(this).val().toLowerCase(), "editCompanyOkrFlag");
+      console.log($(this).val().toLowerCase());
+    });
 
-			datatable.search($(this).val().toLowerCase(), 'teamMember.0.teamMemberId.team.name');
-		});
+    $("#kt_datatable_search_active").on("change", function () {
+      datatable.search($(this).val().toLowerCase(), "useFlag");
+    });
 
-		$('#kt_datatable_search_level, #kt_datatable_search_active','#kt_datatable_search_team','#kt_datatable_search_company_okr').selectpicker();
+    $("#kt_datatable_search_team").on("change", function () {
+      $("#kt_datatable_search_query").val($(this).val().toLowerCase()).keyup();
+    });
 
-	};
+    $("#kt_search").on("click", function (e) {
+      e.preventDefault();
+      console.log(datatable);
+    });
 
-	return {
-		// public functions
-		init: function() {
-			demo();
-		},
-	};
-}();
+    $(
+      "#kt_datatable_search_level, #kt_datatable_search_active",
+      "#kt_datatable_search_team",
+      "#kt_datatable_search_company_okr"
+    ).selectpicker();
+  };
 
-jQuery(document).ready(function() {
-	KTDefaultDatatableDemo.init();
+  return {
+    // public functions
+    init: function () {
+      demo();
+    },
+  };
+})();
+
+jQuery(document).ready(function () {
+  KTDefaultDatatableDemo.init();
 });
