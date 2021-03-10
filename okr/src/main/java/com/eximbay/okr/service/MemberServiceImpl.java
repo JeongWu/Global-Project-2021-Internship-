@@ -12,7 +12,8 @@ import ma.glasnost.orika.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.*;
 import org.springframework.transaction.annotation.Transactional;
-
+import org.springframework.security.core.context.SecurityContextHolder;
+import com.eximbay.okr.config.security.MyUserDetails;
 import java.util.*;
 
 @Service
@@ -66,5 +67,14 @@ public class MemberServiceImpl implements IMemberService {
                 .and(memberQuery.findLeadOrDirectorMember())
         );
         return mapper.mapAsList(members, MemberDto.class);
+    }
+
+    @Override
+    public Optional<MemberDto> getCurrentMember() {
+        if (SecurityContextHolder.getContext().getAuthentication() == null ||
+                !(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof MyUserDetails))
+            return Optional.empty();
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return Optional.ofNullable(((MyUserDetails) principal).getMemberDto());
     }
 }

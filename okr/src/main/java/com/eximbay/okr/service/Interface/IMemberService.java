@@ -9,4 +9,5 @@ public interface IMemberService extends ISerivce<MemberDto, Integer>{
     Optional<MemberDto> findByEmail(String email);
     List<MemberDto> findActiveMembers();
     List<MemberDto> findActiveLeadOrDirectorMembers();
+    Optional<MemberDto> getCurrentMember();
 }
