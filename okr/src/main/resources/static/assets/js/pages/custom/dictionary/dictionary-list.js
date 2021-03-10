@@ -131,27 +131,6 @@ var KTDefaultDatatableDemo = function() {
 			$('#kt_datatable').KTDatatable('reload');
 		});
 
-		// get checked record and get value by column name
-		$('#kt_datatable_get').on('click', function() {
-			// select active rows
-			datatable.rows('.datatable-row-active');
-			// check selected nodes
-			if (datatable.nodes().length > 0) {
-				// get column by field name and get the column nodes
-				var value = datatable.columns('CompanyName').nodes().text();
-				console.log(value);
-			}
-		});
-
-		// record selection
-		$('#kt_datatable_check').on('click', function() {
-			var input = $('#kt_datatable_check_input').val();
-			datatable.setActive(input);
-		});
-
-	
-
-
 		//Excel Dowload Function
 		$("#btnExport").click(function () {
 			$("#kt_datatable").table2excel({
@@ -211,7 +190,7 @@ var KTDefaultDatatableDemo = function() {
 		});
 	
 
-		$('#kt_datatable_search_type','#kt_datatable_search_job','#kt_datatable_search_categorygroup','#kt_datatable_search_category','#kt_datatable_search_active').selectpicker();
+		$('#kt_datatable_search_type,#kt_datatable_search_job,#kt_datatable_search_categorygroup,#kt_datatable_search_category,#kt_datatable_search_active').selectpicker();
 
 	};
 

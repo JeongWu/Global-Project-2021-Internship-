@@ -9,7 +9,7 @@ import com.eximbay.okr.model.AllDetailsTeamModel;
 import com.eximbay.okr.model.AllTeamUpdateModel;
 import com.eximbay.okr.model.EditForViewAllTeamsModel;
 import com.eximbay.okr.model.EditTeamModel;
-import com.eximbay.okr.model.TeamListPageModel;
+import com.eximbay.okr.model.PageModel;
 import com.eximbay.okr.model.TeamUpdateFormModel;
 import com.eximbay.okr.model.team.TeamAddModel;
 import com.eximbay.okr.service.Interface.IDivisionService;
@@ -45,7 +45,7 @@ public class TeamController {
         model.addAttribute("model", dataModel);
         return "pages/teams/teams";
         //   // model.addAttribute("teamType",TeamType.values());
-        //   TeamListPageModel pageModel = new TeamListPageModel();
+        //   PageModel pageModel = new PageModel();
         //   long totalCount = teamService.countAllTeam();
         //   pageModel.setSubheader("Team");
         //   pageModel.setMutedHeader(totalCount + " total");
@@ -78,7 +78,7 @@ public class TeamController {
     @GetMapping("/list")
     public String viewTeamList(Model model) {
         // model.addAttribute("teamType",TeamType.values());
-        TeamListPageModel pageModel = new TeamListPageModel();
+        PageModel pageModel = new PageModel();
         long totalCount = teamService.countAllTeam();
         pageModel.setSubheader("Team");
         pageModel.setMutedHeader(totalCount + " total");
