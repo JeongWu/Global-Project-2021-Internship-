@@ -1,14 +1,11 @@
 package com.eximbay.okr.service;
 
-import java.time.LocalDate;
-import java.time.ZoneOffset;
 import java.util.List;
 import java.util.Optional;
-import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-
 import org.springframework.stereotype.Service;
+import lombok.AllArgsConstructor;
 import com.eximbay.okr.dto.MemberDto;
 import com.eximbay.okr.dto.MemberHistoryDto;
 import com.eximbay.okr.entity.Member;
@@ -16,11 +13,11 @@ import com.eximbay.okr.entity.MemberHistory;
 import com.eximbay.okr.repository.MemberHistoryRepository;
 import com.eximbay.okr.repository.MemberRepository;
 import com.eximbay.okr.service.Interface.IMemberHistoryService;
-import com.eximbay.okr.utils.PagingUtils;
-import org.springframework.data.domain.Pageable;
 import ma.glasnost.orika.MapperFacade;
 
 @Service
+@AllArgsConstructor
+@Transactional
 public class MemberHistoryServiceImpl implements IMemberHistoryService {
 	
 	@Autowired

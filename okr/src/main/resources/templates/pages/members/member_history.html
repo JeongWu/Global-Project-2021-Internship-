@@ -27,6 +27,12 @@
       class="header-mobile-fixed subheader-enabled aside-enabled aside-fixed aside-secondary-enabled page-loading">
 
       <div layout:fragment="content" class="container">
+        <div class="subheader py-3 py-lg-8  subheader-transparent " id="kt_subheader">
+            <!--begin::Page Title-->
+        <h2 class="subheader-title text-dark font-weight-bold my-1 mr-3" th:text="'View History | '+${member.name}">
+        Member </h2>
+            <!--end::Page Title-->
+</div>
         <div class="card card-custom">
             <div class="wizard wizard-3" id="kt_wizard_v3" data-wizard-state="step-second" data-wizard-clickable="true">
             <!--begin: Wizard Nav-->
@@ -49,7 +55,7 @@
                     <div class="wizard-step" >
                         <div class="wizard-label">
                             <h3 class="wizard-title">
-                                <a th:href="@{/belong/} + ${memberSeq}">
+                                <a th:href="@{/members/belong/} + ${memberSeq}">
                                 <span>2.</span> Belong To
                             </a>
                             </h3>

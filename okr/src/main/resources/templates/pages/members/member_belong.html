@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{pages/layout/main_layout.html}">
+      layout:decorate="~{pages/layout/main_layout.html}"
+      >
 
 <head>
     <meta charset="utf-8"/>
-    <title>Member History</title>
     <meta name="description" content="Page with empty content"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <style>
@@ -20,6 +20,7 @@
         }
     </style>
     <link rel="stylesheet" href="/assets/css/pages/datatables.bundle.css">
+    <title>Member belong</title>
     <link href="/assets/css/pages/members/member-wizard.css?v=7.0.6" rel="stylesheet" type="text/css"/>
 </head>
 
@@ -27,17 +28,24 @@
       class="header-mobile-fixed subheader-enabled aside-enabled aside-fixed aside-secondary-enabled page-loading">
 
       <div layout:fragment="content" class="container">
+        <div class="subheader py-3 py-lg-8  subheader-transparent " id="kt_subheader">
+                        <!--begin::Page Title-->
+        <h2 class="subheader-title text-dark font-weight-bold my-1 mr-3" th:text="'View History | '+${member.name}">
+        Member </h2>
+                        <!--end::Page Title-->
+         </div>
         <div class="card card-custom">
             <div class="wizard wizard-3" id="kt_wizard_v3" data-wizard-state="step-second" data-wizard-clickable="true">
             <!--begin: Wizard Nav-->
             <div class="wizard-nav">
+                
                 <div class="wizard-steps px-8 py-8 px-lg-15 py-lg-3">
-    
+                    
                     <!--begin::Wizard Step 1 Nav-->
                     <div class="wizard-step" >
                         <div class="wizard-label">
                             <h3 class="wizard-title">
-                                <a th:href="@{/member-history-view/} + ${memberSeq}">
+                                <a th:href="@{/memberhistorys/} + ${memberSeq}">
                                 <span>1.</span> Member Details
                                 </a>
                             </h3>

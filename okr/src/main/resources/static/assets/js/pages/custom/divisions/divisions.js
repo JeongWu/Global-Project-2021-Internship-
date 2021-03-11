@@ -10,11 +10,6 @@ let KTDatatableRemoteAjaxDemo = function () {
                 source: {
                     read: {
                         url: '/api/divisions/datatables',
-                        map: function (raw) {
-                            let dataSet = raw;
-                            $(".subheader-title").html('| ' + dataSet.length+" Total");
-                            return dataSet;
-                        },
                     },
                 },
             },

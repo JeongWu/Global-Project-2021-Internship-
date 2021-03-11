@@ -80,7 +80,7 @@ public class TeamController {
         // model.addAttribute("teamType",TeamType.values());
         PageModel pageModel = new PageModel();
         long totalCount = teamService.countAllTeam();
-        pageModel.setSubheader("Team");
+        pageModel.setSubheader(Subheader.TEAM);
         pageModel.setMutedHeader(totalCount + " total");
         model.addAttribute("model", pageModel);
         model.addAttribute("teamType", TeamType.values());

@@ -10,7 +10,7 @@ var KTDatatableJsonRemoteDemo = function() {
                 type: 'remote',
                 source: {
                     read: {
-                        url: '/belong/get-data/'+ $('#memberSeq').val(),
+                        url: '/api/members/belong/datatables/'+ $('#memberSeq').val(),
 						params: {
 						}
                     },
@@ -49,12 +49,16 @@ var KTDatatableJsonRemoteDemo = function() {
                 title: 'PERIOD',
  				type: 'String',
 				textAlign: 'center',
+                width: 200,
                 template: function(row) {
-                // var begin = formatStringtoDate(row.teamMemberId.applyBeginDate);
-                // var end = formatStringtoDate(row.applyEndDate);
-                // console.log(end);
-				return '<span>'+ row.teamMemberId.applyBeginDate
-                + ' ~ ' + row.applyEndDate +'</span>';
+                var output = '';
+                var applyBeginDate = row.teamMemberId.applyBeginDate;
+                var applyEndDate = row.applyEndDate;
+                output =
+                '<div class="align-items-center">\
+                        <h7> '+ applyBeginDate.substring(0,4) + '-'+ applyBeginDate.substring(4,6) + '-'+ applyBeginDate.substring(6,8) + ' ~ ' + applyEndDate.substring(0,4) + '-'+ applyEndDate.substring(4,6) + '-'+ applyEndDate.substring(6,8)+'</h7> </div>\
+                </div>';
+                return output;
 			},	
             },
 			{
@@ -130,12 +134,4 @@ var KTDatatableJsonRemoteDemo = function() {
 
 jQuery(document).ready(function() {
     KTDatatableJsonRemoteDemo.init();
-});
-
-// function formatStringtoDate(data){
-//     if (data === null) return "";
-//     let year = data.subString(0,4);
-//     let month = data.subString(4,6);
-//     let day = data.subString(6,8);
-//     return year + "/" + month + "/" + day;
-// }
+});;

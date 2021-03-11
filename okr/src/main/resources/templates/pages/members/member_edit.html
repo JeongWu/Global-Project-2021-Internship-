@@ -59,7 +59,7 @@
                     <div class="col-xl-12 col-xxl-7">
                         <!--begin: Wizard Form-->
                             <input type="hidden" th:value="${member.memberSeq}" id="memberSeq">
-                        <form class="form" id="kt_form" th:action="@{'/member/update/'+${member.memberSeq}}" method="POST" enctype="multipart/form-data" th:object=${member}>
+                        <form class="form" id="kt_form" th:action="@{'/members/edit/'+${member.memberSeq}}" method="POST" enctype="multipart/form-data" th:object=${member}>
                             <!--begin: Wizard Step 1-->
                            <div class="pb-5" data-wizard-type="step-content">
                                 <!--begin::Input-->
@@ -99,20 +99,17 @@
                                     </div>
                                 </div>
     
-    
-    ​							
-    
                                 <div class="form-group row">
                                     <label class="col-xl-3 col-lg-3 col-form-label">Introduction</label>
                                 
                                         <div class="col-lg-3 col-xl-9">
-                                            
                                             <div class="image-input image-input-outline" id="kt_image_4">
-                                                <div class="image-input-wrapper" th:style="'background-image: url('+ ${member.image} +');'"></div>
+                                                <div class="image-input-wrapper" th:style="'background-image:url('+ @{${member.image}} +');'">
+                                                </div>
         
                                                 <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                                                     <i class="fa fa-pen icon-sm text-muted"></i>
-                                                    <input type="file" name="picture" accept=".png, .jpg, .jpeg"/>
+                                                    <input type="file" name="picture" accept=".png, .jpg, .jpeg" th:value="${member.image}"/>
                                                     <input type="hidden" name="profile_avatar_remove"/>
                                                 </label>
         

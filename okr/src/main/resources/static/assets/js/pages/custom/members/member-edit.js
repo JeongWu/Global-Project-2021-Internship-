@@ -8,7 +8,7 @@ jQuery(document).ready(function() {
             let answer = confirm("오늘 날짜로 해당 직원이 속한 조직에서 제외됩니다. 진행하시겠습니까?");
             if (answer){
             $.ajax({
-                    url: "/teamember/update",
+                    url: "/members/eidt-flag",
                     type: "POST",
                     cache: false,
                     dataType: "json",

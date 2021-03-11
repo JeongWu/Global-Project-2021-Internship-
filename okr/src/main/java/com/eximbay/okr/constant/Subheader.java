@@ -3,6 +3,7 @@ package com.eximbay.okr.constant;
 public class Subheader {
 	public static final String DIVISION = "Division";
 	public static final String TEAMS = "Teams";
+	public static final String TEAM = "Team";
 	public static final String DIVISION_EDIT = "Edit";
 	public static final String DIVISION_CHANGE_MEMBERS = "Change Members";
 	public static final String ADD_DIVISION = "Add Division";
@@ -15,4 +16,6 @@ public class Subheader {
     public static final String AUDIT_LOGS = "Audit Log";
     public static final String QUARTERLY_OKRS = "Quarterly OKRs";
     public static final String COMPANY_OKR = "View OKR";
+    public static final String DICTIONARY = "Dictionary";
+    public static final String MEMBER = "Member";
 }

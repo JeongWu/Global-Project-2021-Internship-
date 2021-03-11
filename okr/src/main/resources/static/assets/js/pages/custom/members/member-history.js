@@ -31,7 +31,7 @@ let KTDatatablesDataSourceAjaxServer = function() {
                 processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
             },
             ajax: {
-                url: '/api/datatables/memberhistory/' + $('#memberSeq').val(),
+                url: '/api/memberhistory/datatables/' + $('#memberSeq').val(),
                 type: 'POST',
                 contentType: 'application/json',
                 dataSrc: "data",
@@ -80,9 +80,15 @@ let KTDatatablesDataSourceAjaxServer = function() {
                     target: 4,
                     title: "JOININGDATE",
                     data: 'joiningDate',
-                    // render: function (data){
-                    //     return formatStringtoDate(data);
-                    // }
+                    render: function (data){
+                    var output = '';
+                    output =
+                    '<div class="align-items-center">\
+                            <h7> '+ data.substring(0,4) + '-'+ data.substring(4,6) + '-'+ data.substring(6,8) + '</h7> </div>\
+                    </div>';
+                        
+                        return output;
+                    }
                 },
                 {
                     target: 5,

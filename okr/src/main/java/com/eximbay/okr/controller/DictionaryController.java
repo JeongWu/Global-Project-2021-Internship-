@@ -2,7 +2,7 @@ package com.eximbay.okr.controller;
 
 import java.util.List;
 
-
+import com.eximbay.okr.constant.Subheader;
 import com.eximbay.okr.entity.Dictionary;
 import com.eximbay.okr.model.PageModel;
 import com.eximbay.okr.model.dictionary.DictionaryAddModel;
@@ -36,9 +36,7 @@ public class DictionaryController {
     @GetMapping
     public String viewAllDictionary(Model model) {
         SelectTypeModel selectTypeModel = dictionaryService.buildSelectTypeModel();
-        PageModel pageModel = new PageModel();
-        pageModel.setSubheader("Dictionary");
-        model.addAttribute("model", pageModel);
+        model.addAttribute("subheader", Subheader.DICTIONARY);
         model.addAttribute("TypeModel", selectTypeModel);
         return "pages/dictionary/dictionary";
     }
