@@ -8,18 +8,14 @@ import com.eximbay.okr.dto.TeamMemberDto;
 import com.eximbay.okr.enumeration.EntityType;
 import com.eximbay.okr.enumeration.FileContentType;
 import com.eximbay.okr.enumeration.FileType;
-import com.eximbay.okr.model.AllLevelModel;
-import com.eximbay.okr.model.AllTeamNameModel;
-import com.eximbay.okr.model.MemberHistoryModel;
+import com.eximbay.okr.model.MemberModel;
+import com.eximbay.okr.model.PageModel;
 import com.eximbay.okr.service.FileUploadService;
 import com.eximbay.okr.service.MemberHistoryServiceImpl;
 import com.eximbay.okr.service.MemberServiceImpl;
 import com.eximbay.okr.service.TeamMemberServiceImpl;
 import com.eximbay.okr.service.TeamServiceImpl;
-import com.eximbay.okr.utils.MapperUtil;
 import lombok.AllArgsConstructor;
-import ma.glasnost.orika.MapperFacade;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,20 +46,21 @@ public class MemberController {
 
         List<MemberDto> members = memberService.findAll();
         List<TeamDto> teams = teamService.findAll(); 
-        long totalCount= members.size();
-        // List<AllTeamNameModel> teamName = MapperUtil.mapList(teams, AllTeamNameModel.class);
         List<String> teamName=teams.stream().map(t->t.getName()).collect(Collectors.toList());
-        List<AllLevelModel> level = MapperUtil.mapList(members, AllLevelModel.class);
-
-        model.addAttribute("subheader", Subheader.MEMBER);
         model.addAttribute("teamName", teamName);
-        model.addAttribute("totalCount", totalCount);
-        model.addAttribute("level", level);
+
+        PageModel pageModel = new PageModel();
+        long totalCount= members.size();
+        pageModel.setSubheader(Subheader.MEMBER);
+        pageModel.setMutedHeader(totalCount + " total");
+        model.addAttribute("model", pageModel);
+        
         return "pages/members/member_list";
     }
 
     @GetMapping("/add")
-    public String addMember(){
+    public String addMember(Model model){
+        model.addAttribute("subheader", Subheader.ADD_MEMBER);
         return "pages/members/member_add";
     }
 
@@ -80,11 +77,13 @@ public class MemberController {
         }
         return "redirect:/members";
     }
-
+       
     @GetMapping("/edit/{memberSeq}")
     public String editdetails(Model model, @PathVariable("memberSeq") int id){
         MemberDto dto = memberService.findById(id)
         .orElseThrow(()-> new NullPointerException("Null"));
+        MemberModel memberModel = new MemberModel(Subheader.EDIT_MEMBER, dto.getName());
+        model.addAttribute("model", memberModel);
         model.addAttribute("member", dto);
         model.addAttribute("team", teamMemberService.findSearchBelong(dto));
         return "pages/members/member_edit";
@@ -134,11 +133,11 @@ public class MemberController {
     
     @GetMapping("/belong/{memberSeq}")
     public String viewBelong(Model model, @PathVariable("memberSeq") Integer memberSeq){
-        MemberHistoryModel historyModel = new MemberHistoryModel();
         MemberDto dto = memberService.findById(memberSeq)
         .orElseThrow(()-> new NullPointerException("Null"));
+        MemberModel belongModel = new MemberModel(Subheader.MEMBER_HISTORY, dto.getName());
         model.addAttribute("member", dto);
-        model.addAttribute("model", historyModel);
+        model.addAttribute("model", belongModel);
         model.addAttribute("memberSeq", memberSeq);
         return "pages/members/member_belong";
         }

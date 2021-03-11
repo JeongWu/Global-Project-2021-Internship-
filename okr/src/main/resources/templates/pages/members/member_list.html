@@ -78,8 +78,7 @@
 											name="teamName" hidden>
 										<select class="form-control datatable-input" id="kt_datatable_search_team">
 											<option value="">All</option>
-											<th:block th:each="team, diviStat :${teamName}">
-											<option th:value="${team.name}" th:text="${team.name}"></option>
+											<option th:each="i:${teamName}" th:value="${i}" th:text="${i}"></option>
 											</th:block>
 										</select>
 									</div>

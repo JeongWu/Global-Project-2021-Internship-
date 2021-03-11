@@ -14,6 +14,8 @@ public class Subheader {
     public static final String OKR_CHECKLIST_GROUP = "View Checklist History";
     public static final String OKR_CHECKLIST_DETAIL = "View Checklist History";
     public static final String AUDIT_LOGS = "Audit Log";
+    public static final String ADD_MEMBER = "Add Member";
+    public static final String EDIT_MEMBER = "Edit Member";
     public static final String QUARTERLY_OKRS = "Quarterly OKRs";
     public static final String COMPANY_OKR = "View OKR";
     public static final String DICTIONARY = "Dictionary";

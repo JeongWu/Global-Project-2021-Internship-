@@ -77,7 +77,6 @@ public class TeamController {
 
     @GetMapping("/list")
     public String viewTeamList(Model model) {
-        // model.addAttribute("teamType",TeamType.values());
         PageModel pageModel = new PageModel();
         long totalCount = teamService.countAllTeam();
         pageModel.setSubheader(Subheader.TEAM);
