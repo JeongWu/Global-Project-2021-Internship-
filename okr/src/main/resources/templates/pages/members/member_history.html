@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{pages/layout/main_layout.html}">
-
+      layout:decorate="~{pages/layout/main_layout.html}"
+      th:with="subHeader='Dashboard', mutedHeaderText=''">
+      
 <head>
     <meta charset="utf-8"/>
     <title>Member History</title>
@@ -27,12 +28,6 @@
       class="header-mobile-fixed subheader-enabled aside-enabled aside-fixed aside-secondary-enabled page-loading">
 
       <div layout:fragment="content" class="container">
-        <div class="subheader py-3 py-lg-8  subheader-transparent " id="kt_subheader">
-            <!--begin::Page Title-->
-        <h2 class="subheader-title text-dark font-weight-bold my-1 mr-3" th:text="'View History | '+${member.name}">
-        Member </h2>
-            <!--end::Page Title-->
-</div>
         <div class="card card-custom">
             <div class="wizard wizard-3" id="kt_wizard_v3" data-wizard-state="step-second" data-wizard-clickable="true">
             <!--begin: Wizard Nav-->

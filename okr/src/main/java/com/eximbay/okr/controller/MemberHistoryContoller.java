@@ -1,7 +1,8 @@
 package com.eximbay.okr.controller;
 
+import com.eximbay.okr.constant.Subheader;
 import com.eximbay.okr.dto.MemberDto;
-import com.eximbay.okr.model.MemberHistoryModel;
+import com.eximbay.okr.model.MemberModel;
 import com.eximbay.okr.service.MemberServiceImpl;
 
 import org.springframework.stereotype.Controller;
@@ -21,9 +22,10 @@ public class MemberHistoryContoller {
 
     @GetMapping("/{memberSeq}")
     public String getModel(Model model, @PathVariable Integer memberSeq) {
-        MemberHistoryModel historyModel = new MemberHistoryModel();
+        
         MemberDto dto = memberService.findById(memberSeq)
         .orElseThrow(()-> new NullPointerException("Null"));
+        MemberModel historyModel = new MemberModel(Subheader.MEMBER_HISTORY, dto.getName());
         model.addAttribute("model", historyModel);
         model.addAttribute("memberSeq", memberSeq);
         model.addAttribute("member", dto);

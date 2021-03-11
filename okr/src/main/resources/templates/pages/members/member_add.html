@@ -2,7 +2,8 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{pages/layout/main_layout.html}" th:with="subHeader='Dashboard', mutedHeaderText=null">
+      layout:decorate="~{pages/layout/main_layout.html}" 
+      th:with="subHeader='Dashboard', mutedHeaderText=''">
       <!--muted text is blurred text after the subheader text-->
 <!--Specify header here-->
 
@@ -24,7 +25,7 @@
 <div layout:fragment="right-floating-toolbar">
     <div class="d-flex align-items-center">
         <!--begin::Button-->
-        <a href="/member-list" class="btn btn-default font-weight-bold btn-sm px-3 font-size-base">
+        <a href="/members" class="btn btn-default font-weight-bold btn-sm px-3 font-size-base">
         Back
         </a>
         <!--<button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
@@ -81,7 +82,7 @@
                         <div class="wizard-step" data-wizard-type="step">
                             <div class="wizard-label">
                                 <h3 class="wizard-title">
-                                    <span>1.</span> Member Detail
+                                    <span>1.</span> Member Details
                                 </h3>
                                 <div class="wizard-bar"></div>
                             </div>
@@ -92,7 +93,7 @@
                         <div class="wizard-step" data-wizard-type="step">
                             <div class="wizard-label">
                                 <h3 class="wizard-title">
-                                    <span>2.</span> Additional Detail
+                                    <span>2.</span> Additional Details
                                 </h3>
                                 <div class="wizard-bar"></div>
                             </div>

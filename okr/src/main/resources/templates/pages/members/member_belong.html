@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{pages/layout/main_layout.html}"
-      >
+      th:with="subHeader='Dashboard', mutedHeaderText=''">
 
 <head>
     <meta charset="utf-8"/>
@@ -28,12 +28,6 @@
       class="header-mobile-fixed subheader-enabled aside-enabled aside-fixed aside-secondary-enabled page-loading">
 
       <div layout:fragment="content" class="container">
-        <div class="subheader py-3 py-lg-8  subheader-transparent " id="kt_subheader">
-                        <!--begin::Page Title-->
-        <h2 class="subheader-title text-dark font-weight-bold my-1 mr-3" th:text="'View History | '+${member.name}">
-        Member </h2>
-                        <!--end::Page Title-->
-         </div>
         <div class="card card-custom">
             <div class="wizard wizard-3" id="kt_wizard_v3" data-wizard-state="step-second" data-wizard-clickable="true">
             <!--begin: Wizard Nav-->
@@ -115,13 +109,13 @@
     
     <div class="col-lg-2 col-xl-4">
         <span class="col-lg-2 col-xl-4 mt-5 mt-lg-0">
-            <a type="button" id="search" class="btn btn-light-primary px-8 font-weight-bold">
+            <a type="button" id="search" class="btn button-color btn-primary px-6 font-weight-bold">
             Search
             </a>
         </span>
     
         <span class="col-lg-2 col-xl-4 mt-5 mt-lg-0">
-            <a href="" id="reset" class="btn btn-light-primary px-10 font-weight-bold">
+            <a href="" id="reset" class="btn button-color btn-secondary px-6 font-weight-bold">
             Reset  
             </a>
         </span>

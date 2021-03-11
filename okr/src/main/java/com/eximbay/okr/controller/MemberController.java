@@ -142,7 +142,7 @@ public class MemberController {
         return "pages/members/member_belong";
         }
         
-    @PostMapping("/eidt-flag")
+    @PostMapping("/edit-flag")
     @ResponseBody
     public MemberDto useFlagUpate(String memberSeq){
         String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyMMdd"));

@@ -8,7 +8,6 @@ import com.eximbay.okr.entity.MemberHistory;
 import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
 
 public interface IMemberHistoryDataService extends ISerivce<MemberHistoryDto, Integer>  {
-    DataTablesOutput<MemberHistory> getDataForDatatables(ScheduleHistoryDatatablesInput input);
     DataTablesOutput<MemberHistory> getDataForDatatablesMember(MemberDto memberDto, ScheduleHistoryDatatablesInput input);
     
 }

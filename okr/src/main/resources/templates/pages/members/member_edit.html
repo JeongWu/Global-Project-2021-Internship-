@@ -2,7 +2,8 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{pages/layout/main_layout.html}" th:with="subHeader='Member Edit', mutedHeaderText=null">
+      layout:decorate="~{pages/layout/main_layout.html}" 
+      th:with="subHeader='', mutedHeaderText=''">
       <!--muted text is blurred text after the subheader text-->
 <!--Specify header here-->
 
@@ -17,12 +18,12 @@
 <div layout:fragment="right-floating-toolbar">
     <div class="d-flex align-items-center">
         <!--begin::Button-->
-        <a href="/member-list" class="btn btn-default font-weight-bold btn-sm px-3 font-size-base">
+        <a href="/members" class="btn btn-default font-weight-bold btn-sm px-3 font-size-base">
         Back
         </a>
         <!--begin::Dropdown-->
         <div class="btn-group ml-2">
-            <button type="button" class="btn btn-primary font-weight-bold" onclick="document.getElementById('kt_form').submit();">Submit</button>
+            <button type="button" class="btn btn-light-primary font-weight-bold btn-sm px-4 font-size-base ml-2" onclick="document.getElementById('kt_form').submit();">Submit</button>
         </div>
         <!--end::Dropdown-->
     </div>
@@ -43,7 +44,7 @@
                         <div class="wizard-step" data-wizard-type="step">
                             <div class="wizard-label">
                                 <h3 class="wizard-title">
-                                    <span>1.</span> Member Details
+                                    Member Details
                                 </h3>
                                 <div class="wizard-bar"></div>
                             </div>
