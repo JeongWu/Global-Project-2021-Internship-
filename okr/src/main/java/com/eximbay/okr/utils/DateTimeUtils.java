@@ -22,5 +22,21 @@ public class DateTimeUtils {
         LocalDate now = LocalDate.now();
         return now.getYear() + "-" + now.get(IsoFields.QUARTER_OF_YEAR) + "Q";
     }
+    public static int getCurrentYear() {
+        return LocalDate.now().getYear();
+    }
+
+    public static int getCurrentQuarter() {
+        return LocalDate.now().get(IsoFields.QUARTER_OF_YEAR);
+    }
+
+    public static int getCurrentMonth() {
+        return LocalDate.now().getMonthValue();
+    }
+
+    public static final String[] firstDayOfQuarter = new String[]{"", "01-01", "04-01", "07-01", "10-01"};
+
+    public static final String[] lastDayOfQuarter = new String[]{"", "03-31", "06-30", "09-30", "12-31"};
+
 
 }
