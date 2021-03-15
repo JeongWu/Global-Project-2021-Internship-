@@ -43,7 +43,7 @@ public class FileUploadService {
         String extension = uploadFileName.substring(uploadFileName.lastIndexOf("."));
 
         Optional<MemberDto> memberDto = memberService.getCurrentMember();
-        if (memberDto.isEmpty()) throw new UserException(ErrorMessages.loginRequired);
+        // if (memberDto.isEmpty()) throw new UserException(ErrorMessages.loginRequired);
 
         try {
             String saveFileName = entityType.name() + memberDto.get().getMemberSeq() + extension;
@@ -53,6 +53,7 @@ public class FileUploadService {
             FileCopyUtils.copy(file.getBytes(), saveDestination.toFile());
             return saveFileName;
         }catch (Exception e){
+            e.printStackTrace();
             throw new UserException(ErrorMessages.errorWhileSavingFile);
         }
     }

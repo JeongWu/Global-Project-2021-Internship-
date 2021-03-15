@@ -9,6 +9,8 @@ import com.eximbay.okr.dto.DivisionDto;
 import com.eximbay.okr.entity.Division;
 import com.eximbay.okr.enumeration.TeamType;
 
+import org.springframework.web.multipart.MultipartFile;
+
 @Data
 public class AllTeamUpdateModel {
     private Integer teamSeq;
@@ -22,6 +24,7 @@ public class AllTeamUpdateModel {
     private TeamType teamType;
     
     private String image;
+    // private MultipartFile imageFile;
 
     private String introduction;
 

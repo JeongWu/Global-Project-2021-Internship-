@@ -22,7 +22,7 @@
         <div>
             <div class="card card-custom gutter-b">
                 <div class="card-body px-0">
-                    <form class="form" id="kt_form" method="post" th:action="@{/teams/view/save}"
+                    <form class="form" id="kt_form" method="post" enctype="multipart/form-data" th:action="@{/teams/view/save}"
                         th:object="${dataModel}">
                         <input type="text" id="teamSeq" th:field="*{teamSeq}" hidden />
                         <div class="tab-content">
@@ -90,7 +90,7 @@
                                                         data-action="change" data-toggle="tooltip" title=""
                                                         data-original-title="Change avatar">
                                                         <i class="fa fa-pen icon-sm text-muted"></i>
-                                                        <input type="file" name="profile_avatar"
+                                                        <input type="file" name="image"
                                                             accept=".png, .jpg, .jpeg" />
                                                         <input type="hidden" name="profile_avatar_remove" />
                                                     </label>
