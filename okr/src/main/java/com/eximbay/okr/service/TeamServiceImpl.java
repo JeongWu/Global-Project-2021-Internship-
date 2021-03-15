@@ -181,7 +181,7 @@ public class TeamServiceImpl implements ITeamService {
     public EditTeamModel buildEditTeamModel(Integer id) {
     	EditTeamModel dataModel = new EditTeamModel();
     	dataModel.setSubheader("Edit ");
-    	Optional<Team> team = teamRepository.findById(id);
+    	// Optional<Team> team = teamRepository.findById(id);
     	Optional<TeamDto> teamDto = findById(id);
     	Optional<TeamUpdateFormModel> model = teamDto.map(m->mapper.map(m, TeamUpdateFormModel.class));
     	if(model.isEmpty()) throw new UserException(new NotFoundException("Not found Object with Id = "+id));
@@ -213,13 +213,13 @@ public class TeamServiceImpl implements ITeamService {
     	TeamDto saveTeam = save(teamDto.get());
     }
 
-    @Override
-    public TeamAddModel buildDefaultTeamAddModel() {
-        TeamAddModel teamAddModel = new TeamAddModel();
-        Division division = new Division();
-        teamAddModel.setDivision(divisionRepository.findById(2).orElse(null));
-        return teamAddModel;
-    }
+    // @Override
+    // public TeamAddModel buildDefaultTeamAddModel() {
+    //     TeamAddModel teamAddModel = new TeamAddModel();
+    //     Division division = new Division();
+    //     teamAddModel.setDivision(divisionRepository.findById(2).orElse(null));
+    //     return teamAddModel;
+    // }
     
 	@Override
 	public Team addTeam(TeamAddModel teamAddModel) {
