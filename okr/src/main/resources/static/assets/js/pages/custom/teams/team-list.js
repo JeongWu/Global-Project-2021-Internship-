@@ -177,7 +177,7 @@ var KTAppsProjectsListDatatable = (function () {
 
             output =
               '<div class="d-flex align-items-center">\
-            <a href="/member-list">\
+            <a href="/members">\
           <div class="symbol-group symbol-hover">';
 
             var memberList = data.members;
