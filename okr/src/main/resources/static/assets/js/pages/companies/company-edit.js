@@ -59,12 +59,15 @@ jQuery(document).ready(function () {
                     'Content-Type': 'multipart/form-data'
                 }
             }).then(function(response) {
-                successAlert("The company details updated successfully!");
-                window.location.href = "/"
+                Swal.fire("Successfully", "Company detail is updated" , "success")
+                    .then(function (){
+                        window.location.href = "/"
+                    })
             }).catch(error => {
                 if (error.response.data.message === null || error.response.data.message === undefined)
-                    failAlert("There are some errors!");
-                else failAlert(error.response.data.message);
+                    Swal.fire("Error!", "Some errors occur" , "error");
+                else Swal.fire("Error!", error.response.data.message , "error");
+
                 enableButton($("#button-submit"), 2000);
             });
         });
