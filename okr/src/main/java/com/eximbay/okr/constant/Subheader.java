@@ -21,4 +21,5 @@ public class Subheader {
     public static final String DICTIONARY = "Dictionary";
     public static final String MEMBER = "Member";
     public static final String ADD_OKR = "Add OKR";
+    public static final String TEAM_HISTORY = "View Team History";
 }
