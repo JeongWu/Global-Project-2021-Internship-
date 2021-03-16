@@ -39,7 +39,7 @@ public class MemberDto {
         String joining = joiningDate.replace("-", "");
         this.setJoiningDate(joining);
 
-        String retire = joiningDate.replace("-", "");
+        String retire = retirementDate.replace("-", "");
         this.setRetirementDate(retire);
         
         // domain delete
@@ -53,14 +53,15 @@ public class MemberDto {
         
         // Admin Flag 
         String AdminFlag = (adminFlag == null) ? "N" : "Y";
-        this.setAdminFlag(adminFlag);
+        this.setAdminFlag(AdminFlag);
 
         String Edit = (editCompanyOkrFlag == null) ? "N" : "Y";
         this.setEditCompanyOkrFlag(Edit);
         
-    	String imageName = files != null ? files.getOriginalFilename() : "/assets/media/users/default.jpg";
-    	this.setImage(imageName);
-
+        if (!files.isEmpty()) {
+			String imageName = "static/assets/"+files.getOriginalFilename();
+	    	this.setImage(imageName);
+		} 
             
     }
 }

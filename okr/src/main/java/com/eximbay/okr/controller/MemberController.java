@@ -15,6 +15,8 @@ import com.eximbay.okr.service.MemberHistoryServiceImpl;
 import com.eximbay.okr.service.MemberServiceImpl;
 import com.eximbay.okr.service.TeamMemberServiceImpl;
 import com.eximbay.okr.service.TeamServiceImpl;
+import org.springframework.http.MediaType;
+
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +27,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -68,7 +73,7 @@ public class MemberController {
     public String memberSave(MemberDto dto, @RequestParam("picture") MultipartFile files, 
     @RequestParam("action") String action) {
         if (!files.isEmpty()){
-            fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.MEMBER, files);  
+            // fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.MEMBER, files);  
         }
         dto.createMemberDto(dto.getJoiningDate(), dto.getRetirementDate(),dto.getEditCompanyOkrFlag(),dto.getUseFlag(), dto.getAdminFlag(), dto.getEmail(), files);  
         memberService.save(dto);
@@ -89,10 +94,17 @@ public class MemberController {
         return "pages/members/member_edit";
     }
 
+    @PostMapping(value = "/save")
+    public String memberUpdate(@Validated MemberDto req, BindingResult error, @RequestParam("picture") MultipartFile files){
+        if (error.hasErrors()) return "redirect:/members/edit/"+ req.getMemberSeq();
+        return "redirect:/members";
+    }
 
     @PostMapping("/edit/{memberSeq}")
     public String memberUpdate(MemberDto req, @RequestParam("picture") MultipartFile files,
         @PathVariable("memberSeq") int id) { 
+        
+        String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyMMdd"));
         MemberDto dto = memberService.findById(id)
                 .orElseThrow(()-> new NullPointerException("Null"));
                 
@@ -107,6 +119,17 @@ public class MemberController {
         dto.setIntroduction(req.getIntroduction());
         dto.setJustification(req.getJustification());
         dto.setPosition(req.getPosition());
+        dto.setEditCompanyOkrFlag(req.getEditCompanyOkrFlag());
+
+        if (req.getUseFlag() == null){
+            List<TeamMemberDto> teams = teamMemberService.findSearchBelong(dto);
+            for (TeamMemberDto item : teams){
+                item.setApplyEndDate(today);
+                item.setJustification("Inactive");
+                teamMemberService.save(item);
+            }
+        }
+
         dto.createMemberDto(req.getJoiningDate(), req.getRetirementDate(), req.getEditCompanyOkrFlag(),req.getUseFlag(), req.getAdminFlag(), req.getEmail(), files); 
         
         MemberHistoryDto history = new  MemberHistoryDto();
@@ -127,7 +150,9 @@ public class MemberController {
         
         memberService.save(dto);
         memberHistoryService.save(history);
-        // fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.MEMBER, files);
+        if (!files.isEmpty()){
+            // fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.MEMBER, files);  
+        }
         return "redirect:/members";     
     } 
     
@@ -142,19 +167,19 @@ public class MemberController {
         return "pages/members/member_belong";
         }
         
-    @PostMapping("/edit-flag")
-    @ResponseBody
-    public MemberDto useFlagUpate(String memberSeq){
-        String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyMMdd"));
-        MemberDto dto = memberService.findById(Integer.parseInt(memberSeq))
-        .orElseThrow(()-> new NullPointerException("Null"));
-        List<TeamMemberDto> teams = teamMemberService.findSearchBelong(dto);
-        for (TeamMemberDto item : teams){
-            item.setApplyEndDate(today);
-            item.setJustification("Inactive");
-            teamMemberService.save(item);
-        }
-    return dto;
-}
+    // @PostMapping("/edit-flag")
+    // @ResponseBody
+    // public MemberDto useFlagUpate(String memberSeq){
+    //     String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyMMdd"));
+    //     MemberDto dto = memberService.findById(Integer.parseInt(memberSeq))
+    //     .orElseThrow(()-> new NullPointerException("Null"));
+    //     List<TeamMemberDto> teams = teamMemberService.findSearchBelong(dto);
+    //     for (TeamMemberDto item : teams){
+    //         item.setApplyEndDate(today);
+    //         item.setJustification("Inactive");
+    //         teamMemberService.save(item);
+    //     }
+    // return dto;
+    // }
     
 }

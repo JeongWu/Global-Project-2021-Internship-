@@ -10,6 +10,7 @@
 <head>
     <title>Member Edit</title>
 	<link href="/assets/css/pages/members/member-wizard.css?v=7.0.6" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 </head>
 
 <body>
@@ -23,7 +24,11 @@
         </a>
         <!--begin::Dropdown-->
         <div class="btn-group ml-2">
-            <button type="button" class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2" onclick="document.getElementById('kt_form').submit();">Submit</button>
+            <button type="submit" data-wizard-type="action-next" form="kt_form"
+            th:action="@{'/members/edit/'+${member.memberSeq}}"
+            class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2" 
+            >Submit</button>
+            <!--onclick="document.getElementById('kt_form').submit();"-->
         </div>
         <!--end::Dropdown-->
     </div>
@@ -38,8 +43,7 @@
                 <!--begin: Wizard Nav-->
                 <div class="wizard-nav">
                     <div class="wizard-steps px-8 py-8 px-lg-15 py-lg-3">
-    
-    
+        
                         <!--begin::Wizard Step 1 Nav-->
                         <div class="wizard-step" data-wizard-type="step">
                             <div class="wizard-label">
@@ -59,6 +63,7 @@
                     
                     <div class="col-xl-12 col-xxl-7">
                         <!--begin: Wizard Form-->
+                        <!--th:action="@{'/members/edit/'+${member.memberSeq}}" -->
                             <input type="hidden" th:value="${member.memberSeq}" id="memberSeq">
                         <form class="form" id="kt_form" th:action="@{'/members/edit/'+${member.memberSeq}}" method="POST" enctype="multipart/form-data" th:object=${member}>
                             <!--begin: Wizard Step 1-->
@@ -67,7 +72,7 @@
                                   <div class="form-group row">
                                      <label class="col-xl-3 col-lg-3 col-form-label">Member Name (English) <span class="text-danger">*</span></label>
                                          <div class="col-lg-9 col-xl-9">
-                                            <input class="form-control form-control-solid form-control-lg" name="name" type="text" th:value="${member.name}"/>
+                                            <input class="form-control form-control-solid form-control-lg" name="name" type="text" th:value="${member.name}" required/>
                                         </div>
                                     </div>
                                 <!--end::Input-->
@@ -76,7 +81,7 @@
                                 <div class="form-group row">
                                     <label class="col-xl-3 col-lg-3 col-form-label">Member Name (Korean) <span class="text-danger">*</span></label>
                                     <div class="col-lg-9 col-xl-9">
-                                        <input class="form-control form-control-solid form-control-lg" name="localName" type="text" th:value="${member.localName}"/>
+                                        <input class="form-control form-control-solid form-control-lg" name="localName" type="text" th:value="${member.localName}" required/>
                                     </div>
                                 </div>
                                 <!--end::Input-->
@@ -85,7 +90,7 @@
                                     <label class="col-xl-3 col-lg-3 col-form-label">Email Address <span class="text-danger">*</span></label>
                                     <div class="col-lg-9 col-xl-9">
                                         <div class="input-group input-group-solid input-group-lg">
-                                            <input type="text" class="form-control form-control-solid form-control-lg" name="email" th:value="${member.email}"/>
+                                            <input type="text" class="form-control form-control-solid form-control-lg" name="email" th:value="${member.email}" required/>
                                         </div>
                                     </div>
                                 </div>       
@@ -99,13 +104,14 @@
                                         <span class="form-text text-muted">Enter valid KR phone number(e.g: 01012345678).</span>
                                     </div>
                                 </div>
-    
+
                                 <div class="form-group row">
                                     <label class="col-xl-3 col-lg-3 col-form-label">Introduction</label>
-                                
+                                        
                                         <div class="col-lg-3 col-xl-9">
                                             <div class="image-input image-input-outline" id="kt_image_4">
-                                                <div class="image-input-wrapper" th:style="'background-image:url('+ @{${member.image}} +');'">
+                                                <div th:if="${member.image} != null" class="image-input-wrapper" th:style="'background-image:url('+ @{${member.image}} +');'"></div>
+                                                <div th:if="${member.image} == null" class="image-input-wrapper" style="background-image:url(/assets/media/image/default.jpg)">
                                                 </div>
         
                                                 <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
@@ -130,7 +136,7 @@
                                     <div class="col-lg-9 col-xl-9">
                                         <div class="col-3">
                                     <span class="switch switch-icon"> <label> 
-                                        <span class="switch switch-icon"> <label> <input id="update" type="checkbox" value="Y" th:checked="${(member.useFlag.equals('Y'))}" name="useFlag"/>
+                                        <span class="switch switch-icon"> <label> <input id="update" type="checkbox" th:value="Y" th:checked="${(member.useFlag.equals('Y'))}" name="useFlag"/>
                                                 <span></span>
                                             </label>
                                             </span>
@@ -239,13 +245,12 @@
                             </div>
                         </div>
 
-                        
                         <div class="form-group row">
                             <label class="col-xl-3 col-lg-3 col-form-label">Edit Company OKR</label>
                             <div class="col-lg-9 col-xl-9">
                                 <div class="col-3">
                                     <span class="switch switch-icon"> <label> <input
-                                            type="checkbox" name="editCompanyOkrFlag" value="Y"/> <span></span>
+                                            type="checkbox" name="editCompanyOkrFlag" th:checked="${(member.editCompanyOkrFlag.equals('Y'))}" value="Y"/> <span></span>
                                     </label>
                                     </span>
                                 </div>
@@ -257,7 +262,9 @@
                                 <label class="col-xl-3 col-lg-3 col-form-label">Justification <span class="text-danger">*</span></label>
                                 <div class="col-lg-9 col-xl-9">
                                     <div class="input-group input-group-solid input-group-lg mt-3">
-                                        <textarea class="form-control" name="justification" rows="3" th:value="${member.justification}" required="required"></textarea>
+                                        <textarea name="justification"
+                                        class="form-control form-control-lg form-control-solid"
+                                        required th:value="${member.justification}"></textarea>
                                     </div>
                                 </div>
                             </div>                         
@@ -276,8 +283,7 @@
 <th:block layout:fragment="script">
     <script src="/assets/js/pages/custom/members/datepicker.js?v=7.0.6"></script>
     <script src="/assets/js/pages/custom/members/image-input.js?v=7.0.6"></script>
-    <script src="/assets/js/pages/custom/members/member-wizard.js?v=7.0.6"></script>
-    <script src="/assets/js/pages/custom/members/member-edit.js?v=7.0.6"></script>
+    <script src="/assets/js/pages/custom/members/member-details-edit.js?v=7.0.6"></script>
     <script src="/assets/js/pages/custom/members/datatables.bundle.js?v=7.0.6"></script>
 </th:block>
 </html>

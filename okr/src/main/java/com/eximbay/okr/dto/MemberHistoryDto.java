@@ -1,13 +1,10 @@
 package com.eximbay.okr.dto;
 
 import java.time.Instant;
-import com.eximbay.okr.entity.MemberHistory;
 import com.eximbay.okr.listener.AbstractAuditableDto;
 import org.springframework.web.multipart.MultipartFile;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 
 @Data
@@ -46,7 +43,7 @@ private Integer historySeq;
 			String joining = joiningDate.replace("-", "");
 			this.setJoiningDate(joining);
 	
-			String retire = joiningDate.replace("-", "");
+			String retire = retirementDate.replace("-", "");
 			this.setRetirementDate(retire);
 
 	        // domain delete
@@ -54,18 +51,23 @@ private Integer historySeq;
 	        String exceptDomain = eamil.substring(0, index);
 	        this.setMemberId(exceptDomain);
 	        
-	        String UseFlag = (useFlag == "Y") ? "Y" : "N";
-	        this.setUseFlag(UseFlag);
+			String UseFlag = (useFlag == null) ? "N" : "Y";
+			this.setUseFlag(UseFlag);
+			
+			// Admin Flag 
+			String AdminFlag = (adminFlag == null) ? "N" : "Y";
+			this.setAdminFlag(AdminFlag);
+	
+			String Edit = (editCompanyOkrFlag == null) ? "N" : "Y";
+			this.setEditCompanyOkrFlag(Edit);
 	        
-	        // Admin Flag 
-	        String AdminFlag = (adminFlag == "Y") ? "Y" : "N";
-	        this.setAdminFlag(adminFlag);
-
-			String Edit = (editCompanyOkrFlag == "Y") ? "Y" : "N";
-	        this.setEditCompanyOkrFlag(Edit);
-	        
-	    	String imageName = files != null ? files.getOriginalFilename() : "/assets/media/users/default.jpg";
+			if (!files.isEmpty()) {
+			String imageName = "static/assets/"+files.getOriginalFilename();
 	    	this.setImage(imageName);
+			} else {
+				this.setImage("static/assets/media/image/default.jpg");
+			}
+
 	            
 	    }
 }

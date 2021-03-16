@@ -1,5 +1,6 @@
 package com.eximbay.okr.service;
 
+import com.eximbay.okr.config.security.MyUserDetails;
 import com.eximbay.okr.constant.FlagOption;
 import com.eximbay.okr.constant.MemberPosition;
 import com.eximbay.okr.dto.*;
@@ -10,10 +11,10 @@ import com.eximbay.okr.service.specification.MemberQuery;
 import lombok.*;
 import ma.glasnost.orika.*;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.*;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.security.core.context.SecurityContextHolder;
-import com.eximbay.okr.config.security.MyUserDetails;
+
 import java.util.*;
 
 @Service
@@ -71,10 +72,8 @@ public class MemberServiceImpl implements IMemberService {
 
     @Override
     public Optional<MemberDto> getCurrentMember() {
-        if (SecurityContextHolder.getContext().getAuthentication() == null ||
-                !(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof MyUserDetails))
-            return Optional.empty();
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return Optional.ofNullable(((MyUserDetails) principal).getMemberDto());
+        if (principal instanceof MyUserDetails) return Optional.ofNullable(((MyUserDetails) principal).getMemberDto());
+        return Optional.empty();
     }
 }
