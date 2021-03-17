@@ -1,5 +1,6 @@
 package com.eximbay.okr.entity;
 
+import com.eximbay.okr.enumeration.ScheduleType;
 import com.eximbay.okr.listener.AbstractAuditable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,8 +17,9 @@ public class OkrSchedule extends AbstractAuditable {
     @Column(name = "SCHEDULE_SEQ", length = 11, nullable = false)
     private Integer scheduleSeq;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "SCHEDULE_TYPE", length = 20, nullable = false)
-    private String scheduleType;
+    private ScheduleType scheduleType = ScheduleType.QUARTERLY;
 
     @Column(name = "BEGIN_DAY", length = 11, nullable = false)
     private Integer beginDay;
