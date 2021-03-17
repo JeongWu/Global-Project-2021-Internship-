@@ -17,7 +17,7 @@ var KTWizard3 = function () {
 		});
 
 		// Validation before going to next page
-		_wizard.on('submit', function (wizard) {
+		_wizard.on('beforeNext', function (wizard) {
 			// Don't go to the next step yet
 			_wizard.stop();
 
