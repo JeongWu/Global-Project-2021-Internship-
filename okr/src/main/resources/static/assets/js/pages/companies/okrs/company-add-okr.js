@@ -1,80 +1,91 @@
 $(document).ready(function () {
     let action = '';
-    const table = $('#keyResultTable').DataTable({paging: false, info: false, filter: false, ordering: false});
     const objectiveLevels = JSON.parse(localStorage.getItem('objLevels'));
     const taskTypes = JSON.parse(localStorage.getItem('taskTypes'));
     const taskMetrics = JSON.parse(localStorage.getItem('taskMetrics'));
     const taskIndicators = JSON.parse(localStorage.getItem('taskIndicators'));
+    const initialData = [{}, {}, {}]; // init 3 blank object
+    const table = $('#keyResultTable').DataTable({paging: false, info: false, filter: false, ordering: false,
+        data: initialData,
+        "rowCallback": function(row) {
+            $(row).addClass('row-key-result');
+            $(row).find('button.search-key-result').on('click', saveRowIndexAndShowDictionary);
+        },
+        columnDefs: [
+            {
+                targets: 0,
+                title: 'LEVEL*',
+                className: 'w3-24 text-center px-0',
+                render: function () {
+                    let result =
+                        '<select class="custom-select objective-level" name="keyresultlevel[]">\
+                            <option value="">Level</option>\
+                        ';
+                    $.each(objectiveLevels, function (index, level) {
+                        result += '<option value="' + level.code + '">' + level.codeName + '</option>'
+                    })
+                    result += '</select>'
+                    return result;
+                }
+            },
+            {
+                targets: 1,
+                title: 'KEY RESULT*',
+                className: 'w6-12 text-center',
+                render: function () {
+                    return '<input type="text" class="key-result form-control w-100" name="keyresult[]">'
+                }
+            },
+            {
+                targets: 2,
+                title: 'PROPERTIES',
+                className: 'w4-12 text-center',
+                render: function () {
+                    let result = '<div class="row justify-content-center">';
+                    let taskTypeSelect = '<select class="custom-select col mr-2 task-type" style="width: 33%">\
+                                            <option value="">Task Type</option>';
+                    $.each(taskTypes, function (index, taskType) {
+                        taskTypeSelect += '<option value="' + taskType.code + '">' + taskType.codeName + '</option>';
+                    })
+                    taskTypeSelect += '</select>';
+                    let taskMetricSelect = '<select class="custom-select col mr-2 task-metric" style="width: 33%">\
+                                            <option value="">Task Metric</option>';
 
-    function addKeyResult() {
-        var rowNode = table.row.add([
-            //init a blank select, options will be added later
-            '<div class="form-group"><select class="custom-select objective-level">\
-                <option value="">Level</option>\
-            </select></div>\
-            ',
-            '<div class="form-group"><input type="text" class="key-result form-control w-100"></div>',
-            '<div class="row form-group justify-content-center">\
-                <select class="custom-select col mr-2 task-type" style="width: 33%">\
-                    <option selected="selected" value="">Task Type</option>\
-                </select>\
-                <select class="custom-select col mr-2 task-metric" style="width: 33%">\
-                    <option selected="selected" value="">Task Metric</option>\
-                </select>\
-                <select class="custom-select col mr-2 task-indicator" style="width: 33%">\
-                    <option selected="selected" value="">Task Indicator</option>\
-                </select>\
-            </div>',
-            '\
-            <div class="form-group dropdown dropdown-inline" data-toggle="tooltip" title="" data-placement="left"\
-                        data-original-title="Quick actions">\
-                    <button type="button" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon search-key-result" data-toggle="modal" data-target="#kt_datatable_modal_keyresult">\
-                        <i class="flaticon2-search"></i>\
-                    </button>\
-            </div>'
+                    $.each(taskMetrics, function (index, taskMetric) {
+                        taskMetricSelect += '<option value="' + taskMetric.code + '">' + taskMetric.codeName + '</option>';
+                    })
+                    taskMetricSelect += '</select>';
 
-        ]).draw(true).node();
-        $(rowNode).addClass('row-key-result');
-        // initialize select options for select, add a class called 'initialized' to mark it as no need to initialize next time user click the + button
-        $('.objective-level').not('.initialized').each(function () {
-            $(this).addClass('initialized');
-            const select = $(this);
-            $.each(objectiveLevels, function (index, level) {
-                select.append($("<option></option>").attr('value', level.code).text(level.codeName));
-            })
-        })
-        $('.task-type').not('.initialized').each(function () {
-            $(this).addClass('initialized');
-            const select = $(this);
-            $.each(taskTypes, function (index, taskType) {
-                select.append($("<option></option>").attr('value', taskType.code).text(taskType.codeName));
-            })
-        })
-        $('.task-metric').not('.initialized').each(function () {
-            $(this).addClass('initialized');
-            const select = $(this);
-            $.each(taskMetrics, function (index, taskMetric) {
-                select.append($("<option></option>").attr('value', taskMetric.code).text(taskMetric.codeName));
-            })
-        })
-        $('.task-indicator').not('.initialized').each(function () {
-            $(this).addClass('initialized');
-            const select = $(this);
-            $.each(taskIndicators, function (index, taskIndicator) {
-                select.append($("<option></option>").attr('value', taskIndicator.code).text(taskIndicator.codeName));
-            })
-        })
-    }
+                    let taskIndicatorSelect = '<select class="custom-select col mr-2 task-indicator" style="width: 33%">\
+                                            <option value="">Task Indicator</option>';
 
-    // add 3 rows by default
-    for (let i = 1; i < 4; i++) {
-        addKeyResult();
-    }
+                    $.each(taskIndicators, function (index, taskIndicator) {
+                        taskIndicatorSelect += '<option value="' + taskIndicator.code + '">' + taskIndicator.codeName + '</option>';
+                    })
+                    taskIndicatorSelect += '</select>';
+                    result += taskTypeSelect + taskMetricSelect + taskIndicatorSelect;
+                    result += '</div>';
+                    return result;
+                }
+            },
+            {
+                targets: 3,
+                title: 'ACTION',
+                className: 'w1-24 text-center',
+                render: function () {
+                    return '<button type="button" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon search-key-result" data-toggle="modal" data-target="#kt_datatable_modal_keyresult">\
+                                    <i class="flaticon2-search"></i>\
+                                </button>'
+                }
+            }
+        ]
+
+    });
 
     let fv = initializeFormValidation();
 
-    $('#btnAddKeyResult').on('click', function () {
-        addKeyResult();
+    $('button#btnAddKeyResult').on('click', function () {
+        table.row.add({}).draw(true);// add a blank object
         fv.resetForm(false);
         $('#formOKRs div.fv-plugins-message-container').remove();
         fv = initializeFormValidation();//re-initialize form validation to apply to newly added row
@@ -96,16 +107,14 @@ $(document).ready(function () {
                             }
                         }
                     },
-                    levelSelectOption: {
-                        selector: 'select.objective-level',
+                    'keyresultlevel[]': {
                         validators: {
                             notEmpty: {
-                                message: 'Please select'
+                                message: 'Please select level'
                             }
                         }
                     },
-                    keyResults: {
-                        selector: 'input.key-result',
+                    'keyresult[]': {
                         validators: {
                             notEmpty: {
                                 message: 'Key Result is required'
@@ -115,7 +124,16 @@ $(document).ready(function () {
                 },
                 plugins: {
                     trigger: new FormValidation.plugins.Trigger(),
-                    bootstrap: new FormValidation.plugins.Bootstrap(),
+                    bootstrap: new FormValidation.plugins.Bootstrap({
+                        rowSelector: function (field) {
+                            if (field === 'objective') {
+                                return 'div.form-group';
+                            }
+                            if (field === 'keyresultlevel[]' || field === 'keyresult[]') {
+                                return 'td';
+                            }
+                        }
+                    }),
                     submitButton: new FormValidation.plugins.SubmitButton(),
                 }
             }
@@ -124,7 +142,7 @@ $(document).ready(function () {
             const quarter = $('#quarter').val();
             const objective = $('#objective').val();
             var keyResults = [];
-            $('tr.row-key-result').each(function () {
+            $('table#keyResultTable tr.row-key-result').each(function () {
                 const level = $(this).find('select.objective-level').val();
                 const kresult = $(this).find('input.key-result').val();
                 const taskType = $(this).find('select.task-type').val();
@@ -150,24 +168,45 @@ $(document).ready(function () {
                     objective: objective,
                     key_results: keyResults
                 }),
-                success: function (result) {
-                    if (result.success) {
+                success: function(responseData) {
+                    console.log(responseData)
+                    Swal.fire({
+                        title: 'Submit successfully',
+                        icon: 'success',
+                        showCancelButton: false,
+                        confirmButtonText: 'OK'
+                    }).then(() => {
                         if (action === 'saveAndAddNew') {
-                            window.location.href = '/company/okrs/add';
+                            location.reload();
                         } else if (action === 'saveAndRelation') {
+                            //TODO: change url for save & relation
                             window.location.href = '/';
                         } else if (action === 'saveAndExit') {
                             window.location.href = '/';
                         }
-                    }
+                    });
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR)
+                    console.log(textStatus)
+                    console.log(errorThrown)
+                    Swal.fire({
+                        title: textStatus,
+                        text: errorThrown,
+                        icon: 'error',
+                        showCancelButton: false,
+                        confirmButtonText: 'OK'
+                    })
                 }
             })
         });
     }
 
     KTDatatableModalForKeyResult.init();
-    $(".search-key-result").on("click",function(){
-        var rowIndex=$(this).closest('tr').index();
-        localStorage.setItem("index",rowIndex)
-    })
+
+    function saveRowIndexAndShowDictionary() {
+        fv.resetForm(false);
+        const rowIndex = $(this).closest('tr').index();
+        localStorage.setItem("index", rowIndex)
+    }
 })
