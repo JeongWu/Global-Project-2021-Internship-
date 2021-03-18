@@ -6,7 +6,7 @@
 	<title>Edit Team Details</title>
 </head>
 
-<body th:object="${dataModel}">
+<body>
 	<div layout:fragment="right-floating-toolbar" class="d-flex align-items-center flex-wrap">
 		<a th:href="@{~/teams/list}"
 			class="btn btn-primary button-color btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2 w-120px justify-content-center">Back</a>
@@ -33,7 +33,8 @@
 			<div class="card-body px-0">
 				<div class="row justify-content-center py-10 px-8 py-lg-12 px-lg-10">
 					<div class="col-10">
-						<form class="form fv-plugins-bootstrap fv-plugins-framework" id="edit_form" th:action="@{~/teams/save}" method="post">
+						<form class="form" id="edit_form" method="post" enctype="multipart/form-data"
+                        th:action="@{/teams/save}" th:object="${dataModel}">
 							<input type="text" th:field="*{teamSeq}" hidden />
 
 							<!--begin::Row-->
@@ -109,7 +110,7 @@
 													data-original-title="Change avatar">
 													<i class="fa fa-pen icon-sm text-muted"></i>
 													<input type="file" name="imageFile" accept=".png, .jpg, .jpeg"
-														th:field="*{imageFile}" />
+													th:field="*{imageFile}" />
 													<input type="hidden" name="profile_avatar_remove" />
 												</label>
 

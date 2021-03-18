@@ -143,7 +143,7 @@ public class TeamController {
         return "pages/teams/team-edit-details";
     }
 
-    @PostMapping(value = "/save", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @PostMapping("/save")
     public String saveTeam(@Validated TeamUpdateFormModel updateFormModel, BindingResult error) {
         if (error.hasErrors())
             return "rediect:/teams/edit/" + updateFormModel.getTeamSeq();

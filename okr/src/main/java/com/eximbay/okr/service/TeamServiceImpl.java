@@ -1,5 +1,6 @@
 package com.eximbay.okr.service;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -215,11 +216,27 @@ public class TeamServiceImpl implements ITeamService {
 
         teamDto.get().getDivision().setDivisionSeq(updateFormModel.getDivisionDto().getDivisionSeq());
 
+
+        if (updateFormModel.getImageFile() != null && !updateFormModel.getImageFile().isEmpty()) {
+            String imageSrc;
+            try {
+                imageSrc = fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.TEAM,
+                updateFormModel.getImageFile());
+            } catch (UserException e) {
+                String message = Optional.ofNullable(e.getCause()).orElse(e).getMessage();
+                throw new RestUserException(message);
+            }
+            teamDto.get().setImage(imageSrc);
+        }
+
+
+
         TeamHistoryDto teamHistoryDto = mapper.map(teamDto.get(), TeamHistoryDto.class);
         teamHistoryDto.setJustification(updateFormModel.getJustification());
         teamHistoryDto.setTeam(mapper.map(teamDto.get(), TeamDto.class));
         teamHistoryService.save(teamHistoryDto);
-        TeamDto saveTeam = save(teamDto.get());
+        save(teamDto.get());
+        updateFormModel.setImageFile(null);
     }
 
     // @Override
@@ -238,7 +255,26 @@ public class TeamServiceImpl implements ITeamService {
         } else {
             team.setUseFlag("N");
         }
+        if (teamAddModel.getImageFile() != null && !teamAddModel.getImageFile().isEmpty()) {
+            String imageSrc;
+            try {
+                imageSrc = fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.TEAM,
+                        teamAddModel.getImageFile());
+            } catch (UserException e) {
+                String message = Optional.ofNullable(e.getCause()).orElse(e).getMessage();
+                throw new RestUserException(message);
+            }
+            team.setImage(imageSrc);
+        }
+        
         team = teamRepository.save(team);
+        // insert new history when adding a team
+        TeamHistoryDto teamHistoryDto = mapper.map(team, TeamHistoryDto.class);
+        teamHistoryDto.setJustification("Team Added");
+        teamHistoryDto.setTeam(mapper.map(team, TeamDto.class));
+        teamHistoryDto.setUpdatedDate(Instant.now());
+        teamHistoryService.save(teamHistoryDto);
+
         return team;
     }
 

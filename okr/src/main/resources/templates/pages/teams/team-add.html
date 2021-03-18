@@ -66,7 +66,7 @@
 				<div class="row justify-content-center py-10 px-8 py-lg-12 px-lg-10">
 					<div class="col-10">
 						<form class="form fv-plugins-bootstrap fv-plugins-framework" id="team_form"
-							th:action="@{~/teams/add}" method="post">
+							th:action="@{~/teams/add}" method="post" enctype="multipart/form-data">
 							<input type="text" th:field="*{teamSeq}" hidden />
 							<!--begin::Row-->
 							<div class="row">
