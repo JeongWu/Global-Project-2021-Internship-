@@ -80,34 +80,47 @@ public class TeamController {
 
     // @RequestMapping(value = "/view/save", method = RequestMethod.POST)
     @PostMapping("/view/save")
-    public String update(@Validated AllTeamUpdateModel allTeamUpdateModel, @RequestParam("image") MultipartFile file) {
-        Optional<TeamDto> team = teamService.findById(allTeamUpdateModel.getTeamSeq());
-        if (team.isEmpty())
-            throw new UserException(new NotFoundException("Not found Team with Id = " + allTeamUpdateModel.getTeamSeq()));
+    public String update(@Validated AllTeamUpdateModel req, BindingResult error) {
 
-        // if (req.getImageFile() != null && !req.getImageFile().isEmpty()){
-        String imageSrc;
-        // try {
-        imageSrc = fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.COMPANY, file);
-        // } catch (UserException e){
-        // String message = Optional.ofNullable(e.getCause()).orElse(e).getMessage();
-        // throw new RestUserException(message);
-        // }
-        // company.get().setLogo(imageSrc);
-        team.get().setImage(imageSrc);
-        // }
+        if (error.hasErrors())
+            return "redirect:/teams/view/edit/" + req.getTeamSeq();
 
-        team.get().setIntroduction(allTeamUpdateModel.getIntroduction());
-        // team.get().setImage(allTeamUpdateModel.getImage());
-
-        teamService.save(team.get());
-
-        // if (error.hasErrors())
-        // return "redirect:/teams/view/edit/" + req.getTeamSeq();
-
-        // teamService.updateForViewAllTeamModel(req);
+        teamService.updateForViewAllTeamModel(req);
         return "redirect:/teams";
     }
+    // @PostMapping("/view/save")
+    // public String update(AllTeamUpdateModel allTeamUpdateModel, BindingResult
+    // error) {
+    // Optional<TeamDto> team =
+    // teamService.findById(allTeamUpdateModel.getTeamSeq());
+    // if (team.isEmpty())
+    // throw new UserException(
+    // new NotFoundException("Not found Team with Id = " +
+    // allTeamUpdateModel.getTeamSeq()));
+
+    // if (allTeamUpdateModel.getImageFile() != null &&
+    // !allTeamUpdateModel.getImageFile().isEmpty()) {
+    // String imageSrc;
+    // try {
+    // imageSrc = fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR,
+    // EntityType.TEAM,
+    // allTeamUpdateModel.getImageFile());
+    // } catch (UserException e) {
+    // String message = Optional.ofNullable(e.getCause()).orElse(e).getMessage();
+    // throw new RestUserException(message);
+    // }
+    // team.get().setImage(imageSrc);
+    // }
+
+    // team.get().setIntroduction(allTeamUpdateModel.getIntroduction());
+
+    // teamService.save(team.get());
+    // allTeamUpdateModel.setImageFile(null);
+    // if (error.hasErrors())
+    // return "redirect:/teams/view/edit/" + allTeamUpdateModel.getTeamSeq();
+
+    // return "redirect:/teams";
+    // }
 
     @GetMapping("/list")
     public String viewTeamList(Model model) {

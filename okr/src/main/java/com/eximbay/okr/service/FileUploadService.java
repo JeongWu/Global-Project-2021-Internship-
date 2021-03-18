@@ -46,7 +46,7 @@ public class FileUploadService {
         // if (memberDto.isEmpty()) throw new UserException(ErrorMessages.loginRequired);
 
         try {
-            String saveFileName = entityType.name() + memberDto.get().getMemberSeq() + extension;
+            String saveFileName = entityType.name()  + extension;
             Path saveDestination = Paths.get(imagePath)
                     .resolve(getSubPath(fileContentType) + saveFileName)
                     .normalize().toAbsolutePath();

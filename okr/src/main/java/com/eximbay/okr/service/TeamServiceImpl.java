@@ -21,6 +21,7 @@ import com.eximbay.okr.dto.TeamHistoryDto;
 import com.eximbay.okr.dto.TeamMemberDto;
 import com.eximbay.okr.dto.team.TeamWithMembersAndLeaderDto;
 import com.eximbay.okr.entity.*;
+import com.eximbay.okr.exception.RestUserException;
 import com.eximbay.okr.exception.UserException;
 import com.eximbay.okr.model.AllDetailsTeamModel;
 import com.eximbay.okr.model.AllTeamUpdateModel;
@@ -45,7 +46,9 @@ import lombok.*;
 import ma.glasnost.orika.MapperFacade;
 import com.eximbay.okr.entity.Division;
 import com.eximbay.okr.entity.Team;
-
+import com.eximbay.okr.enumeration.EntityType;
+import com.eximbay.okr.enumeration.FileContentType;
+import com.eximbay.okr.enumeration.FileType;
 
 @Service
 @AllArgsConstructor
@@ -58,6 +61,7 @@ public class TeamServiceImpl implements ITeamService {
     private final Environment environment;
     private final DivisionRepository divisionRepository;
     private final ITeamHistoryService teamHistoryService;
+    private final FileUploadService fileUploadService;
 
     @Override
     public List<TeamDto> findAll() {
@@ -162,7 +166,8 @@ public class TeamServiceImpl implements ITeamService {
                     .map(m -> m.getTeamMemberId().getMember()).distinct().collect(Collectors.toList());
             teamListModels.get(i).setMembers(mapper.mapAsList(members, MemberDto.class));
 
-            // List<MemberDto> memberDtos = teamMemberService.findActiveMembersOfTeam(teamDtos.get(i));
+            // List<MemberDto> memberDtos =
+            // teamMemberService.findActiveMembersOfTeam(teamDtos.get(i));
             // teamListModels.get(i).setMembers(memberDtos);
 
             DivisionDto divisionDto = mapper.map(teamListModels.get(i).getDivision(), DivisionDto.class);
@@ -176,62 +181,66 @@ public class TeamServiceImpl implements ITeamService {
     public long countAllTeam() {
         return teamRepository.count();
     }
-    
+
     @Override
     public EditTeamModel buildEditTeamModel(Integer id) {
-    	EditTeamModel dataModel = new EditTeamModel();
-    	dataModel.setSubheader("Edit ");
-    	// Optional<Team> team = teamRepository.findById(id);
-    	Optional<TeamDto> teamDto = findById(id);
-    	Optional<TeamUpdateFormModel> model = teamDto.map(m->mapper.map(m, TeamUpdateFormModel.class));
-    	if(model.isEmpty()) throw new UserException(new NotFoundException("Not found Object with Id = "+id));
-    	dataModel.setMutedHeader(model.get().getName());
-    	
-    	model.get().setUseFlag(teamDto.get().getUseFlag().equals(FlagOption.Y));
-    	model.get().setDivisionDto(teamDto.get().getDivision());
-    	dataModel.setModel(model.get());
-    	return dataModel;
+        EditTeamModel dataModel = new EditTeamModel();
+        dataModel.setSubheader("Edit ");
+        // Optional<Team> team = teamRepository.findById(id);
+        Optional<TeamDto> teamDto = findById(id);
+        Optional<TeamUpdateFormModel> model = teamDto.map(m -> mapper.map(m, TeamUpdateFormModel.class));
+        if (model.isEmpty())
+            throw new UserException(new NotFoundException("Not found Object with Id = " + id));
+        dataModel.setMutedHeader(model.get().getName());
+
+        model.get().setUseFlag(teamDto.get().getUseFlag().equals(FlagOption.Y));
+        model.get().setDivisionDto(teamDto.get().getDivision());
+        dataModel.setModel(model.get());
+        return dataModel;
     }
 
-    
     @Override
     @Transactional
     public void updateFormModel(TeamUpdateFormModel updateFormModel) {
-    	Optional<TeamDto> teamDto = findById(updateFormModel.getTeamSeq());
-    	if(teamDto.isEmpty()) throw new UserException(new NotFoundException("Not found Object with Id = "+ updateFormModel.getTeamSeq()));
-    	mapper.map(updateFormModel, teamDto.get());
+        Optional<TeamDto> teamDto = findById(updateFormModel.getTeamSeq());
+        if (teamDto.isEmpty())
+            throw new UserException(
+                    new NotFoundException("Not found Object with Id = " + updateFormModel.getTeamSeq()));
+        mapper.map(updateFormModel, teamDto.get());
 
-    	if(updateFormModel.isUseFlag()) teamDto.get().setUseFlag(FlagOption.Y);
-    	else teamDto.get().setUseFlag(FlagOption.N);
-    	
-    	teamDto.get().getDivision().setDivisionSeq(updateFormModel.getDivisionDto().getDivisionSeq());
-    	
-    	TeamHistoryDto teamHistoryDto = mapper.map(teamDto.get(), TeamHistoryDto.class);
-    	teamHistoryDto.setJustification(updateFormModel.getJustification());
-    	teamHistoryDto.setTeam(mapper.map(teamDto.get(), TeamDto.class));
-    	teamHistoryService.save(teamHistoryDto);
-    	TeamDto saveTeam = save(teamDto.get());
+        if (updateFormModel.isUseFlag())
+            teamDto.get().setUseFlag(FlagOption.Y);
+        else
+            teamDto.get().setUseFlag(FlagOption.N);
+
+        teamDto.get().getDivision().setDivisionSeq(updateFormModel.getDivisionDto().getDivisionSeq());
+
+        TeamHistoryDto teamHistoryDto = mapper.map(teamDto.get(), TeamHistoryDto.class);
+        teamHistoryDto.setJustification(updateFormModel.getJustification());
+        teamHistoryDto.setTeam(mapper.map(teamDto.get(), TeamDto.class));
+        teamHistoryService.save(teamHistoryDto);
+        TeamDto saveTeam = save(teamDto.get());
     }
 
     // @Override
     // public TeamAddModel buildDefaultTeamAddModel() {
-    //     TeamAddModel teamAddModel = new TeamAddModel();
-    //     Division division = new Division();
-    //     teamAddModel.setDivision(divisionRepository.findById(2).orElse(null));
-    //     return teamAddModel;
+    // TeamAddModel teamAddModel = new TeamAddModel();
+    // Division division = new Division();
+    // teamAddModel.setDivision(divisionRepository.findById(2).orElse(null));
+    // return teamAddModel;
     // }
-    
-	@Override
-	public Team addTeam(TeamAddModel teamAddModel) {
-		Team team = mapper.map(teamAddModel, Team.class);
-		if(teamAddModel.isUseFlag()) {
-			team.setUseFlag("Y");
-		} else {
-			team.setUseFlag("N");
-		}
-		team = teamRepository.save(team);
-		return team;
-	}
+
+    @Override
+    public Team addTeam(TeamAddModel teamAddModel) {
+        Team team = mapper.map(teamAddModel, Team.class);
+        if (teamAddModel.isUseFlag()) {
+            team.setUseFlag("Y");
+        } else {
+            team.setUseFlag("N");
+        }
+        team = teamRepository.save(team);
+        return team;
+    }
 
     @Override
     public EditForViewAllTeamsModel buildEditAllTeamsModel(Integer id) {
@@ -251,12 +260,28 @@ public class TeamServiceImpl implements ITeamService {
         if (team.isEmpty())
             throw new UserException(
                     new NotFoundException("Not found Object with Id = " + allTeamUpdateModel.getTeamSeq()));
-        // mapper.map(allTeamUpdateModel, team.get());
+
+        if (allTeamUpdateModel.getImageFile() != null && !allTeamUpdateModel.getImageFile().isEmpty()) {
+            String imageSrc;
+            try {
+                imageSrc = fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.TEAM,
+                        allTeamUpdateModel.getImageFile());
+            } catch (UserException e) {
+                String message = Optional.ofNullable(e.getCause()).orElse(e).getMessage();
+                throw new RestUserException(message);
+            }
+            team.get().setImage(imageSrc);
+        }
 
         team.get().setIntroduction(allTeamUpdateModel.getIntroduction());
-        team.get().setImage(allTeamUpdateModel.getImage());
 
         teamRepository.save(team.get());
+        allTeamUpdateModel.setImageFile(null);
+
+        // team.get().setIntroduction(allTeamUpdateModel.getIntroduction());
+        // team.get().setImage(allTeamUpdateModel.getImage());
+
+        // teamRepository.save(team.get());
 
     }
 
