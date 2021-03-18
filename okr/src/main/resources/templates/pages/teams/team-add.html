@@ -66,7 +66,7 @@
 				<div class="row justify-content-center py-10 px-8 py-lg-12 px-lg-10">
 					<div class="col-10">
 						<form class="form fv-plugins-bootstrap fv-plugins-framework" id="team_form"
-							th:action="@{~/teams/add}" method="post" enctype="multipart/form-data">
+							th:action="@{~/teams/add}" method="post"enctype="multipart/form-data">
 							<input type="text" th:field="*{teamSeq}" hidden />
 							<!--begin::Row-->
 							<div class="row">
@@ -129,7 +129,7 @@
 										<div class="col-xl-2 col-lg-2">
 											<div class="image-input image-input-empty image-input-outline"
 												id="kt_user_add_avatar"
-												style="background-image: url(/assets/media/users/blank.png)">
+												style="background-image: url(/assets/media/image/default.jpg)">
 
 												<div class="image-input-wrapper"
 													th:style="'background-image: url('+${image} +');'"></div>
