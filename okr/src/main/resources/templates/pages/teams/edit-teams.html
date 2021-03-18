@@ -22,8 +22,8 @@
         <div>
             <div class="card card-custom gutter-b">
                 <div class="card-body px-0">
-                    <form class="form" id="kt_form" method="post" enctype="multipart/form-data" th:action="@{/teams/view/save}"
-                        th:object="${dataModel}">
+                    <form class="form" id="kt_form" method="post" enctype="multipart/form-data"
+                        th:action="@{/teams/view/save}" th:object="${dataModel}">
                         <input type="text" id="teamSeq" th:field="*{teamSeq}" hidden />
                         <div class="tab-content">
                             <!--begin::Tab-->
@@ -73,9 +73,9 @@
                                             </div>
                                         </div>
                                         <!--end::Select-->
-                                    
-                                          <!-- begin::Group -->
-                                          <div class="form-group row">
+
+                                        <!-- begin::Group -->
+                                        <div class="form-group row">
                                             <label class="col-xl-3 col-lg-3 col-form-label">Introduction</label>
                                             <div class="col-xl-2 col-lg-2">
                                                 <div class="image-input image-input-empty image-input-outline"
@@ -90,8 +90,8 @@
                                                         data-action="change" data-toggle="tooltip" title=""
                                                         data-original-title="Change avatar">
                                                         <i class="fa fa-pen icon-sm text-muted"></i>
-                                                        <input type="file" name="imageFile"
-                                                            accept=".png, .jpg, .jpeg" th:field="*{imageFile}"/>
+                                                        <input type="file" name="imageFile" accept=".png, .jpg, .jpeg"
+                                                            th:field="*{imageFile}" />
                                                         <input type="hidden" name="profile_avatar_remove" />
                                                     </label>
 
@@ -124,8 +124,16 @@
     </div>
 </body>
 <th:block layout:fragment="script">
-    <script th:src="@{/assets/js/pages/custom/teams/edit-teams.js?v=7.0.6}"></script>
-
+    <script type="text/javascript">
+        $().ready(function () {
+            $("#submitBtn").click(function (e) {
+                e.preventDefault();
+                console.log("submit event!!");
+                $("#kt_form").submit();
+            });
+            inputImage("kt_user_edit_avatar");
+        })
+    </script>
 </th:block>
 
 </html>
