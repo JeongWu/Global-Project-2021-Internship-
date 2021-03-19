@@ -36,10 +36,11 @@
 						<div class="form-group row">
 							<label class="col-lg-2 col-form-label text-right">Begin day</label>
 							<div class="col-lg-2">
-								<select name="quarterly_beginDay" class="form-control form-control-solid"
+								<select name="quarterly_beginDay" class="form-control form-control-solid "
 									id="quarterly_beginDay" th:field="*{beginDay}">
 									<!-- <th:block th:each="d : ${#numbers.sequence(1,31)}" th:field="*{beginDay}"> 
    								 <option th:value th:text="${d}" ></option>-->
+									<option value="">Select..</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -79,6 +80,7 @@
 							<div class="col-lg-2">
 								<select name="quarterly_endDay" class="form-control form-control-solid"
 									id="quarterly_endDay" th:field="*{endDay}">
+									<option value="">Select..</option>
 									<option value="31">The end of the quarter</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
@@ -178,31 +180,6 @@
 							</div>
 						</div>
 					</div>
-					<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-    Launch demo modal
-</button>
-
-				<div class="modal fade" id="modalBox" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <i aria-hidden="true" class="ki ki-close"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary font-weight-bold">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
 				</form>
 				<!--end::Form-->
 			</div>
@@ -336,7 +313,7 @@
 								<input hidden type="text" th:value="${dataMonthlyModel.remindBeforeDays}"
 									id="monthly_input" />
 								<select class="form-control select2" name='monthly_select' id="monthly_select" multiple
-									style="width:50%;">
+									style="width:50%;" >
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -501,23 +478,6 @@
 <th:block layout:fragment="script">
 	<script th:src="@{/assets/js/pages/crud/forms/widgets/bootstrap-timepicker.js}"></script>
 	<script th:src="@{/assets/js/pages/custom/schedules/schedule-edit.js}"></script>
-	<!-- <script type="text/javascript">
-		$().ready(function () {
-			$("#quarterly_select").val($("#quarterly_input").val().split(","));
-			$("#monthly_select").val($("#monthly_input").val().split(","));
-			$("#weekly_select").val($("#weekly_input").val().split(","));
-			$("#quarterly_select,#monthly_select,#weekly_select").select2({
-				placeholder: "Select..",
-			});
-
-			$("#quarterly_beginDay").on("change", function () {
-				alert("quarterly_beginDay")
-			});
-			
-
-			
-		})
-	</script> -->
 </th:block>
 
 
