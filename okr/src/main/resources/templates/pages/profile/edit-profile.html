@@ -3,13 +3,13 @@
     layout:decorate="~{pages/layout/main_layout.html}">
 
 <head>
-    <title>Edit Team</title>
+    <title>Edit Profile</title>
 </head>
 
 <body>
     <div layout:fragment="right-floating-toolbar" class="d-flex align-items-center flex-wrap">
         <!--begin::Button-->
-        <a href="/teams"
+        <a href="/"
             class="btn btn-primary button-color btn-fixed-height font-weight-bold w-120px px-2 px-lg-5 mr-2 justify-content-center"
             id="cancelBtn">
             Back </a>
@@ -18,13 +18,13 @@
         <!--end::Button-->
     </div>
     <div layout:fragment="content" class="container">
-        <input id="base-url" hidden th:value="teams" />
+        <input id="base-url" hidden th:value="members" />
         <div>
             <div class="card card-custom gutter-b">
                 <div class="card-body px-0">
-                    <form class="form" id="kt_form" method="post" enctype="multipart/form-data" th:action="@{/teams/view/save}"
+                    <form class="form" id="kt_form" method="post" enctype="multipart/form-data" th:action="@{/members/profile/save}"
                         th:object="${dataModel}">
-                        <input type="text" id="teamSeq" th:field="*{teamSeq}" hidden />
+                        <input type="text" id="memberSeq" th:field="*{memberSeq}" hidden />
                         <div class="tab-content">
                             <!--begin::Tab-->
                             <div class="tab-pane show active px-7" id="kt_user_edit_tab_1" role="tabpanel">
@@ -33,7 +33,7 @@
                                     <div class="col-10">
                                         <!--begin::Group-->
                                         <div class="form-group row">
-                                            <label style="padding-right: 0" class="col-form-label col-3 text-left">Team
+                                            <label style="padding-right: 0" class="col-form-label col-3 text-left">Member
                                                 Name
                                                 (English)*</label>
                                             <div class="col-9">
@@ -44,38 +44,35 @@
                                         <!--end::Group-->
                                         <!--begin::Group-->
                                         <div class="form-group row">
-                                            <label class="col-form-label col-3 text-left">Team
-                                                Name (Korea)*</label>
+                                            <label class="col-form-label col-3 text-left">Member
+                                                Name (Korean)*</label>
                                             <div class="col-9">
                                                 <input class="form-control form-control-lg form-control-solid"
                                                     type="text" required th:field="*{localName}" disabled />
                                             </div>
                                         </div>
                                         <!--end::Group-->
-                                        <!--begin::Select-->
+                                        <!--begin::Group-->
                                         <div class="form-group row">
-                                            <label for="division" class="col-3 col-form-label">Division
+                                            <label for="email" class="col-3 col-form-label">Email
                                                 *</label>
                                             <div class="col-9">
                                                 <input class="form-control form-control-lg form-control-solid"
-                                                    type="text" required th:field="*{division.name}" disabled>
-
+                                                    type="text" required th:field="*{email}" disabled>
                                             </div>
                                         </div>
-                                        <!--end::Select-->
-                                        <!--begin::Select-->
+                                        <!--end::Group-->
                                         <div class="form-group row">
-                                            <label for="teamType" class="col-3  col-form-label">Team Type
+                                            <label for="contactPhone" class="col-3 col-form-label">Contact Phone
                                                 *</label>
                                             <div class="col-9">
                                                 <input class="form-control form-control-lg form-control-solid"
-                                                    type="text" required th:field="*{teamType}" disabled>
+                                                    type="text" required th:field="*{contactPhone}" disabled>
                                             </div>
                                         </div>
-                                        <!--end::Select-->
-                                    
-                                          <!-- begin::Group -->
-                                          <div class="form-group row">
+                                        <!--end::Group-->
+                                        <!-- begin::Group -->
+                                        <div class="form-group row">
                                             <label class="col-xl-3 col-lg-3 col-form-label">Introduction</label>
                                             <div class="col-xl-2 col-lg-2">
                                                 <div class="image-input image-input-empty image-input-outline"
@@ -109,8 +106,37 @@
                                                     id="introduction" rows="5" placeholder="Type notes"
                                                     th:field="*{introduction}"></textarea> </div>
                                         </div>
-
                                         <!-- end::Group -->
+                                        <!--begin::Group-->
+                                        <div class="form-group row">
+                                            <label for="position" class="col-3  col-form-label">Position
+                                                </label>
+                                            <div class="col-9">
+                                                <input class="form-control form-control-lg form-control-solid"
+                                                    type="text" required th:field="*{position}" disabled>
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                          <!--begin::Group-->
+                                          <div class="form-group row">
+                                            <label for="level" class="col-3  col-form-label">Level
+                                                </label>
+                                            <div class="col-9">
+                                                <input class="form-control form-control-lg form-control-solid"
+                                                    type="text" required th:field="*{level}" disabled>
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
+                                          <!--begin::Group-->
+                                          <div class="form-group row">
+                                            <label for="joiningDate" class="col-3  col-form-label">Joining Date
+                                                </label>
+                                            <div class="col-9">
+                                                <input class="form-control form-control-lg form-control-solid"
+                                                    type="text" required th:field="*{joiningDate}" disabled>
+                                            </div>
+                                        </div>
+                                        <!--end::Group-->
                                     </div>
                                 </div>
                                 <!--end::Row-->

@@ -1,5 +1,11 @@
 package com.eximbay.okr.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import com.eximbay.okr.constant.Subheader;
 import com.eximbay.okr.dto.MemberDto;
 import com.eximbay.okr.dto.MemberHistoryDto;
@@ -8,32 +14,32 @@ import com.eximbay.okr.dto.TeamMemberDto;
 import com.eximbay.okr.enumeration.EntityType;
 import com.eximbay.okr.enumeration.FileContentType;
 import com.eximbay.okr.enumeration.FileType;
+import com.eximbay.okr.exception.RestUserException;
+import com.eximbay.okr.exception.UserException;
 import com.eximbay.okr.model.MemberModel;
 import com.eximbay.okr.model.PageModel;
+import com.eximbay.okr.model.profile.EditProfileModel;
+import com.eximbay.okr.model.profile.ProfileUpdateModel;
 import com.eximbay.okr.service.FileUploadService;
 import com.eximbay.okr.service.MemberHistoryServiceImpl;
 import com.eximbay.okr.service.MemberServiceImpl;
 import com.eximbay.okr.service.TeamMemberServiceImpl;
 import com.eximbay.okr.service.TeamServiceImpl;
-import org.springframework.http.MediaType;
 
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.stream.Collectors;
+import javassist.NotFoundException;
+import lombok.AllArgsConstructor;
+import ma.glasnost.orika.MapperFacade;
 
 @Controller
 @AllArgsConstructor
@@ -45,48 +51,50 @@ public class MemberController {
     private final TeamMemberServiceImpl teamMemberService;
     private final FileUploadService fileUploadService;
     private final TeamServiceImpl teamService;
+    private final MapperFacade mapper;
 
     @GetMapping
-    public String memberList(Model model){
+    public String memberList(Model model) {
 
         List<MemberDto> members = memberService.findAll();
-        List<TeamDto> teams = teamService.findAll(); 
-        List<String> teamName=teams.stream().map(t->t.getName()).collect(Collectors.toList());
+        List<TeamDto> teams = teamService.findAll();
+        List<String> teamName = teams.stream().map(t -> t.getName()).collect(Collectors.toList());
         model.addAttribute("teamName", teamName);
 
         PageModel pageModel = new PageModel();
-        long totalCount= members.size();
+        long totalCount = members.size();
         pageModel.setSubheader(Subheader.MEMBER);
         pageModel.setMutedHeader(totalCount + " total");
         model.addAttribute("model", pageModel);
-        
+
         return "pages/members/member_list";
     }
 
     @GetMapping("/add")
-    public String addMember(Model model){
+    public String addMember(Model model) {
         model.addAttribute("subheader", Subheader.ADD_MEMBER);
         return "pages/members/member_add";
     }
 
     @PostMapping("/add")
-    public String memberSave(MemberDto dto, @RequestParam("picture") MultipartFile files, 
-    @RequestParam("action") String action) {
-        if (!files.isEmpty()){
-            // fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.MEMBER, files);  
+    public String memberSave(MemberDto dto, @RequestParam("picture") MultipartFile files,
+            @RequestParam("action") String action) {
+        if (!files.isEmpty()) {
+            // fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR,
+            // EntityType.MEMBER, files);
         }
-        dto.createMemberDto(dto.getJoiningDate(), dto.getRetirementDate(),dto.getEditCompanyOkrFlag(),dto.getUseFlag(), dto.getAdminFlag(), dto.getEmail(), files);  
+        dto.createMemberDto(dto.getJoiningDate(), dto.getRetirementDate(), dto.getEditCompanyOkrFlag(),
+                dto.getUseFlag(), dto.getAdminFlag(), dto.getEmail(), files);
         memberService.save(dto);
-        if(action.equals("new")){
+        if (action.equals("new")) {
             return "redirect:/members/add";
         }
         return "redirect:/members";
     }
-       
+
     @GetMapping("/edit/{memberSeq}")
-    public String editdetails(Model model, @PathVariable("memberSeq") int id){
-        MemberDto dto = memberService.findById(id)
-        .orElseThrow(()-> new NullPointerException("Null"));
+    public String editdetails(Model model, @PathVariable("memberSeq") int id) {
+        MemberDto dto = memberService.findById(id).orElseThrow(() -> new NullPointerException("Null"));
         MemberModel memberModel = new MemberModel(Subheader.EDIT_MEMBER, dto.getName());
         model.addAttribute("model", memberModel);
         model.addAttribute("member", dto);
@@ -95,19 +103,20 @@ public class MemberController {
     }
 
     @PostMapping(value = "/save")
-    public String memberUpdate(@Validated MemberDto req, BindingResult error, @RequestParam("picture") MultipartFile files){
-        if (error.hasErrors()) return "redirect:/members/edit/"+ req.getMemberSeq();
+    public String memberUpdate(@Validated MemberDto req, BindingResult error,
+            @RequestParam("picture") MultipartFile files) {
+        if (error.hasErrors())
+            return "redirect:/members/edit/" + req.getMemberSeq();
         return "redirect:/members";
     }
 
     @PostMapping("/edit/{memberSeq}")
     public String memberUpdate(MemberDto req, @RequestParam("picture") MultipartFile files,
-        @PathVariable("memberSeq") int id) { 
-        
+            @PathVariable("memberSeq") int id) {
+
         String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyMMdd"));
-        MemberDto dto = memberService.findById(id)
-                .orElseThrow(()-> new NullPointerException("Null"));
-                
+        MemberDto dto = memberService.findById(id).orElseThrow(() -> new NullPointerException("Null"));
+
         dto.setName(req.getName());
         dto.setLocalName(req.getLocalName());
         dto.setEmail(req.getEmail());
@@ -121,18 +130,19 @@ public class MemberController {
         dto.setPosition(req.getPosition());
         dto.setEditCompanyOkrFlag(req.getEditCompanyOkrFlag());
 
-        if (req.getUseFlag() == null){
+        if (req.getUseFlag() == null) {
             List<TeamMemberDto> teams = teamMemberService.findSearchBelong(dto);
-            for (TeamMemberDto item : teams){
+            for (TeamMemberDto item : teams) {
                 item.setApplyEndDate(today);
                 item.setJustification("Inactive");
                 teamMemberService.save(item);
             }
         }
 
-        dto.createMemberDto(req.getJoiningDate(), req.getRetirementDate(), req.getEditCompanyOkrFlag(),req.getUseFlag(), req.getAdminFlag(), req.getEmail(), files); 
-        
-        MemberHistoryDto history = new  MemberHistoryDto();
+        dto.createMemberDto(req.getJoiningDate(), req.getRetirementDate(), req.getEditCompanyOkrFlag(),
+                req.getUseFlag(), req.getAdminFlag(), req.getEmail(), files);
+
+        MemberHistoryDto history = new MemberHistoryDto();
         history.setName(dto.getName());
         history.setMember(dto);
         history.setLocalName(dto.getLocalName());
@@ -146,40 +156,70 @@ public class MemberController {
         history.setJustification(dto.getJustification());
         history.setPosition(dto.getPosition());
 
-        history.createMemberHistoryDto(req.getJoiningDate(), req.getRetirementDate(), req.getEditCompanyOkrFlag(),req.getUseFlag(), req.getAdminFlag(), req.getEmail(), files);
-        
+        history.createMemberHistoryDto(req.getJoiningDate(), req.getRetirementDate(), req.getEditCompanyOkrFlag(),
+                req.getUseFlag(), req.getAdminFlag(), req.getEmail(), files);
+
         memberService.save(dto);
         memberHistoryService.save(history);
-        if (!files.isEmpty()){
-            // fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.MEMBER, files);  
+        if (!files.isEmpty()) {
+            // fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR,
+            // EntityType.MEMBER, files);
         }
-        return "redirect:/members";     
-    } 
-    
+        return "redirect:/members";
+    }
+
     @GetMapping("/belong/{memberSeq}")
-    public String viewBelong(Model model, @PathVariable("memberSeq") Integer memberSeq){
-        MemberDto dto = memberService.findById(memberSeq)
-        .orElseThrow(()-> new NullPointerException("Null"));
+    public String viewBelong(Model model, @PathVariable("memberSeq") Integer memberSeq) {
+        MemberDto dto = memberService.findById(memberSeq).orElseThrow(() -> new NullPointerException("Null"));
         MemberModel belongModel = new MemberModel(Subheader.MEMBER_HISTORY, dto.getName());
         model.addAttribute("member", dto);
         model.addAttribute("model", belongModel);
         model.addAttribute("memberSeq", memberSeq);
         return "pages/members/member_belong";
+    }
+
+    @GetMapping("/edit/profile/{id}")
+    public String editProfile(@PathVariable Integer id, Model model) {
+        EditProfileModel viewModel = memberService.buildEditProfileModel(id);
+
+        model.addAttribute("model", viewModel);
+        model.addAttribute("dataModel", viewModel.getModel());
+        System.out.println(viewModel.getModel());
+        return "pages/profile/edit-profile";
+    }
+
+    @PostMapping("/profile/save")
+    public String updateProfile(@Validated ProfileUpdateModel profileUpdateModel, BindingResult error) {
+
+        if (error.hasErrors())
+            return "redirect:/members/edit/profile/" + profileUpdateModel.getMemberSeq();
+
+        // memberService.updateProfileModel(req);
+        Optional<MemberDto> member = memberService.findById(profileUpdateModel.getMemberSeq());
+
+        mapper.map(profileUpdateModel, member.get());
+
+        if (member.isEmpty())
+            throw new UserException(
+                    new NotFoundException("Not found Object with Id = " + profileUpdateModel.getMemberSeq()));
+
+        if (profileUpdateModel.getImageFile() != null && !profileUpdateModel.getImageFile().isEmpty()) {
+            String imageSrc;
+            try {
+                imageSrc = fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.MEMBER,
+                        profileUpdateModel.getImageFile());
+            } catch (UserException e) {
+                String message = Optional.ofNullable(e.getCause()).orElse(e).getMessage();
+                throw new RestUserException(message);
+            }
+            member.get().setImage(imageSrc);
         }
-        
-    // @PostMapping("/edit-flag")
-    // @ResponseBody
-    // public MemberDto useFlagUpate(String memberSeq){
-    //     String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyMMdd"));
-    //     MemberDto dto = memberService.findById(Integer.parseInt(memberSeq))
-    //     .orElseThrow(()-> new NullPointerException("Null"));
-    //     List<TeamMemberDto> teams = teamMemberService.findSearchBelong(dto);
-    //     for (TeamMemberDto item : teams){
-    //         item.setApplyEndDate(today);
-    //         item.setJustification("Inactive");
-    //         teamMemberService.save(item);
-    //     }
-    // return dto;
-    // }
-    
+
+        member.get().setIntroduction(profileUpdateModel.getIntroduction());
+
+        memberService.save(member.get());
+        profileUpdateModel.setImageFile(null);
+        return "redirect:/";
+    }
+
 }

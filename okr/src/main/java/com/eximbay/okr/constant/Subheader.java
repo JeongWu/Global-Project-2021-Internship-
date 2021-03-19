@@ -16,6 +16,7 @@ public class Subheader {
     public static final String AUDIT_LOGS = "Audit Log";
     public static final String ADD_MEMBER = "Add Member";
     public static final String EDIT_MEMBER = "Edit Member";
+    public static final String EDIT_PROFILE = "Edit Profile";
     public static final String QUARTERLY_OKRS = "Quarterly OKRs";
     public static final String COMPANY_OKR = "View OKR";
     public static final String DICTIONARY = "Dictionary";
