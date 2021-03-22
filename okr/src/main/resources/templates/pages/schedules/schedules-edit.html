@@ -122,6 +122,7 @@
 							<div class="col-lg-2">
 								<select id="quarterly_closeAfterDays" class="form-control form-control-solid"
 									th:field="*{closeAfterDays}">
+									<option value="">Select..</option>
 									<option value="0">0</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
@@ -143,8 +144,6 @@
 							<div class="col-lg-1 pt-3">days</div>
 							<label class="col-lg-2 col-form-label text-right">Remind before</label>
 							<div class="col-lg-4">
-								<!-- <input hidden type="text" th:value="${dataQuarterlyModel.remindBeforeDays}"
-									id="quarterly_input" /> -->
 								<select class="form-control select2" name='quarterly_select' id="quarterly_select"
 									multiple style="width:50%;" th:field="*{remindBeforeDaysList}">
 									<option value="1">1</option>
@@ -152,6 +151,15 @@
 									<option value="3">3</option>
 									<option value="4">4</option>
 									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
 								</select>
 							</div>
 						</div>
@@ -211,6 +219,7 @@
 									th:field="*{beginDay}">
 									<!-- <th:block th:each="d : ${#numbers.sequence(1,31)}" th:field="*{beginDay}"> 
    								 <option th:value th:text="${d}" ></option>-->
+									<option value="">Select..</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -247,8 +256,10 @@
 							<div class="col-lg-1"></div>
 							<label class="col-lg-2 col-form-label text-right">End day</label>
 							<div class="col-lg-2">
-								<select class="form-control form-control-solid" id="monthly_endDay"
+								<select class="form-control form-control-solid
+								" id="monthly_endDay"
 									th:field="*{endDay}">
+									<option value="">Select..</option>
 									<option value="31">The end of the month</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
@@ -289,6 +300,7 @@
 							<div class="col-lg-2">
 								<select id="monthly_closeAfterDays" class="form-control form-control-solid"
 									th:field="*{closeAfterDays}">
+									<option value="">Select..</option>
 									<option value="0">0</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
@@ -310,8 +322,6 @@
 							<div class="col-lg-1 pt-3">days</div>
 							<label class="col-lg-2 col-form-label text-right">Remind before</label>
 							<div class="col-lg-4">
-								<!-- <input hidden type="text" th:value="${dataMonthlyModel.remindBeforeDays}"
-									id="monthly_input" /> -->
 								<select class="form-control select2" name='monthly_select' id="monthly_select" multiple
 									style="width:50%;" th:field="*{remindBeforeDaysList}">
 									<option value="1">1</option>
@@ -319,6 +329,15 @@
 									<option value="3">3</option>
 									<option value="4">4</option>
 									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
 								</select>
 							</div>
 						</div>
@@ -379,6 +398,7 @@
 									th:field="*{beginDay}">
 									<!-- <th:block th:each="d : ${#numbers.sequence(1,31)}" th:field="*{beginDay}"> 
    								 <option th:value th:text="${d}" ></option>-->
+									<option value="">Select..</option>
 									<option value="1">Sun</option>
 									<option value="2">Mon</option>
 									<option value="3">Tue</option>
@@ -392,6 +412,7 @@
 							<label class="col-lg-2 col-form-label text-right">End day of the week</label>
 							<div class="col-lg-2">
 								<select class="form-control form-control-solid" id="weekly_endDay" th:field="*{endDay}">
+									<option value="">Select..</option>
 									<option value="1">Sun</option>
 									<option value="2">Mon</option>
 									<option value="3">Tue</option>
@@ -406,6 +427,7 @@
 							<label class="col-lg-2 col-form-label text-right">Close after</label>
 							<div class="col-lg-2">
 								<select class="form-control form-control-solid" th:field="*{closeAfterDays}">
+									<option value="">Select..</option>
 									<option value="0">0</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
@@ -413,22 +435,12 @@
 									<option value="4">4</option>
 									<option value="5">5</option>
 									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									<option value="10">10</option>
-									<option value="11">11</option>
-									<option value="12">12</option>
-									<option value="13">13</option>
-									<option value="14">14</option>
 								</select>
 								<span class="form-text text-muted">ex)2021.04.05</span>
 							</div>
 							<div class="col-lg-1 pt-3">days</div>
 							<label class="col-lg-2 col-form-label text-right">Remind before</label>
 							<div class="col-lg-4">
-								<!-- <input hidden type="text" th:value="${dataWeeklyModel.remindBeforeDays}"
-									id="weekly_input" /> -->
 								<select class="form-control select2" name='weekly_select' id="weekly_select" multiple
 									style="width:50%;" th:field="*{remindBeforeDaysList}">
 									<option value="1">1</option>
@@ -436,6 +448,7 @@
 									<option value="3">3</option>
 									<option value="4">4</option>
 									<option value="5">5</option>
+									<option value="6">6</option>
 								</select>
 							</div>
 						</div>
