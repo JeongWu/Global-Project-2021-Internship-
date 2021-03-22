@@ -1,16 +1,11 @@
 package com.eximbay.okr.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.eximbay.okr.constant.Subheader;
+import com.eximbay.okr.dto.DivisionDto;
 import com.eximbay.okr.entity.Team;
-import com.eximbay.okr.enumeration.EntityType;
-import com.eximbay.okr.enumeration.FileContentType;
-import com.eximbay.okr.enumeration.FileType;
 import com.eximbay.okr.enumeration.TeamType;
-import com.eximbay.okr.exception.RestUserException;
-import com.eximbay.okr.exception.UserException;
 import com.eximbay.okr.model.AllDetailsTeamModel;
 import com.eximbay.okr.model.AllTeamUpdateModel;
 import com.eximbay.okr.model.EditForViewAllTeamsModel;
@@ -21,28 +16,20 @@ import com.eximbay.okr.model.team.TeamAddModel;
 import com.eximbay.okr.service.FileUploadService;
 import com.eximbay.okr.service.Interface.IDivisionService;
 import com.eximbay.okr.service.Interface.ITeamService;
-import lombok.*;
-import com.eximbay.okr.dto.DivisionDto;
-import com.eximbay.okr.dto.TeamDto;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
-import javassist.NotFoundException;
+import lombok.AllArgsConstructor;
 
 @Controller
 @AllArgsConstructor
@@ -51,7 +38,7 @@ public class TeamController {
     private final ITeamService teamService;
     private final IDivisionService divisionService;
     // private final ITeamHistoryService teamHistoryService;
-    private final FileUploadService fileUploadService;
+    // private final FileUploadService fileUploadService;
 
     @GetMapping
     public String viewAllTeams(Model model, @PageableDefault Pageable pageable) {

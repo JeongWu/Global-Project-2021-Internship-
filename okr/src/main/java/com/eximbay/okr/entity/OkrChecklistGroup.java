@@ -20,7 +20,6 @@ import org.springframework.data.annotation.CreatedDate;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
 @Table(name = "okr_checklist_group")
 @Entity
