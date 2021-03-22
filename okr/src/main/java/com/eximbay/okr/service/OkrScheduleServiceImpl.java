@@ -1,5 +1,6 @@
 package com.eximbay.okr.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,6 +67,10 @@ public class OkrScheduleServiceImpl implements IOkrScheduleService {
     	Optional<MonthlyScheduleUpdateModel> monthlymodel = okrMScheduleDto.map(m->mapper.map(m, MonthlyScheduleUpdateModel.class));
     	Optional<WeeklyScheduleUpdateModel> weeklymodel = okrWScheduleDto.map(m->mapper.map(m, WeeklyScheduleUpdateModel.class));
     	
+        quarterlymodel.get().setRemindBeforeDaysList(quarterlymodel.get().getRemindBeforeDays().split(","));
+        monthlymodel.get().setRemindBeforeDaysList(monthlymodel.get().getRemindBeforeDays().split(","));
+        weeklymodel.get().setRemindBeforeDaysList(weeklymodel.get().getRemindBeforeDays().split(","));
+
     	dataModel.setQuarterlyModel(quarterlymodel.get());
     	dataModel.setMonthlyModel(monthlymodel.get());
     	dataModel.setWeeklyModel(weeklymodel.get());
@@ -78,6 +83,18 @@ public class OkrScheduleServiceImpl implements IOkrScheduleService {
     	Optional<OkrSchedule> okrSchedule = okrScheduleRepository.findById(quarterlyScheduleUpdateModel.getScheduleSeq());
     	if(okrSchedule.isEmpty()) throw new UserException(new NotFoundException("Not found Object with Id = "+quarterlyScheduleUpdateModel.getScheduleSeq()));
     	mapper.map(quarterlyScheduleUpdateModel, okrSchedule.get());
+
+        String[] arr=quarterlyScheduleUpdateModel.getRemindBeforeDaysList();
+        StringBuilder sb=new StringBuilder();
+        for(int i=0;i<arr.length;i++){
+            if(i==arr.length-1){
+                sb.append(arr[i]);
+            }else{
+                sb.append(arr[i]+",");
+            }
+        }
+
+        okrSchedule.get().setRemindBeforeDays(sb.toString());
     	OkrSchedule saveSchedule = okrScheduleRepository.save(okrSchedule.get());
     	System.out.println("saveSchedule::"+saveSchedule);
     }

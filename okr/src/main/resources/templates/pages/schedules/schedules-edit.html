@@ -143,10 +143,10 @@
 							<div class="col-lg-1 pt-3">days</div>
 							<label class="col-lg-2 col-form-label text-right">Remind before</label>
 							<div class="col-lg-4">
-								<input hidden type="text" th:value="${dataQuarterlyModel.remindBeforeDays}"
-									id="quarterly_input" />
+								<!-- <input hidden type="text" th:value="${dataQuarterlyModel.remindBeforeDays}"
+									id="quarterly_input" /> -->
 								<select class="form-control select2" name='quarterly_select' id="quarterly_select"
-									multiple style="width:50%;">
+									multiple style="width:50%;" th:field="*{remindBeforeDaysList}">
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -310,10 +310,10 @@
 							<div class="col-lg-1 pt-3">days</div>
 							<label class="col-lg-2 col-form-label text-right">Remind before</label>
 							<div class="col-lg-4">
-								<input hidden type="text" th:value="${dataMonthlyModel.remindBeforeDays}"
-									id="monthly_input" />
+								<!-- <input hidden type="text" th:value="${dataMonthlyModel.remindBeforeDays}"
+									id="monthly_input" /> -->
 								<select class="form-control select2" name='monthly_select' id="monthly_select" multiple
-									style="width:50%;" >
+									style="width:50%;" th:field="*{remindBeforeDaysList}">
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -427,10 +427,10 @@
 							<div class="col-lg-1 pt-3">days</div>
 							<label class="col-lg-2 col-form-label text-right">Remind before</label>
 							<div class="col-lg-4">
-								<input hidden type="text" th:value="${dataWeeklyModel.remindBeforeDays}"
-									id="weekly_input" />
+								<!-- <input hidden type="text" th:value="${dataWeeklyModel.remindBeforeDays}"
+									id="weekly_input" /> -->
 								<select class="form-control select2" name='weekly_select' id="weekly_select" multiple
-									style="width:50%;">
+									style="width:50%;" th:field="*{remindBeforeDaysList}">
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>

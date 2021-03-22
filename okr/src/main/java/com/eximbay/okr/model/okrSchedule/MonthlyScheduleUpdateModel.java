@@ -12,5 +12,6 @@ public class MonthlyScheduleUpdateModel {
     private Integer endDay;
     private Integer closeAfterDays;
     private String remindBeforeDays;
+    private String[] remindBeforeDaysList;
     private String remindTime;
 }

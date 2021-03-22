@@ -28,9 +28,9 @@ const validate_monthly_Day = function () {
 jQuery(document).ready(function () {
 
  
-  $("#quarterly_select").val($("#quarterly_input").val().split(","));
-  $("#monthly_select").val($("#monthly_input").val().split(","));
-  $("#weekly_select").val($("#weekly_input").val().split(","));
+  // $("#quarterly_select").val($("#quarterly_input").val().split(","));
+  // $("#monthly_select").val($("#monthly_input").val().split(","));
+  // $("#weekly_select").val($("#weekly_input").val().split(","));
   $("#quarterly_select,#monthly_select,#weekly_select").select2({
     placeholder: "Select..",
     maximumSelectionLength: 3
@@ -43,7 +43,12 @@ jQuery(document).ready(function () {
 
   $("#quarterly_select,#monthly_select,#weekly_select").on("select2:unselecting", function(){
     //confirm 추가하기
-    alert('Are you sure?');
+    Swal.fire({
+      text: "Are you sure to remove this schedule?",
+      icon: "warning",
+      confirmButtonText: "Yes",
+    });
+
   });
 
 
