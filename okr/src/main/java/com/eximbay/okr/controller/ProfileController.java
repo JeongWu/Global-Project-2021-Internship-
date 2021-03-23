@@ -2,6 +2,7 @@ package com.eximbay.okr.controller;
 
 import java.util.Optional;
 
+import com.eximbay.okr.constant.ErrorMessages;
 import com.eximbay.okr.dto.MemberDto;
 import com.eximbay.okr.enumeration.EntityType;
 import com.eximbay.okr.enumeration.FileContentType;
@@ -38,6 +39,8 @@ public class ProfileController {
     public String editProfile(Model model) {
 
         Optional<MemberDto> currentMember = memberService.getCurrentMember();
+        if (currentMember.isEmpty()) throw new UserException(ErrorMessages.loginRequired);
+
         EditProfileModel viewModel = memberService.buildEditProfileModel(currentMember.get().getMemberSeq());
 
         model.addAttribute("model", viewModel);
