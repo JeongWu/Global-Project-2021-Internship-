@@ -1,12 +1,14 @@
 package com.eximbay.okr.service.Interface;
 
-import com.eximbay.okr.dto.MemberDto;
-import com.eximbay.okr.model.profile.EditProfileModel;
-import com.eximbay.okr.model.profile.ProfileUpdateModel;
-
 import java.util.List;
 import java.util.Optional;
 
+import com.eximbay.okr.dto.MemberDto;
+import com.eximbay.okr.model.AllDetailsMemberModel;
+import com.eximbay.okr.model.member.MemberViewOkrModel;
+import com.eximbay.okr.model.profile.EditProfileModel;
+
+import org.springframework.data.domain.Pageable;
 public interface IMemberService extends ISerivce<MemberDto, Integer>{
     Optional<MemberDto> findByEmail(String email);
     List<MemberDto> findActiveMembers();
@@ -14,5 +16,6 @@ public interface IMemberService extends ISerivce<MemberDto, Integer>{
     Optional<MemberDto> getCurrentMember();
 
     EditProfileModel buildEditProfileModel(Integer id);
-    // void updateProfileModel(ProfileUpdateModel profileUpdateModel); 
+    MemberViewOkrModel buildMemberViewOkrModel(Integer memberSeq, String quarter);
+    AllDetailsMemberModel buildAllDetailsMemberModel(Pageable pageable);
 }

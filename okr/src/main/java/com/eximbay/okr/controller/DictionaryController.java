@@ -1,17 +1,19 @@
 package com.eximbay.okr.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.eximbay.okr.constant.Subheader;
+import com.eximbay.okr.dto.CodeGroupDto;
+import com.eximbay.okr.entity.CodeList;
 import com.eximbay.okr.entity.Dictionary;
 import com.eximbay.okr.model.PageModel;
 import com.eximbay.okr.model.dictionary.DictionaryAddModel;
 import com.eximbay.okr.model.dictionary.DictionaryUpdateModel;
 import com.eximbay.okr.model.dictionary.SelectTypeModel;
-import com.eximbay.okr.repository.DictionaryRepository;
+import com.eximbay.okr.service.Interface.ICodeGroupService;
 import com.eximbay.okr.service.Interface.IDictionaryService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +24,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 
 import lombok.AllArgsConstructor;
 
@@ -41,6 +42,7 @@ public class DictionaryController {
         return "pages/dictionary/dictionary";
     }
 
+    //test for modal open
     @GetMapping("/keyresult")
     public String viewAllKeyResult(Model model) {
 
@@ -50,7 +52,6 @@ public class DictionaryController {
      
         return "pages/dictionary/keyresult";
     }
-
 
     @GetMapping("/add")
     public String addDictionary(Model model) {
@@ -79,9 +80,9 @@ public class DictionaryController {
     }
 
     @GetMapping("/edit/{id}")
-    public String showEditForm(@PathVariable Integer id, Model model) {
+    public String showEditForm(@PathVariable Integer id, Model model){
         model.addAttribute("subheader", "Edit Dictionary");
-
+        
         SelectTypeModel selectTypeModel = dictionaryService.buildSelectTypeModel();
 
         model.addAttribute("TypeModel", selectTypeModel);
@@ -92,11 +93,11 @@ public class DictionaryController {
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String saveDictionary(@Validated DictionaryUpdateModel updateFormModel, BindingResult error) {
-        if (error.hasErrors())
-            return "redirect:/dictionary/edit/" + updateFormModel.getDictionarySeq();
+    public String saveDictionary(@Validated DictionaryUpdateModel updateFormModel, BindingResult error){
+        if (error.hasErrors()) return "redirect:/dictionary/edit/"+ updateFormModel.getDictionarySeq();
         dictionaryService.updateFormModel(updateFormModel);
         return "redirect:/dictionary";
+        // return "redirect:/dictionary/add";
     }
 
 }

@@ -17,10 +17,10 @@ import lombok.Data;
 @Data
 @Table(name = "dictionary")
 @Entity
-public class Dictionary extends AbstractAuditable {
+public class Dictionary extends AbstractAuditable{
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "DICTIONARY_SEQ", length = 11)
     private Integer dictionarySeq;
 

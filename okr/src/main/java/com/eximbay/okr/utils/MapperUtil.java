@@ -17,4 +17,3 @@ public class MapperUtil {
                 .collect(Collectors.toList());
     }
 }
-
