@@ -22,7 +22,7 @@
         <div>
             <div class="card card-custom gutter-b">
                 <div class="card-body px-0">
-                    <form class="form" id="kt_form" method="post" enctype="multipart/form-data" th:action="@{/members/profile/save}"
+                    <form class="form" id="kt_form" method="post" enctype="multipart/form-data" th:action="@{/profile/save}"
                         th:object="${dataModel}">
                         <input type="text" id="memberSeq" th:field="*{memberSeq}" hidden />
                         <div class="tab-content">

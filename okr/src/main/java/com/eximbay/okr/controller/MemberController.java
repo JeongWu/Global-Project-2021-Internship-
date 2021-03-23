@@ -178,48 +178,5 @@ public class MemberController {
         return "pages/members/member_belong";
     }
 
-    @GetMapping("/edit/profile/{id}")
-    public String editProfile(@PathVariable Integer id, Model model) {
-        EditProfileModel viewModel = memberService.buildEditProfileModel(id);
-
-        model.addAttribute("model", viewModel);
-        model.addAttribute("dataModel", viewModel.getModel());
-        System.out.println(viewModel.getModel());
-        return "pages/profile/edit-profile";
-    }
-
-    @PostMapping("/profile/save")
-    public String updateProfile(@Validated ProfileUpdateModel profileUpdateModel, BindingResult error) {
-
-        if (error.hasErrors())
-            return "redirect:/members/edit/profile/" + profileUpdateModel.getMemberSeq();
-
-        // memberService.updateProfileModel(req);
-        Optional<MemberDto> member = memberService.findById(profileUpdateModel.getMemberSeq());
-
-        mapper.map(profileUpdateModel, member.get());
-
-        if (member.isEmpty())
-            throw new UserException(
-                    new NotFoundException("Not found Object with Id = " + profileUpdateModel.getMemberSeq()));
-
-        if (profileUpdateModel.getImageFile() != null && !profileUpdateModel.getImageFile().isEmpty()) {
-            String imageSrc;
-            try {
-                imageSrc = fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.MEMBER,
-                        profileUpdateModel.getImageFile());
-            } catch (UserException e) {
-                String message = Optional.ofNullable(e.getCause()).orElse(e).getMessage();
-                throw new RestUserException(message);
-            }
-            member.get().setImage(imageSrc);
-        }
-
-        member.get().setIntroduction(profileUpdateModel.getIntroduction());
-
-        memberService.save(member.get());
-        profileUpdateModel.setImageFile(null);
-        return "redirect:/";
-    }
 
 }
