@@ -262,7 +262,7 @@ var KTAppsProjectsListDatatable = (function () {
                         <li class="nav-item"><a class="nav-link" href="edit/' +
               id +
               '"><i class="nav-icon la la-edit"></i><span class="nav-text">Edit Details</span></a></li>\
-                            <li class="nav-item"><a class="nav-link" href="/change-members/' +
+              <li class="nav-item"><a class="nav-link" href="/change-members/' +
               id +
               '"><i class="nav-icon la la-refresh"></i><span class="nav-text">Change Members</span></a></li>\
                             <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-cog"></i><span class="nav-text">Set Team Manager</span></a></li>\
@@ -325,7 +325,8 @@ var KTAppsProjectsListDatatable = (function () {
     // $("#kt_datatable_search_name").on("propertychange change keyup paste input", function () {
     $("#kt_datatable_search_name").on("change keyup paste", function () {
       // console.log($(this).val());
-      datatable.search($(this).val().toLowerCase(), "localName");
+      // datatable.search($(this).val().toLowerCase(), "localName");
+      $("#searchFun").val($(this).val().toLowerCase()).keyup();
     });
 
     $("#kt_datatable_search_division").on("change", function () {

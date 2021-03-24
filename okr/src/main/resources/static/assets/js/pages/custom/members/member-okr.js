@@ -3,4 +3,3 @@ jQuery(document).ready(function () {
     draggableInit(editable);
     initPage();
 });
-

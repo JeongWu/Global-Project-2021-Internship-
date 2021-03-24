@@ -3,11 +3,8 @@
 let KTDatatablesDataSourceAjaxServer = function() {
 
     let initTable1 = function() {
-		var myId = document.getElementById('param');
-		console.log(myId.value);
-//		var myDivision = document.getElemetById('divisionList');
-//		console.log(myDivision.value);
-        let searchBox = $("#justification-search");
+        let searchBox = $("#member-search");
+        let searchBox2 = $("#team-search");
         let beginDate = $("#begin-date");
         let endDate = $("#end-date");
         endDate.val(getCurrentDateInISOFormat());
@@ -35,7 +32,7 @@ let KTDatatablesDataSourceAjaxServer = function() {
                 processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
             },
             ajax: {
-                url: '/api/team-histories/datatables/'+myId.value,
+                url: '/api/okr-checklist-groups/datatables',
                 type: 'POST',
                 contentType: 'application/json',
                 dataSrc: "data",
@@ -47,76 +44,102 @@ let KTDatatablesDataSourceAjaxServer = function() {
             },
             columnDefs: [
                 {
-                    targets: [7],
+                    targets: [1,2,3,4,5,6,7,8,9,10],
                     sortable: false
-                },
-//                {
-//                    targets: [ 4, 5],
-//                    width: 120,
-//                },
-                {
-                    targets: '_all',
-                    className: 'text-center',
                 }
             ],
             columns: [
                 {
                     target: 0,
                     title: "#",
-                    data: 'historySeq',
-                }, {
+                    data: 'groupSeq',
+                },
+                {
                     target: 1,
-                    title: "TEAM",
-                    data: 'name'
+                    title: "TEAM ",
+                    data: 'objective.team.name',
                 },
                 {
                     target: 2,
-                    title: "DIVISION",
-                    data: 'division.name'
+                    title: "MEMBER",
+                    data: 'objective.member.name',
                 },
                 {
                     target: 3,
-                    title: "TEAM TYPE",
-                    data: 'teamType',
+                    title: "OBJECTIVE SCORE",
+                    data: 'objectiveScore',
                 },
+                
                 {
                     target: 4,
-                    title: "ACTIVE",
-                    data: 'useFlag'
+                    title: "KR1 SCORE",
+                    data: 'keyResult1Score'
                 },
                 {
                     target: 5,
-                    title: "EDIT MEMBER",
-                    data: 'createdBy',
+                    title: "KR2 SCORE",
+                    data: 'keyResult2Score',
                 },
                 {
                     target: 6,
-                    title: "EDIT DATE",
+                    title: "KR3 SCORE",
+                    data: 'keyResult3Score',
+                },
+                {
+                    target: 7,
+                    title: "KR4 SCORE",
+                    data: 'keyResult4Score',
+                },
+                {
+                    target: 8,
+                    title: "KR5 SCORE",
+                    data: 'keyResult5Score',
+                },
+                {
+                    target: 9,
+                    title: "REG DATE",
                     data: 'createdDate',
-					render: function (data){
+                    render: function (data){
                         return formatInstant(data);
                     }
                 },
                 {
-                    target: 7,
-                    title: "JUSTIFICATION",
-                    data: 'justification',
-                    render : function(data) {
-                        var output = ''
-                        output = '<span data-toggle="tooltip" data-placement="top" data-trigger="focus"\
-                        title="'+data+'"><span class="d-inline-block text-truncate" style="max-width: 150px;">'+data+'</span></span>';
-                        return output;
+                    target: 10,
+                    title: "ACTIONS",
+                    data: 'groupSeq',
+                    render: function (data){
+                        return '\
+						\
+					\
+							<div class="dropdown dropdown-inline">\
+								<a href="javascript:;" class="btn btn-sm btn-clean btn-icon" data-toggle="dropdown">\
+								<i class="flaticon-more-1"></i>\
+	                            </a>\
+							  	<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
+									<ul class="nav nav-hoverable flex-column">\
+							    		<li class="nav-item"><a class="nav-link" href="/checklistdetail/'+data+'"><i class="nav-icon la la-eye"></i><span class="nav-text">Checklist Details</span></a></li>\
+									\
+									</ul>\
+							  	</div>\
+							</div>\
+						\
+						';
                     }
                 },
             ],
         });
         $("#search-button").on('click', function (){
             let searchValue = searchBox.val();
-            table.columns(7).search(searchValue).draw();
+            let searchValue2 = searchBox2.val();
+            table.columns(2).search(searchValue).draw();
+            table.columns(1).search(searchValue2).draw();
+         
         });
         $("#reset-button").on('click', function (){
             searchBox.val("");
-            table.columns(7).search("");
+            searchBox2.val("");
+            table.columns(2).search("");
+            table.columns(1).search("");
             endDate.val(getCurrentDateInISOFormat());
             beginDate.val(getOffsetDateInISOFormat(-6));
             table.ajax.reload();
@@ -140,7 +163,12 @@ $(document).ready(function() {
     });
 });
 
-
+function renderEndDay(row){
+    if (row.endDay !== 99) return row.endDay;
+    if (row.scheduleType === 'QUARTERLY') return "The end of the quarter";
+    if (row.scheduleType === 'MONTHLY') return "The end of the month";
+    return row.endDay;
+}
 
 
 
