@@ -23,7 +23,7 @@ import java.util.Set;
 public class Member extends AbstractAuditable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "MEMBER_SEQ", length = 11)
     private Integer memberSeq;
 
