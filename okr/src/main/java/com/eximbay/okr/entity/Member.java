@@ -3,6 +3,7 @@ package com.eximbay.okr.entity;
 import com.eximbay.okr.constant.CareerLevel;
 import com.eximbay.okr.constant.FlagOption;
 import com.eximbay.okr.constant.MemberLevel;
+import com.eximbay.okr.constant.MemberPosition;
 import com.eximbay.okr.listener.AbstractAuditable;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -52,7 +53,7 @@ public class Member extends AbstractAuditable {
     private String image;
 
     @Column(name = "POSITION", length = 20)
-    private String position;
+    private String position = MemberPosition.NONE;
 
     @Column(name = "LEVEL", length = 11, nullable = false)
     private int level = MemberLevel.One;

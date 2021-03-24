@@ -172,7 +172,7 @@ public class MemberServiceImpl implements IMemberService {
         allDetailsMemberModel.setMembersPage(memberDtoPage);
         allDetailsMemberModel.setNavigationPageNumbers(PagingUtils.createNavigationPageNumbers(
         allDetailsMemberModel.getMembersPage().getNumber(), allDetailsMemberModel.getMembersPage().getTotalPages()));
-        allDetailsMemberModel.setSubheader("Members");
+        allDetailsMemberModel.setSubheader("Quarterly OKRs | Members");
         allDetailsMemberModel.setMutedHeader(memberDtoPage.getTotalElements() + "Total");
         return allDetailsMemberModel;
     }

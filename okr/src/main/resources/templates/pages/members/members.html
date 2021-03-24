@@ -30,7 +30,7 @@
 
                                 </span>
                             <span class="text-muted font-weight-bold"
-                                  th:text="${member.name}">
+                                  th:text="${member.position}">
                                 </span>
                             <!--end::Title-->
                         </div>
@@ -102,7 +102,8 @@
                                     Feedbacks</span>
                         </div>
                     </div>
-                    <a th:href="@{'/members/'+${member.memberSeq}+'/okr'}"
+                    <!--/okrs/quarterly-->
+                    <a th:href="@{'/okrs/quarterly?type=member&seq='+${member.memberSeq}}"
                             class="btn btn-primary btn-sm text-uppercase font-weight-bolder mt-5 mt-sm-0 mr-auto mr-sm-0 ml-sm-auto">
                         details
                 </a>

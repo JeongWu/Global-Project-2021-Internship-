@@ -11,6 +11,7 @@ public class MemberWithActiveDto {
     private Integer memberSeq;
     private String name;
     private String localName;
+    private String position;
     private String introduction;
     private String image;
     private String useFlag;
