@@ -36,7 +36,7 @@ private Integer historySeq;
         
         
         public void createMemberHistoryDto(String joiningDate ,String retirementDate, String editCompanyOkrFlag,
-        String useFlag, String adminFlag, String eamil, String filePath) {
+        String useFlag, String adminFlag, String eamil) {
 
             String joining = joiningDate.replace("-", "");
             this.setJoiningDate(joining);
@@ -57,8 +57,6 @@ private Integer historySeq;
             this.setAdminFlag(AdminFlag);
     
             String Edit = (editCompanyOkrFlag == null) ? "N" : "Y";
-            this.setEditCompanyOkrFlag(Edit);
-            
-            this.setImage(filePath);            
+            this.setEditCompanyOkrFlag(Edit);       
         }
 }

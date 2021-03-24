@@ -34,7 +34,7 @@ public class MemberDto extends AbstractAuditableDto {
     private List<TeamMemberDto> teamMembers = new ArrayList<>();
 
     public void createMemberDto(String joiningDate ,String retirementDate, String editCompanyOkrFlag,
-    String useFlag, String adminFlag, String eamil, String filePath) {
+    String useFlag, String adminFlag, String eamil) {
         
         String joining = joiningDate.replace("-", "");
         this.setJoiningDate(joining);
@@ -57,8 +57,6 @@ public class MemberDto extends AbstractAuditableDto {
 
         String Edit = (editCompanyOkrFlag == null) ? "N" : "Y";
         this.setEditCompanyOkrFlag(Edit);
-        
-        this.setImage(filePath);
             
     }
 }

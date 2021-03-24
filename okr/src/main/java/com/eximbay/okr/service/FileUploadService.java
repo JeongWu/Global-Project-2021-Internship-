@@ -53,6 +53,7 @@ public class FileUploadService {
             FileCopyUtils.copy(file.getBytes(), saveDestination.toFile());
             return getPrefix(fileContentType) + saveFileName;
         }catch (Exception e){
+            e.printStackTrace();
             throw new UserException(ErrorMessages.errorWhileSavingFile);
         }
     }

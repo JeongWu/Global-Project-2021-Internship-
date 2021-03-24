@@ -8,6 +8,8 @@ import com.eximbay.okr.dto.TeamMemberDto;
 import com.eximbay.okr.enumeration.EntityType;
 import com.eximbay.okr.enumeration.FileContentType;
 import com.eximbay.okr.enumeration.FileType;
+import com.eximbay.okr.exception.RestUserException;
+import com.eximbay.okr.exception.UserException;
 import com.eximbay.okr.model.AllDetailsMemberModel;
 import com.eximbay.okr.model.MemberModel;
 import com.eximbay.okr.model.PageModel;
@@ -38,6 +40,7 @@ import org.springframework.validation.annotation.Validated;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -85,17 +88,27 @@ public class MemberController {
     @PostMapping("/add")
     public String memberSave(MemberDto dto, @RequestParam("picture") MultipartFile files, 
     @RequestParam("action") String action) {
-        String filePath ="";
-        if (!files.isEmpty()){
-           filePath = fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.MEMBER, files);  
+       
+        if (files != null && !files.isEmpty()) {
+            String imageSrc;
+            try {
+                imageSrc = fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.MEMBER,
+                            files);
+            } catch (UserException e) {
+                String message = Optional.ofNullable(e.getCause()).orElse(e).getMessage();
+                throw new RestUserException(message);
+            }
+            dto.setImage(imageSrc);
         }
+
         dto.createMemberDto(dto.getJoiningDate(), dto.getRetirementDate(),dto.getEditCompanyOkrFlag(),
-        dto.getUseFlag(), dto.getAdminFlag(), dto.getEmail(), filePath);  
+        dto.getUseFlag(), dto.getAdminFlag(), dto.getEmail());
         memberService.save(dto);
+        
         if(action.equals("new")){
             return "redirect:/members/add";
         }
-        return "redirect:/members";
+        return "redirect:/members/list";
     }
        
     @GetMapping("/edit/{memberSeq}")
@@ -116,20 +129,14 @@ public class MemberController {
         String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyMMdd"));
         MemberDto dto = memberService.findById(id)
                 .orElseThrow(()-> new NullPointerException("Null"));
-        String filePath ="";
-        if (!files.isEmpty()){
-           filePath = fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.MEMBER, files);  
-        }
+
 
         dto.createMemberDto(req.getJoiningDate(), req.getRetirementDate(), 
-        req.getEditCompanyOkrFlag(),req.getUseFlag(), req.getAdminFlag(), req.getEmail(), filePath); 
-                
+        req.getEditCompanyOkrFlag(),req.getUseFlag(), req.getAdminFlag(), req.getEmail()); 
         dto.setName(req.getName());
         dto.setLocalName(req.getLocalName());
         dto.setEmail(req.getEmail());
         dto.setContactPhone(req.getContactPhone());
-        dto.setRetirementDate(req.getRetirementDate());
-        dto.setJoiningDate(req.getJoiningDate());
         dto.setCareer(req.getCareer());
         dto.setLevel(req.getLevel());
         dto.setIntroduction(req.getIntroduction());
@@ -161,11 +168,26 @@ public class MemberController {
         history.setPosition(dto.getPosition());
 
         history.createMemberHistoryDto(req.getJoiningDate(), req.getRetirementDate(), 
-        req.getEditCompanyOkrFlag(),req.getUseFlag(), req.getAdminFlag(), req.getEmail(), filePath);
+        req.getEditCompanyOkrFlag(),req.getUseFlag(), req.getAdminFlag(), req.getEmail());
+
+        if (files != null && !files.isEmpty()) {
+            String imageSrc;
+            try {
+                imageSrc = fileUploadService.store(FileType.IMAGE, FileContentType.AVATAR, EntityType.MEMBER,
+                            files);
+            } catch (Exception e) {
+                e.printStackTrace();
+                String message = Optional.ofNullable(e.getCause()).orElse(e).getMessage();
+                throw new RestUserException(message);
+
+            }
+            dto.setImage(imageSrc);
+            history.setImage(imageSrc);
+        }
         
         memberService.save(dto);
         memberHistoryService.save(history);
-        return "redirect:/members";     
+        return "redirect:/members/list";     
     } 
     
     @GetMapping("/belong/{memberSeq}")
@@ -178,21 +200,5 @@ public class MemberController {
         model.addAttribute("memberSeq", memberSeq);
         return "pages/members/member_belong";
         }
-        
-    // @PostMapping("/edit-flag")
-    // @ResponseBody
-    // public MemberDto useFlagUpate(String memberSeq){
-    //     String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyMMdd"));
-    //     MemberDto dto = memberService.findById(Integer.parseInt(memberSeq))
-    //     .orElseThrow(()-> new NullPointerException("Null"));
-    //     List<TeamMemberDto> teams = teamMemberService.findSearchBelong(dto);
-    //     for (TeamMemberDto item : teams){
-    //         item.setApplyEndDate(today);
-    //         item.setJustification("Inactive");
-    //         teamMemberService.save(item);
-    //     }
-    // return dto;
-    // }
-
     
 }
