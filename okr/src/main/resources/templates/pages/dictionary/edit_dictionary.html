@@ -192,25 +192,18 @@
   <script type="text/javascript">
     $().ready(function () {
       $("#dictionary_form").validate();
-      $('#dictionaryType, #jobType, #taskType, #categoryGroup, #category, #taskIndicator, #taskMetric').selectpicker();
-			
       var type = $("#dictionaryType option:selected").val();
       if (type == "KEY_RESULT") {
         $(".form2").attr("hidden", true);
         $(".general,.form1").attr("hidden", false);
-
-      } else if (type == "COMPETENCE") {
-        $(".form1").attr("hidden", true);
-        $(".general,.form2").attr("hidden", false);
-
       } else if (type == "COMPETENCE") {
         $(".form1").attr("hidden", true);
         $(".general,.form2").attr("hidden", false);
       } else {
         $(".form1,.general,.form2").attr("hidden", true);
-
       }
-
+      $('#dictionaryType, #jobType, #taskType, #categoryGroup, #category, #taskIndicator, #taskMetric').selectpicker();
+			
     });
 
   </script>

@@ -20,7 +20,7 @@ import lombok.Data;
 public class Dictionary extends AbstractAuditable{
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "DICTIONARY_SEQ", length = 11)
     private Integer dictionarySeq;
 
