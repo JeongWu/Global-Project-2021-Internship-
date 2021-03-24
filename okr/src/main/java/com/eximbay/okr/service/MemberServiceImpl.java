@@ -38,7 +38,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Transactional
 public class MemberServiceImpl implements IMemberService {
     private final MemberRepository memberRepository;
@@ -50,7 +50,9 @@ public class MemberServiceImpl implements IMemberService {
     private final ILikeService likeService;
     private final IObjectiveRelationService objectiveRelationService;
     private final IKeyResultCollaboratorService keyResultCollaboratorService;
-    private final ITeamMemberService teamMemberService;
+
+    @Autowired
+    private ITeamMemberService teamMemberService;
 
     @Override
     public List<MemberDto> findAll() {
@@ -99,9 +101,11 @@ public class MemberServiceImpl implements IMemberService {
 
     @Override
     public Optional<MemberDto> getCurrentMember() {
+        if (SecurityContextHolder.getContext().getAuthentication() == null ||
+                !(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof MyUserDetails))
+            return Optional.empty();
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (principal instanceof MyUserDetails) return Optional.ofNullable(((MyUserDetails) principal).getMemberDto());
-        return Optional.empty();
+        return Optional.ofNullable(((MyUserDetails) principal).getMemberDto());
     }
 
     @Override
@@ -115,6 +119,7 @@ public class MemberServiceImpl implements IMemberService {
         dataModel.setModel(model.get());
         return dataModel;
     }
+
 
     @Override
     public MemberViewOkrModel buildMemberViewOkrModel(Integer memberSeq, String quarter) {
@@ -171,5 +176,6 @@ public class MemberServiceImpl implements IMemberService {
         allDetailsMemberModel.setMutedHeader(memberDtoPage.getTotalElements() + "Total");
         return allDetailsMemberModel;
     }
-    
+
+
 }
