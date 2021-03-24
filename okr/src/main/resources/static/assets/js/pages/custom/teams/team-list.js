@@ -97,7 +97,7 @@ var KTAppsProjectsListDatatable = (function () {
         {
           field: "divisionName",
           title: "Division",
-
+          width: 100,
           template: function (data) {
             var output = "";
 
@@ -112,7 +112,7 @@ var KTAppsProjectsListDatatable = (function () {
         {
           field: "teamType",
           title: "TEAM Type",
-          width: 60,
+          width: 80,
           // autoHide: false,
           template: function (data) {
             var status = {
@@ -170,77 +170,64 @@ var KTAppsProjectsListDatatable = (function () {
         {
           field: "MEMBERS",
           title: "MEMBERS",
-          width: 130,
+          width: 150,
           sortable: false,
           template: function (data) {
-            var output = "";
+            return renderImagesOnList(data, "members", "/members?memberSeq","memberSeq")
+        },
+    //       template: function (data) {
+    //         var output = "";
 
-            output =
-              '<div class="d-flex align-items-center">\
-            <a href="/members/list">\
-          <div class="symbol-group symbol-hover">';
+    //         output =
+    //           '<div class="d-flex align-items-center">\
+    //         <a href="/members/list">\
+    //       <div class="symbol-group symbol-hover">';
 
-            var memberList = data.members;
+    //         var memberList = data.members;
 
-            if (memberList.length > 4) {
-              memberList.forEach((member, index) => {
-                if (index < 4) {
-                  output += makeImageSymbol(
-                    member.name,
-                    member.image,
-                    "small",
-                    "circle"
-                  );
-                }
-              });
-              output +=
-                ' <div class="symbol symbol-30 symbol-circle flex-shrink-0 symbol-light">\
-              <span class="symbol-label font-weight-bold"> +' +
-                (memberList.length - 4) +
-                "</span>\
-          </div>\
-          </div>\
-    </div>";
-            } else {
-              memberList.forEach((member) => {
-                output += makeImageSymbol(
-                  member.name,
-                  member.image,
-                  "small",
-                  "circle"
-                );
-              });
+    //         if (memberList.length > 5) {
+    //           memberList.forEach((member, index) => {
+    //             if (index < 5) {
+    //               output += makeImageSymbol(
+    //                 member.name,
+    //                 member.image,
+    //                 "small",
+    //                 "circle"
+    //               );
+    //             }
+    //           });
+    //           output +=
+    //             ' <div class="symbol symbol-30 symbol-circle flex-shrink-0 symbol-light">\
+    //           <span class="symbol-label font-weight-bold"> +' +
+    //             (memberList.length - 5) +
+    //             "</span>\
+    //       </div>\
+    //       </div>\
+    // </div>";
+    //         } else {
+    //           memberList.forEach((member) => {
+    //             output += makeImageSymbol(
+    //               member.name,
+    //               member.image,
+    //               "small",
+    //               "circle"
+    //             );
+    //           });
 
-              output += "</div>\
-              </a>\
-              </div>";
-            }
-            return output;
-          },
+    //           output += "</div>\
+    //           </a>\
+    //           </div>";
+    //         }
+    //         return output;
+    //       },
         },
         {
           field: "useFlag",
           title: "Active",
           width: 70,
           template: function (data) {
-            var status = {
-              1: { title: "Active", state: "success" },
-              2: {
-                title: "inActive",
-                state: "danger",
-              },
-            };
-            var statusNo = data.useFlag === "Y" ? 1 : 2;
-            return (
-              '<span class="label label-' +
-              status[statusNo].state +
-              ' label-dot mr-2"></span><span class="font-weight-bold text-' +
-              status[statusNo].state +
-              '">' +
-              status[statusNo].title +
-              "</span>"
-            );
-          },
+            return renderActiveStatusOnList(data)
+        },
         },
         {
           field: "Actions",
