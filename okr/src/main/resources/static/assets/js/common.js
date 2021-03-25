@@ -31,6 +31,48 @@ function renderImagesOnList(data, field, path, prop) {
     return result;
 }
 
+function makeImageSymbol(name, image, size, shape) {
+    let output = "";
+
+    let stateNo = KTUtil.getRandomInt(0, 7);
+    let states = [
+      "success",
+      "primary",
+      "danger",
+      "success",
+      "warning",
+      "dark",
+      "primary",
+      "info",
+    ];
+    let state = states[stateNo];
+
+    output =
+      '<div class="symbol symbol-' +
+      (size === "big" ? "40" : "30") +
+      " " +
+      (shape === "circle" && "symbol-circle") +
+      " symbol-light-" +
+      state +
+      ' flex-shrink-0" data-toggle="tooltip" title="' +
+      name +
+      '">';
+
+    if (image === null) {
+      output +=
+        '<span class="symbol-label font-size-' +
+        (size === "big" && "h4") +
+        '">' +
+        name.substring(0, 1) +
+        "</span>";
+    } else {
+      output += '<img class="" src="' + image + '" alt="photo">';
+    }
+
+    output += "</div>";
+    return output;
+  };
+
 function renderActiveStatusOnList(data) {
     let status = {
         1: { title: "Active", state: "success" },
@@ -167,7 +209,7 @@ function loadingIcon() {
 
 function inputImage(field) {
     var avatar = new KTImageInput(field);
-    avatar.on('cancel', function(imageInput) {
+    avatar.on('cancel', function() {
         swal.fire({
             title: 'Image successfully canceled !',
             type: 'success',
@@ -177,7 +219,7 @@ function inputImage(field) {
         });
     });
 
-    avatar.on('change', function(imageInput) {
+    avatar.on('change', function() {
         swal.fire({
             title: 'Image successfully changed !',
             type: 'success',
@@ -187,7 +229,7 @@ function inputImage(field) {
         });
     });
 
-    avatar.on('remove', function(imageInput) {
+    avatar.on('remove', function() {
         swal.fire({
             title: 'Image successfully removed !',
             type: 'error',

@@ -272,47 +272,7 @@ let KTAppsProjectsListDatatable = (function () {
       ],
     });
 
-    let makeImageSymbol = function (name, image, size, shape) {
-      let output = "";
-
-      let stateNo = KTUtil.getRandomInt(0, 7);
-      let states = [
-        "success",
-        "primary",
-        "danger",
-        "success",
-        "warning",
-        "dark",
-        "primary",
-        "info",
-      ];
-      let state = states[stateNo];
-
-      output =
-        '<div class="symbol symbol-' +
-        (size === "big" ? "40" : "30") +
-        " " +
-        (shape === "circle" && "symbol-circle") +
-        " symbol-light-" +
-        state +
-        ' flex-shrink-0" data-toggle="tooltip" title="' +
-        name +
-        '">';
-
-      if (image === null) {
-        output +=
-          '<span class="symbol-label font-size-' +
-          (size === "big" && "h4") +
-          '">' +
-          name.substring(0, 1) +
-          "</span>";
-      } else {
-        output += '<img class="" src="' + image + '" alt="photo">';
-      }
-
-      output += "</div>";
-      return output;
-    };
+    
 
     //realtime search in the view
     // $("#kt_datatable_search_name").on("propertychange change keyup paste input", function () {
