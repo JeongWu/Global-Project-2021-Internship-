@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="header_mobile" id="kt_header_mobile" class="header-mobile ">
+    <!--begin::Logo-->
+    <a href="index.html">
+        <img alt="Logo" th:if="${wireframeModel.company}" th:src="${wireframeModel.company.logo}" class="logo-default max-h-30px max-w-100px" />
+        <img alt="Logo" th:if="!${wireframeModel.company}" th:src="'/avatar/default-logo.png'" class="logo-default max-h-30px max-w-100px" />
+    </a>
+    <!--end::Logo-->
+
+    <!--begin::Toolbar-->
+    <div class="d-flex align-items-center">
+        <button class="btn p-0 burger-icon burger-icon-left" id="kt_aside_mobile_toggle">
+            <span></span>
+        </button>
+    </div>
+    <!--end::Toolbar-->
+</div>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{pages/layout/main_layout.html}">
+<head>
+	<title>Divisions</title>
+</head>
+<body>
+<div layout:fragment="right-floating-toolbar">
+	<a th:href="@{~/divisions/add}" class="btn button-color btn-primary btn-hover-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
+		Add Division
+	</a>
+</div>
+<div layout:fragment="content" class="container test-class">
+	<div class="card card-custom h-100">
+		<div class="card-body pb-0">
+			<div class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded h-100">
+				<table class="datatable-table h-100" id="kt_datatable">
+					<thead class="datatable-head">
+					<tr class="datatable-row">
+						<th class="align-middle datatable-cell datatable-cell-left w1-12"><span>#</span></th>
+						<th class="align-middle datatable-cell datatable-cell-left w5-12"><span>DIVISION</span></th>
+						<th class="align-middle datatable-cell datatable-cell-center w2-12"><span>TEAMS</span></th>
+						<th class="align-middle datatable-cell datatable-cell-center w2-12"><span>MEMBERS</span></th>
+						<th class="align-middle datatable-cell datatable-cell-center w1-12"><span>ACTIVE</span></th>
+						<th class="align-middle datatable-cell datatable-cell-right w1-12"><span>ACTIONS</span></th>
+					</tr>
+					</thead>
+					<tbody class="datatable-body">
+
+					<tr class="datatable-row" th:each="division, diviStat :${model.divisions}">
+						<td class="col-1 align-middle datatable-cell datatable-cell-left w1-12"><span th:text="${division.divisionSeq}"></span></td>
+						<td class="col-5 font-weight-bolder align-middle datatable-cell datatable-cell-left w5-12"><span th:text="${division.localName}"></span></td>
+						<td class="col-2 align-middle datatable-cell datatable-cell-center w2-12">
+							<div class="symbol-group symbol-hover align-items-center justify-content-center">
+								<div  th:each="team,teamStat : ${division.teams}" th:if="${teamStat.index < 5}" class="symbol symbol-30 symbol-circle" data-toggle="tooltip" th:title="${team.localName}">
+									<img alt="Pic" th:src="@{~/{imgUrl}(imgUrl=${team.image})}">
+								</div>
+
+								<div th:if="${#lists.size(division.teams) > 5}" class="symbol symbol-30 symbol-circle symbol-light">
+									<span class="symbol-label font-weight-bold" th:text="${#lists.size(division.teams) -5} + '+'"></span>
+								</div>
+							</div>
+
+						</td>
+						<td class="col-2 align-middle datatable-cell datatable-cell-center w2-12">
+							<div class="symbol-group symbol-hover align-items-center justify-content-center">
+								<div  th:each="member,memStat : ${division.members}" th:if="${memStat.index < 5}" class="symbol symbol-30 symbol-circle" data-toggle="tooltip" th:title="${member.localName}">
+									<img alt="Pic" th:src="@{~/{imgUrl}(imgUrl=${member.image})}">
+								</div>
+
+								<div th:if="${#lists.size(division.members) > 5}" class="symbol symbol-30 symbol-circle symbol-light">
+									<span class="symbol-label font-weight-bold" th:text="${#lists.size(division.members) -5} + '+'"></span>
+								</div>
+							</div>
+						</td>
+						<td class="col-1 align-middle datatable-cell datatable-cell-center w1-12">
+							<span class="font-weight-bolder" th:text="${division.useFlag.equals('Y') ? 'Active' : 'Inactive' }"></span>
+						</td>
+						<td class="col-1 align-middle datatable-cell datatable-cell-right w1-12">
+							<div class="card-toolbar mb-auto">
+								<div class="dropdown dropdown-inline" data-toggle="tooltip" title=""
+								     data-placement="left" data-original-title="Quick actions">
+									<a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon"
+									   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<i class="ki ki-bold-more-hor"></i>
+									</a>
+									<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+										<!--begin::Navigation-->
+										<ul class="navi navi-hover">
+											<li class="navi-item">
+												<a th:href="@{~/divisions/edit/{divisionId}(divisionId=${division.divisionSeq})}" class="navi-link">
+													<span class="navi-text">Edit Details</span>
+												</a>
+											</li>
+											<li class="navi-item">
+												<a th:href="@{~/divisions/change-members/{divisionId}(divisionId=${division.divisionSeq})}" class="navi-link">
+													<span class="navi-text">Change Members</span>
+												</a>
+											</li>
+										</ul>
+										<!--end::Navigation-->
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
