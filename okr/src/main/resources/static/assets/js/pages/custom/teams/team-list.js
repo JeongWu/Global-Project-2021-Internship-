@@ -1,11 +1,11 @@
 "use strict";
 // Class definition
 
-var KTAppsProjectsListDatatable = (function () {
+let KTAppsProjectsListDatatable = (function () {
   // Private functions
 
-  var makeTeamListTable = function () {
-    var datatable = $("#kt_datatable").KTDatatable({
+  let makeTeamListTable = function () {
+    let datatable = $("#kt_datatable").KTDatatable({
       // datasource definition
       data: {
         type: "remote",
@@ -13,14 +13,14 @@ var KTAppsProjectsListDatatable = (function () {
           read: {
             url: "/api/teams/datatables",
             map: function (raw) {
-              var dataSet = raw;
+              let dataSet = raw;
 
               if (typeof raw.data !== "undefined") {
                 dataSet = raw.data;
               }
               console.log(dataSet);
-              var data = dataSet.map((i) => i.divisionName);
-              var list = new Set(data);
+              let data = dataSet.map((i) => i.divisionName);
+              let list = new Set(data);
               list.forEach(function (d) {
                 $('.datatable-input[data-col-index="1"]').append(
                   '<option value="' + d + '">' + d + "</option>"
@@ -74,10 +74,10 @@ var KTAppsProjectsListDatatable = (function () {
           width: 130,
 
           template: function (data) {
-            var output = "";
+            let output = "";
 
-            var teamImg = data.image;
-            var teamName = data.localName;
+            let teamImg = data.image;
+            let teamName = data.localName;
 
             output = '<div class="d-flex align-items-center">';
             output += makeImageSymbol(teamName, teamImg, "big");
@@ -99,7 +99,7 @@ var KTAppsProjectsListDatatable = (function () {
           title: "Division",
           width: 100,
           template: function (data) {
-            var output = "";
+            let output = "";
 
             output +=
               '<div class="font-weight-bolder font-size-lg mb-0">' +
@@ -115,7 +115,7 @@ var KTAppsProjectsListDatatable = (function () {
           width: 80,
           // autoHide: false,
           template: function (data) {
-            var status = {
+            let status = {
               1: {
                 title: "TEAM",
                 class: "label-light-primary",
@@ -130,7 +130,7 @@ var KTAppsProjectsListDatatable = (function () {
               },
             };
 
-            var statusNo = 1;
+            let statusNo = 1;
             if (data.teamType === "SQUAD") statusNo = 2;
             else if (data.teamType === "TFT") statusNo = 3;
 
@@ -149,12 +149,13 @@ var KTAppsProjectsListDatatable = (function () {
           width: 60,
           sortable: false,
           template: function (data) {
-            var output = "";
+            let output = "";
 
-            var managerInfo = data.leaderOrManager;
+            let managerInfo = data.leaderOrManager;
 
             if (managerInfo !== null) {
-              output = '<div class="d-flex align-items-center">';
+              output = '<div class="d-flex align-items-center">\
+              <a href="/members/list">';
               output += makeImageSymbol(
                 managerInfo.name,
                 managerInfo.image,
@@ -172,62 +173,67 @@ var KTAppsProjectsListDatatable = (function () {
           title: "MEMBERS",
           width: 150,
           sortable: false,
+          //   template: function (data) {
+          //     console.log(data);
+          //     return renderImagesOnList(data, "members", "/members/list?memberSeq","memberSeq")
+          // },
           template: function (data) {
-            return renderImagesOnList(data, "members", "/members?memberSeq","memberSeq")
-        },
-    //       template: function (data) {
-    //         var output = "";
+            let output = "";
 
-    //         output =
-    //           '<div class="d-flex align-items-center">\
-    //         <a href="/members/list">\
-    //       <div class="symbol-group symbol-hover">';
+            output =
+              '<div class="d-flex align-items-center">\
+            <a href="/members/list">\
+          <div class="symbol-group symbol-hover">';
 
-    //         var memberList = data.members;
+            let memberList = data.leaderOrManager
+              ? data.members.filter(
+                  (x) => x.memberSeq !== data.leaderOrManager.memberSeq
+                )
+              : data.members;
 
-    //         if (memberList.length > 5) {
-    //           memberList.forEach((member, index) => {
-    //             if (index < 5) {
-    //               output += makeImageSymbol(
-    //                 member.name,
-    //                 member.image,
-    //                 "small",
-    //                 "circle"
-    //               );
-    //             }
-    //           });
-    //           output +=
-    //             ' <div class="symbol symbol-30 symbol-circle flex-shrink-0 symbol-light">\
-    //           <span class="symbol-label font-weight-bold"> +' +
-    //             (memberList.length - 5) +
-    //             "</span>\
-    //       </div>\
-    //       </div>\
-    // </div>";
-    //         } else {
-    //           memberList.forEach((member) => {
-    //             output += makeImageSymbol(
-    //               member.name,
-    //               member.image,
-    //               "small",
-    //               "circle"
-    //             );
-    //           });
+            if (memberList.length > 5) {
+              memberList.forEach((member, index) => {
+                if (index < 5) {
+                  output += makeImageSymbol(
+                    member.name,
+                    member.image,
+                    "small",
+                    "circle"
+                  );
+                }
+              });
+              output +=
+                ' <div class="symbol symbol-30 symbol-circle flex-shrink-0 symbol-light">\
+              <span class="symbol-label font-weight-bold"> +' +
+                (memberList.length - 5) +
+                "</span>\
+          </div>\
+          </div>\
+    </div>";
+            } else {
+              memberList.forEach((member) => {
+                output += makeImageSymbol(
+                  member.name,
+                  member.image,
+                  "small",
+                  "circle"
+                );
+              });
 
-    //           output += "</div>\
-    //           </a>\
-    //           </div>";
-    //         }
-    //         return output;
-    //       },
+              output += "</div>\
+              </a>\
+              </div>";
+            }
+            return output;
+          },
         },
         {
           field: "useFlag",
           title: "Active",
           width: 70,
           template: function (data) {
-            return renderActiveStatusOnList(data)
-        },
+            return renderActiveStatusOnList(data);
+          },
         },
         {
           field: "Actions",
@@ -237,7 +243,7 @@ var KTAppsProjectsListDatatable = (function () {
           overflow: "visible",
           // autoHide: false,
           template: function (data) {
-            var id = data.teamSeq;
+            let id = data.teamSeq;
             return (
               '\
                     <div class="dropdown dropdown-inline">\
@@ -266,11 +272,11 @@ var KTAppsProjectsListDatatable = (function () {
       ],
     });
 
-    var makeImageSymbol = function (name, image, size, shape) {
-      var output = "";
+    let makeImageSymbol = function (name, image, size, shape) {
+      let output = "";
 
-      var stateNo = KTUtil.getRandomInt(0, 7);
-      var states = [
+      let stateNo = KTUtil.getRandomInt(0, 7);
+      let states = [
         "success",
         "primary",
         "danger",
@@ -280,7 +286,7 @@ var KTAppsProjectsListDatatable = (function () {
         "primary",
         "info",
       ];
-      var state = states[stateNo];
+      let state = states[stateNo];
 
       output =
         '<div class="symbol symbol-' +
