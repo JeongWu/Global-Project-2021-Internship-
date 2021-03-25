@@ -166,7 +166,36 @@ function loadingIcon() {
 }
 
 function inputImage(field) {
-    return new KTImageInput(field);
+    var avatar = new KTImageInput(field);
+    avatar.on('cancel', function(imageInput) {
+        swal.fire({
+            title: 'Image successfully canceled !',
+            type: 'success',
+            buttonsStyling: false,
+            confirmButtonText: 'Awesome!',
+            confirmButtonClass: 'btn btn-primary font-weight-bold'
+        });
+    });
+
+    avatar.on('change', function(imageInput) {
+        swal.fire({
+            title: 'Image successfully changed !',
+            type: 'success',
+            buttonsStyling: false,
+            confirmButtonText: 'Awesome!',
+            confirmButtonClass: 'btn btn-primary font-weight-bold'
+        });
+    });
+
+    avatar.on('remove', function(imageInput) {
+        swal.fire({
+            title: 'Image successfully removed !',
+            type: 'error',
+            buttonsStyling: false,
+            confirmButtonText: 'Got it!',
+            confirmButtonClass: 'btn btn-primary font-weight-bold'
+        });
+    });
   }
 
 function loadingPage(){
