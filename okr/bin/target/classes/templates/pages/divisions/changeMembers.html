@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{pages/layout/main_layout.html}">
+<head>
+    <title>Change Members</title>
+</head>
+<body>
+<div layout:fragment="right-floating-toolbar">
+    <a th:href="@{~/divisions}" class="btn button-color btn-primary btn-hover-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
+        Back
+    </a>
+</div>
+<div layout:fragment="content" class="container">
+    <input th:value="${model.mutedHeader}" id="division-name" hidden/>
+    <input th:value="${model.division.divisionSeq}" id="division-id" hidden/>
+        <div class="card card-custom container">
+            <!--begin::Card header-->
+            <div class="card-header card-header-tabs-line nav-tabs-line-3x">
+                <!--begin::Toolbar-->
+                <div class="card-toolbar">
+                    <ul class="nav nav-tabs nav-bold nav-tabs-line nav-tabs-line-3x">
+                        <!--begin::Item-->
+                        <li class="nav-item mr-3">
+                            <a class="nav-link active" data-toggle="tab" href="#kt_user_edit_tab_1">
+                                <span class="nav-text font-size-lg">2. Division Members</span>
+                            </a>
+                        </li>
+                        <!--end::Item-->
+                    </ul>
+                </div>
+                <!--end::Toolbar-->
+            </div>
+            <!--end::Card header-->
+            <div class="card-body px-0 h-100">
+                <form th:action="@{~/divisions/add-members}" method="post" th:object="${addModel}" id="add-form">
+                    <input th:field="*{division}" hidden class="add-form-division-id"/>
+                    <div class="row">
+                        <div class="form-group col-md-3 col-sm-12" style="margin-left: 30px">
+                            <label class="col-form-label">Member Name</label>
+                            <select class="form-control select2" id="kt_select2_20" name="param" required th:field="*{member}">
+                                <option value="">Search</option>
+                                <th:block th:each="member: ${model.availableMembers}">
+                                    <option th:value="${member.memberSeq}" th:text="${member.localName + '/' + member.name}"></option>
+                                </th:block>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2 col-sm-12">
+                            <label class="col-form-label">Begin date</label>
+                                <div class="input-group date" >
+                                    <input type="text" class="form-control" readonly th:field="*{applyBeginDate}" value="" id="kt_datepicker_3"/>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i class="la la-calendar"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class=" col-sm-12 form-control btn button-color btn-primary btn-hover-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2"
+                                    style="margin-top: 35px;">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded h-100">
+                        <table class="datatable-table table-hover h-100" id="kt_datatable" style="overflow: visible">
+                            <thead class="datatable-head">
+                            <tr class="datatable-row d-flex">
+                                <th class="col-1 align-middle datatable-cell datatable-cell-left"><span>#</span></th>
+                                <th class="col-3 align-middle datatable-cell datatable-cell-left"><span>MEMBER</span></th>
+                                <th class="col-2 align-middle datatable-cell datatable-cell-center"><span>POSITION</span></th>
+                                <th class="col-2 align-middle datatable-cell datatable-cell-center"><span>ACTIVE</span></th>
+                                <th class="col-3 align-middle datatable-cell datatable-cell-center"><span>BELONG TO</span></th>
+                                <th class="col-1 align-middle datatable-cell datatable-cell-center"><span>ACTIONS</span></th>
+                            </tr>
+                            </thead>
+                            <tbody class="datatable-body">
+
+                            <tr class="datatable-row d-flex h-100" th:each="member, diviStat :${model.members}">
+                                <td class="col-1 align-middle datatable-cell datatable-cell-left" ><span th:text="${diviStat.index + 1}"></span></td>
+                                <td class="col-3 align-middle datatable-cell datatable-cell-left font-weight-bolder"><span th:text="${member.localName}"></span></td>
+                                <td class="col-2 align-middle datatable-cell datatable-cell-center font-weight-bolder">
+                                    <span th:text="${member.position}"></span>
+                                </td>
+                                <td class="col-2 align-middle datatable-cell datatable-cell-center"><span class="font-weight-bolder" th:text="${member.useFlag.equals('Y') ? 'Active' : 'Inactive' }"></span></td>
+                                <td class="col-3 align-middle datatable-cell datatable-cell-center">
+                                    <div class="symbol-group symbol-hover align-items-center justify-content-center">
+                                        <div  th:each="team,teamStat : ${member.teams}" th:if="${teamStat.index < 5}" class="symbol symbol-30 symbol-circle" data-toggle="tooltip" th:title="${team.localName}">
+                                            <img alt="Pic" th:src="@{~/{teamImg}(teamImg=${team.image})}">
+                                        </div>
+
+                                        <div th:if="${member.teams.size() > 5}" class="symbol symbol-30 symbol-circle symbol-light">
+                                            <span class="symbol-label font-weight-bold" th:text="${member.teams.size() -5} + '+'"></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="col-1 align-middle datatable-cell datatable-cell-center">
+                                    <div class="card-toolbar mb-auto">
+                                        <div class="dropdown dropdown-inline" data-toggle="tooltip" title=""
+                                             data-placement="left" data-original-title="Quick actions">
+                                            <a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon"
+                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="ki ki-bold-more-hor"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <!--begin::Navigation-->
+                                                <ul class="navi navi-hover">
+                                                    <li class="navi-item">
+                                                        <a href="#" class="navi-link remove-action">
+                                                            <input class="member-id" th:value="${member.memberSeq}" hidden />
+                                                            <input class="member-name" th:value="${member.localName}" hidden />
+                                                            <input class="division-member-applyBeginDate" th:value="${member.applyBeginDate}" hidden />
+                                                            <span class="navi-text">Remove</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <!--end::Navigation-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+        </div>
+
+    <!-- Modal-->
+    <button id="modal-active" data-toggle="modal" data-target="#removeModel" hidden></button>
+    <div class="modal fade" id="removeModel" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="removeModelLabel">Modal Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{~/divisions/remove-members}" method="post" th:object="${removeModel}" id="remove-form">
+                        <input type="text" id="modal-division-id" th:field="*{division}" hidden/>
+                        <input id="modal-member-id" th:field="*{member}" hidden/>
+                        <input id="modal-applyBeginDate" th:field="*{applyBeginDate}" hidden/>
+                        <div class="row">
+                            <div class="form-group col-5">
+                                <label class="col-form-label col-sm-12">End date</label>
+                                <div class="col-sm-12">
+                                    <div class="input-group date" >
+                                        <input type="text" class="form-control" placeholder="Apply" readonly id="kt_datepicker_2" th:field="*{applyEndDate}"/>
+                                        <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i class="la la-calendar"></i>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-7">
+                                <label class="col-form-label col-sm-12">Justification *</label>
+                                <textarea class="form-control form-control-lg form-control-solid" id="justification-content" required th:field="*{justification}"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary font-weight-bold">OK</button>
+                            <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<th:block layout:fragment="script">
+    <script src="/assets/js/jquery.validate.js"></script>
+    <script src="/assets/js/pages/divisions/change-members.js"></script>
+    <script src="/assets/js/pages/crud/forms/widgets/select2.js?v=7.0.6"></script>
+    <script src="/assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js?v=7.0.6"></script>
+</th:block>
+</html>
